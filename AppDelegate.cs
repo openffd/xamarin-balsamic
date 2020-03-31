@@ -21,6 +21,8 @@ namespace Balsamic
             windowController.ShowWindow();
         }
 
+        public override bool ApplicationShouldTerminateAfterLastWindowClosed(NSApplication sender) => true;
+
         public override void WillTerminate(NSNotification notification) {}
     }
 }
