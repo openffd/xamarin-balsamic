@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -78,9 +79,19 @@
     <Compile Include="LaunchWindow.cs" />
     <Compile Include="LaunchWindowController.cs" />
     <Compile Include="NSBundleExtensions.cs" />
+    <Compile Include="Views\WelcomeView.cs" />
+    <Compile Include="Views\WelcomeViewController.cs" />
+    <Compile Include="Views\WelcomeView.designer.cs">
+      <DependentUpon>WelcomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomeViewController.designer.cs">
+      <DependentUpon>WelcomeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
+    <InterfaceDefinition Include="Views\WelcomeView.xib" />
+    <InterfaceDefinition Include="Views\WelcomeStoryboard.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
