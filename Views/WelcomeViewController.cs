@@ -35,5 +35,11 @@ namespace Balsamic.Views
         {
             sender.Window.Close();
         }
+
+        partial void ForgotPassword(NSButton _)
+        {
+            NSUrl url = new NSUrl($"{"https://"}iforgot.apple.com/password/verify/appleid");
+            NSWorkspace.SharedWorkspace.OpenUrl(url);
+        }
     }
 }
