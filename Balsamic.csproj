@@ -56,6 +56,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
+    <Folder Include="Statics\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -74,6 +75,7 @@
     <Compile Include="Views\WelcomeViewController.designer.cs">
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statics\StaticNSUrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
