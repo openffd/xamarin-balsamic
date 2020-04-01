@@ -5,6 +5,8 @@ namespace Balsamic
 {
     public class LaunchWindowController : NSWindowController, IWindowController
     {
+        private readonly NSStoryboard storyboard = NSStoryboard.FromName("Welcome", null);
+        
         public LaunchWindowController(System.IntPtr handle) : base(handle) {}
 
         [Export("initWithCoder:")]
@@ -12,12 +14,16 @@ namespace Balsamic
 
         public LaunchWindowController() : base()
         {
+            CoreGraphics.CGSize size = new CoreGraphics.CGSize(640, 400);
             base.Window = new LaunchWindow(
-                new CoreGraphics.CGRect(0, 0, 800, 400),
-                NSWindowStyle.Borderless | NSWindowStyle.Closable | NSWindowStyle.Miniaturizable | NSWindowStyle.Titled,
+                CoreGraphics.CGRect.Empty,
+                NSWindowStyle.Borderless | NSWindowStyle.Closable | NSWindowStyle.Miniaturizable,
                 NSBackingStore.Buffered,
-                false
-            );
+                false)
+            {
+                ContentViewController = (NSViewController)storyboard.InstantiateInitialController(),
+                MaxSize = size
+            };
             Window.AwakeFromNib();
         }
 
@@ -26,10 +32,7 @@ namespace Balsamic
             base.AwakeFromNib();
         }
 
-        public new LaunchWindow Window
-        {
-            get { return (LaunchWindow)base.Window; }
-        }
+        public new LaunchWindow Window => (LaunchWindow)base.Window;
 
         public void ShowWindow()
         {

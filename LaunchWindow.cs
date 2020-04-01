@@ -21,5 +21,7 @@ namespace Balsamic
         {
             base.AwakeFromNib();
         }
+
+        public override bool CanBecomeKeyWindow => true;
     }
 }

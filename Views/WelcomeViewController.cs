@@ -18,7 +18,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        public WelcomeViewController() : base("WelcomeView", NSBundle.MainBundle)
+        public WelcomeViewController() : base(typeof(WelcomeViewController).ToString(), NSBundle.MainBundle)
         {
             Initialize();
         }
@@ -27,6 +27,13 @@ namespace Balsamic.Views
 
         #endregion
 
-        public new WelcomeView View => (WelcomeView)base.View;
+        public new NSView View => base.View;
+
+        public string StoryboardIdentifier => Class.ToString();
+
+        partial void Exit(NSButton sender)
+        {
+            sender.Window.Close();
+        }
     }
 }
