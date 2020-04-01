@@ -5,6 +5,12 @@ namespace Balsamic.Views
 {
     public partial class WelcomeViewController : NSViewController
     {
+        public string StoryboardIdentifier => Class.ToString();
+
+        public new NSView View => base.View;
+
+        public NSWorkspace Workspace { get; private set; }
+
         #region Constructors
 
         public WelcomeViewController(System.IntPtr handle) : base(handle)
@@ -23,13 +29,12 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize() {}
+        void Initialize()
+        {
+            Workspace = NSWorkspace.SharedWorkspace;
+        }
 
         #endregion
-
-        public new NSView View => base.View;
-
-        public string StoryboardIdentifier => Class.ToString();
 
         #region IBActions
 
@@ -40,8 +45,7 @@ namespace Balsamic.Views
 
         partial void ForgotPassword(NSButton _)
         {
-            NSUrl url = new NSUrl($"{"https://"}iforgot.apple.com/password/verify/appleid");
-            NSWorkspace.SharedWorkspace.OpenUrl(url);
+            Workspace.OpenUrl(NSUrl.ForgotPassword);
         }
 
         #endregion
