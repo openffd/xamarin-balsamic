@@ -31,6 +31,8 @@ namespace Balsamic.Views
 
         public string StoryboardIdentifier => Class.ToString();
 
+        #region IBActions
+
         partial void Exit(NSButton sender)
         {
             sender.Window.Close();
@@ -41,5 +43,7 @@ namespace Balsamic.Views
             NSUrl url = new NSUrl($"{"https://"}iforgot.apple.com/password/verify/appleid");
             NSWorkspace.SharedWorkspace.OpenUrl(url);
         }
+
+        #endregion
     }
 }
