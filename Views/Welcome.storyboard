@@ -83,10 +83,10 @@
                                             <constraint firstAttribute="width" constant="120" id="Kmn-oD-Ym3"/>
                                         </constraints>
                                     </box>
-                                    <box borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="3AM-gK-QIz">
-                                        <rect key="frame" x="57" y="56" width="326" height="162"/>
+                                    <box boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="3AM-gK-QIz">
+                                        <rect key="frame" x="60" y="60" width="320" height="156"/>
                                         <view key="contentView" id="iv6-yf-ghu">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2b-NF-qsD">
@@ -98,7 +98,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i7c-jl-g6W">
-                                                    <rect key="frame" x="0.0" y="72" width="326" height="32"/>
+                                                    <rect key="frame" x="0.0" y="72" width="320" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="0Oy-iv-Tws"/>
                                                     </constraints>
@@ -109,7 +109,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nud-Ge-68Q">
-                                                    <rect key="frame" x="0.0" y="36" width="326" height="32"/>
+                                                    <rect key="frame" x="0.0" y="36" width="320" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="biH-03-Tzs"/>
                                                     </constraints>
@@ -120,7 +120,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-ZM-fCO">
-                                                    <rect key="frame" x="280" y="-3" width="48" height="37"/>
+                                                    <rect key="frame" x="274" y="-3" width="48" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="5Tb-tZ-AYQ"/>
                                                         <constraint firstAttribute="height" constant="32" id="F5r-kJ-GgG"/>
@@ -198,8 +198,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AppIconImageView" destination="IqF-RF-DLG" id="9Ak-SA-dfw"/>
+                        <outlet property="AppleIDTextField" destination="i7c-jl-g6W" id="GeO-zx-WY2"/>
+                        <outlet property="ForgotPasswordButton" destination="y9X-e4-BP6" id="WAc-cO-9zW"/>
+                        <outlet property="PasswordTextField" destination="Nud-Ge-68Q" id="DLy-Gu-Tha"/>
+                        <outlet property="SigninButton" destination="DAf-ZM-fCO" id="CHV-P1-ljS"/>
+                        <outlet property="SigninHeaderTextField" destination="Y2b-NF-qsD" id="kSU-CJ-cMQ"/>
                         <outlet property="VersionTextField" destination="tRZ-za-cay" id="tkg-J2-AFa"/>
-                        <outlet property="Welcome" destination="NIk-Av-VUb" id="DIl-65-TUG"/>
                         <outlet property="WelcomeTextField" destination="NIk-Av-VUb" id="FwK-jB-ciS"/>
                     </connections>
                 </viewController>
