@@ -45,7 +45,7 @@ namespace Balsamic.Views
 
         partial void ForgotPassword(NSButton _)
         {
-            Workspace.OpenUrl(NSUrl.ForgotPassword);
+            Workspace.OpenUrl(Url.ForgotPassword);
         }
 
         #endregion

@@ -2,7 +2,7 @@
 
 namespace Balsamic
 {
-    public static class StaticNSBundle
+    public static class Bundle
     {
         public enum MainBundleKey
         {

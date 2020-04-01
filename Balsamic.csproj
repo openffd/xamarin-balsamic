@@ -74,8 +74,9 @@
     <Compile Include="Views\WelcomeViewController.designer.cs">
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statics\StaticNSUrl.cs" />
-    <Compile Include="Statics\StaticNSBundle.cs" />
+    <Compile Include="Statics\Url.cs" />
+    <Compile Include="Statics\Bundle.cs" />
+    <Compile Include="Statics\Storyboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />

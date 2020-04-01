@@ -1,6 +1,8 @@
-﻿namespace Balsamic
+﻿using Foundation;
+
+namespace Balsamic
 {
-    public static class NSUrl
+    public static class Url
     {
         private static class String
         {
@@ -8,6 +10,6 @@
             public const string HttpsScheme = "https";
         }
         
-        public static Foundation.NSUrl ForgotPassword = new Foundation.NSUrl($"{String.HttpsScheme}://{String.ForgotPassword}");
+        public static readonly NSUrl ForgotPassword = new NSUrl($"{String.HttpsScheme}://{String.ForgotPassword}");
     }
 }
