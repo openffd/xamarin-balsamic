@@ -70,12 +70,12 @@
     </Compile>
     <Compile Include="LaunchWindow.cs" />
     <Compile Include="LaunchWindowController.cs" />
-    <Compile Include="NSBundleExtensions.cs" />
     <Compile Include="Views\WelcomeViewController.cs" />
     <Compile Include="Views\WelcomeViewController.designer.cs">
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Statics\StaticNSUrl.cs" />
+    <Compile Include="Statics\StaticNSBundle.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
