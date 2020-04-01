@@ -7,8 +7,6 @@ namespace Balsamic
     public class LaunchWindowController : NSWindowController, AppDelegate.IWindowController
     {
         public new LaunchWindow Window => (LaunchWindow)base.Window;
-
-        private readonly NSStoryboard storyboard = NSStoryboard.FromName("Welcome", null);
         
         public LaunchWindowController(System.IntPtr handle) : base(handle) {}
 
@@ -19,7 +17,7 @@ namespace Balsamic
         {
             base.Window = new LaunchWindow(CGRect.Empty, NSWindowStyle.Borderless, NSBackingStore.Buffered, false)
             {
-                ContentViewController = (NSViewController)storyboard.InstantiateInitialController()
+                ContentViewController = (NSViewController)Balsamic.Storyboard.Welcome.InstantiateInitialController()
             };
             Window.AwakeFromNib();
         }
