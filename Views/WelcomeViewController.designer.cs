@@ -38,6 +38,12 @@ namespace Balsamic.Views
 
 		[Action ("Exit:")]
 		partial void Exit (AppKit.NSButton sender);
+
+		[Action ("ForgotPassword:")]
+		partial void ForgotPassword (AppKit.NSButton sender);
+
+		[Action ("Signin:")]
+		partial void Signin (AppKit.NSButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
