@@ -3,7 +3,7 @@ using AppKit;
 
 namespace Balsamic
 {
-    public class LaunchWindowController : NSWindowController, IWindowController
+    public class LaunchWindowController : NSWindowController, AppDelegate.IWindowController
     {
         private readonly NSStoryboard storyboard = NSStoryboard.FromName("Welcome", null);
         
