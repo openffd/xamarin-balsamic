@@ -7,8 +7,6 @@ namespace Balsamic.Views
     {
         public string StoryboardIdentifier => Class.ToString();
 
-        public new NSView View => base.View;
-
         public NSWorkspace Workspace { get; private set; }
 
         #region Constructors
@@ -35,6 +33,8 @@ namespace Balsamic.Views
         }
 
         #endregion
+
+        public new NSView View => base.View;
 
         #region IBActions
 
