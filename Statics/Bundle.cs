@@ -4,17 +4,20 @@ namespace Balsamic
 {
     public static class Bundle
     {
-        public enum MainBundleKey
+        public static class Main
         {
-            CFBundleDisplayName = 0,
-            CFBundleName = 1
+            public enum DictionaryKey
+            {
+                CFBundleDisplayName = 0,
+                CFBundleName = 1
+            }
         }
 
-        public static string DisplayName(this NSBundle bundle) => bundle.StringForInfoDictionary(MainBundleKey.CFBundleDisplayName);
+        public static string DisplayName(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleDisplayName);
 
-        public static string Name(this NSBundle bundle) => bundle.StringForInfoDictionary(MainBundleKey.CFBundleName);
+        public static string Name(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleName);
 
-        private static string StringForInfoDictionary(this NSBundle bundle, MainBundleKey key)
+        private static string StringForInfoDictionary(this NSBundle bundle, Main.DictionaryKey key)
         {
             return bundle.ObjectForInfoDictionary(key.ToString()).ToString() ?? string.Empty;
         }
