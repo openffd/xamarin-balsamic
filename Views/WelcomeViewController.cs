@@ -62,7 +62,17 @@ namespace Balsamic.Views
             Workspace.OpenUrl(Url.ForgotPassword);
         }
 
+        partial void Signin(NSButton _)
+        {
+            AttemptSignin();
+        }
+
         #endregion
+
+        private void AttemptSignin()
+        {
+            throw new System.NotImplementedException();
+        }
 
         #region INSTextFieldDelegate
 
