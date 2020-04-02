@@ -1,5 +1,7 @@
-﻿using Foundation;
-using AppKit;
+﻿using AppKit;
+using Foundation;
+using ObjCRuntime;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Balsamic.Views
 {
@@ -35,6 +37,24 @@ namespace Balsamic.Views
         #endregion
 
         public new NSView View => base.View;
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            AppleIDTextField.Target = this;
+            AppleIDTextField.Action = new Selector("ReturnPressed:");
+
+            PasswordTextField.Target = this;
+            PasswordTextField.Action = new Selector("ReturnPressed:");
+        }
+
+        [Action("ReturnPressed:")]
+        [SuppressMessage("CodeQuality", "IDE0051")]
+        private void ReturnPressed(NSTextField _)
+        {
+            System.Console.WriteLine("ReturnPressed");
+        }
 
         #region IBActions
 
