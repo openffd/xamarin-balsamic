@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Balsamic.Views
 {
-    public partial class WelcomeViewController : NSViewController
+    public partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
         public string StoryboardIdentifier => Class.ToString();
 
@@ -42,19 +42,12 @@ namespace Balsamic.Views
         {
             base.ViewDidLoad();
 
-            AppleIDTextField.Target = this;
-            AppleIDTextField.Action = new Selector("ReturnPressed:");
-
-            PasswordTextField.Target = this;
-            PasswordTextField.Action = new Selector("ReturnPressed:");
+            PasswordTextField.Delegate = this;
         }
 
-        [Action("ReturnPressed:")]
+        [Action("TextMoved:")]
         [SuppressMessage("CodeQuality", "IDE0051")]
-        private void ReturnPressed(NSTextField _)
-        {
-            System.Console.WriteLine("ReturnPressed");
-        }
+        private void TextMoved(NSTextField _) {}
 
         #region IBActions
 
@@ -66,6 +59,21 @@ namespace Balsamic.Views
         partial void ForgotPassword(NSButton _)
         {
             Workspace.OpenUrl(Url.ForgotPassword);
+        }
+
+        #endregion
+
+        #region INSTextFieldDelegate
+
+        [Export("controlTextDidEndEditing:")]
+        public void EditingEnded(NSNotification notification)
+        {
+            var textMovement = notification.UserInfo.ObjectForKey((NSString)"NSTextMovement");
+            var textMovementType = (NSTextMovement)((NSNumber)textMovement).Int32Value;
+            if (textMovementType == NSTextMovement.Return)
+            {
+                System.Console.WriteLine("EditingEnded");
+            }
         }
 
         #endregion
