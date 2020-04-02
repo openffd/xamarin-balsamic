@@ -42,6 +42,7 @@ namespace Balsamic.Views
         {
             base.ViewDidLoad();
 
+            AppleIDTextField.Delegate = this;
             PasswordTextField.Delegate = this;
         }
 
