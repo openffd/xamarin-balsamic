@@ -22,6 +22,21 @@ namespace Balsamic
             base.AwakeFromNib();
         }
 
+        public override NSView ContentView
+        {
+            get => base.ContentView;
+            set
+            {
+                value.WantsLayer = true;
+                value.Layer.Frame = value.Frame;
+                value.Layer.CornerRadius = 20;
+                value.Layer.MasksToBounds = true;
+                base.ContentView = value;
+            }
+        }
+
         public override bool CanBecomeKeyWindow => true;
+
+        
     }
 }
