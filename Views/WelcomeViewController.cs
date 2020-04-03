@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
 using System.Diagnostics.CodeAnalysis;
@@ -7,6 +8,18 @@ namespace Balsamic.Views
 {
     public partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
+        private static NSPopover InitializePopover()
+        {
+            return new NSPopover
+            {
+                Animates = true,
+                Behavior = NSPopoverBehavior.Transient,
+                ContentViewController = new NSViewController { View = new NSView(new CGRect(0, 0, 160, 40)) },
+            };
+        }
+        private readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitializePopover);
+        public NSPopover Popover { get => _lazyPopover.Value; }
+
         public string StoryboardIdentifier => Class.ToString();
 
         public NSWorkspace Workspace { get; private set; }
@@ -47,7 +60,7 @@ namespace Balsamic.Views
         }
 
         [Action("TextMoved:")]
-        [SuppressMessage("CodeQuality", "IDE0051")]
+        [SuppressMessage(null, "IDE0051")]
         private void TextMoved(NSTextField _) {}
 
         #region IBActions
@@ -69,9 +82,27 @@ namespace Balsamic.Views
 
         #endregion
 
+        [Export("closePopover")]
+        [SuppressMessage(null, "IDE0051")]
+        private void ClosePopover()
+        {
+            if (Popover.Shown)
+            {
+                Popover.Close();
+            }
+        }
+
         private void AttemptSignin()
         {
-            throw new System.NotImplementedException();
+            if (!AppleIDTextField.StringValue.IsValidEmail())
+            {
+                ClosePopover();
+
+                var selector = new Selector("closePopover");
+                NSObject.CancelPreviousPerformRequest(this, selector, this);
+                Popover.Show(AppleIDTextField.Bounds, AppleIDTextField, NSRectEdge.MaxXEdge);
+                PerformSelector(selector, this, 2.0);
+            }
         }
 
         #region INSTextFieldDelegate
@@ -83,7 +114,7 @@ namespace Balsamic.Views
             var textMovementType = (NSTextMovement)((NSNumber)textMovement).Int32Value;
             if (textMovementType == NSTextMovement.Return)
             {
-                System.Console.WriteLine("EditingEnded");
+                AttemptSignin();
             }
         }
 
