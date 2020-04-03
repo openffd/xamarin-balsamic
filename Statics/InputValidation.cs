@@ -1,6 +1,6 @@
 ﻿namespace Balsamic
 {
-    public static class StringValidation
+    public static class InputValidation
     {
         public static bool IsValidEmail(this string input)
         {
@@ -9,7 +9,7 @@
                 var _ = new System.Net.Mail.MailAddress(input);
                 return true;
             }
-            catch (System.FormatException) { return false; }
+            catch (System.Exception) { return false; }
         }
     }
 }

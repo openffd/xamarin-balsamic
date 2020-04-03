@@ -77,7 +77,7 @@
     <Compile Include="Statics\Url.cs" />
     <Compile Include="Statics\Bundle.cs" />
     <Compile Include="Statics\Storyboard.cs" />
-    <Compile Include="Statics\StringValidation.cs" />
+    <Compile Include="Statics\InputValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
