@@ -1,5 +1,4 @@
 ﻿using AppKit;
-using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
 using System.Diagnostics.CodeAnalysis;
@@ -14,7 +13,7 @@ namespace Balsamic.Views
             {
                 Animates = true,
                 Behavior = NSPopoverBehavior.Transient,
-                ContentViewController = new NSViewController { View = new NSView(new CGRect(0, 0, 160, 40)) },
+                ContentViewController = new MessageViewController()
             };
         }
         private readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitializePopover);
@@ -92,6 +91,13 @@ namespace Balsamic.Views
             }
         }
 
+        private void ShowPopover(string message, NSView positioningView)
+        {
+            var viewController = (MessageViewController)Popover.ContentViewController;
+            viewController.Message = message;
+            Popover.Show(positioningView.Bounds, positioningView, NSRectEdge.MaxXEdge);
+        }
+
         private void AttemptSignin()
         {
             if (!AppleIDTextField.StringValue.IsValidEmail())
@@ -100,8 +106,8 @@ namespace Balsamic.Views
 
                 var selector = new Selector("closePopover");
                 NSObject.CancelPreviousPerformRequest(this, selector, this);
-                Popover.Show(AppleIDTextField.Bounds, AppleIDTextField, NSRectEdge.MaxXEdge);
-                PerformSelector(selector, this, 2.0);
+                ShowPopover("⚠️ This is not a valid email", AppleIDTextField);
+                PerformSelector(selector, this, 2.5);
             }
         }
 

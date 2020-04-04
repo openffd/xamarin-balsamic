@@ -36,7 +36,5 @@ namespace Balsamic
         }
 
         public override bool CanBecomeKeyWindow => true;
-
-        
     }
 }
