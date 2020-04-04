@@ -106,7 +106,7 @@ namespace Balsamic.Views
 
                 var selector = new Selector("closePopover");
                 NSObject.CancelPreviousPerformRequest(this, selector, this);
-                ShowPopover("⚠️ This is not a valid email", AppleIDTextField);
+                ShowPopover(String.ErrorMessage.InvalidEmail.String(), AppleIDTextField);
                 PerformSelector(selector, this, 2.5);
             }
         }
