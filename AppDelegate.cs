@@ -23,6 +23,22 @@ namespace Balsamic
             windowController.ShowWindow();
         }
 
+        
+        public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
+        {
+#pragma warning disable XI0001
+            foreach (NSWindow window in NSApplication.SharedApplication.DangerousWindows)
+#pragma warning restore XI0001
+            {
+                if (!(window.Delegate == null || window.Delegate.WindowShouldClose(this)))
+                {
+                    return NSApplicationTerminateReply.Cancel;
+                }
+            }
+
+            return NSApplicationTerminateReply.Now;
+        }
+
         public override void WillTerminate(NSNotification notification) {}
     }
 }
