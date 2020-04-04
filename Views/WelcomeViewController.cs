@@ -75,6 +75,14 @@ namespace Balsamic.Views
             {
                 ShowInvalidEmailError();
             }
+
+            Show2FAWindow();
+        }
+
+        private void Show2FAWindow()
+        {
+            var controller = new TwoFactorAuthWindowController();
+            controller.ShowWindow(this);
         }
 
         #region INSTextFieldDelegate

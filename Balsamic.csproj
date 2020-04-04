@@ -88,10 +88,19 @@
     <Compile Include="Views\WelcomeViewController.popover.cs"> 
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TwoFactorAuthWindow.cs" />
+    <Compile Include="Views\TwoFactorAuthWindow.designer.cs">
+      <DependentUpon>TwoFactorAuthWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TwoFactorAuthWindowController.cs" />
+    <Compile Include="Views\TwoFactorAuthWindowController.designer.cs">
+      <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
+    <InterfaceDefinition Include="Views\TwoFactorAuthWindow.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
