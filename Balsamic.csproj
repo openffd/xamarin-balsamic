@@ -57,6 +57,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
     <Folder Include="Statics\" />
+    <Folder Include="Views\Reusables\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -78,6 +79,9 @@
     <Compile Include="Statics\Bundle.cs" />
     <Compile Include="Statics\Storyboard.cs" />
     <Compile Include="Statics\InputValidation.cs" />
+    <Compile Include="Views\Reusables\CenteredTextField.cs" />
+    <Compile Include="Views\Reusables\CenteredTextFieldCell.cs" />
+    <Compile Include="Views\Reusables\MessageViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
