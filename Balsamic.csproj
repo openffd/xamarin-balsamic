@@ -85,6 +85,9 @@
     <Compile Include="Statics\String.cs" />
     <Compile Include="Statics\Convertible.cs" />
     <Compile Include="Views\Reusables\MessagePopover.cs" />
+    <Compile Include="Views\WelcomeViewController.popover.cs"> 
+      <DependentUpon>WelcomeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />

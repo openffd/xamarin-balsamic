@@ -7,10 +7,6 @@ namespace Balsamic.Views
 {
     public partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
-        private static MessagePopover InitializePopover() => new MessagePopover();
-        private readonly System.Lazy<MessagePopover> _lazyPopover = new System.Lazy<MessagePopover>(InitializePopover);
-        public MessagePopover Popover { get => _lazyPopover.Value; }
-
         public string StoryboardIdentifier => Class.ToString();
 
         public NSWorkspace Workspace { get; private set; }
@@ -73,32 +69,11 @@ namespace Balsamic.Views
 
         #endregion
 
-        [Export("closePopover")]
-        [SuppressMessage(null, "IDE0051")]
-        private void ClosePopover()
-        {
-            if (Popover.Shown)
-            {
-                Popover.Close();
-            }
-        }
-
-        private void ShowPopover(string message, NSView positioningView)
-        {
-            Popover.Message = message;
-            Popover.Show(positioningView.Bounds, positioningView, NSRectEdge.MaxXEdge);
-        }
-
         private void AttemptSignin()
         {
             if (!AppleIDTextField.StringValue.IsValidEmail())
             {
-                ClosePopover();
-
-                var selector = new Selector("closePopover");
-                NSObject.CancelPreviousPerformRequest(this, selector, this);
-                ShowPopover(String.ErrorMessage.InvalidEmail.String(), AppleIDTextField);
-                PerformSelector(selector, this, 2.5);
+                ShowInvalidEmailError();
             }
         }
 
