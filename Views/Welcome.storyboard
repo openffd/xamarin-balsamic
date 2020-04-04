@@ -125,7 +125,7 @@
                                                         <constraint firstAttribute="width" constant="44" id="5Tb-tZ-AYQ"/>
                                                         <constraint firstAttribute="height" constant="32" id="F5r-kJ-GgG"/>
                                                     </constraints>
-                                                    <buttonCell key="cell" type="bevel" title=" " bezelStyle="regularSquare" image="NSGoForwardTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Glass" inset="2" id="hol-bM-PUA">
+                                                    <buttonCell key="cell" type="bevel" title=" " bezelStyle="regularSquare" image="NSGoForwardTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hol-bM-PUA">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
@@ -223,6 +223,5 @@
         <image name="NSGoForwardTemplate" width="9" height="12"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
         <image name="NSUserAccounts" width="32" height="32"/>
-        <sound name="Glass"/>
     </resources>
 </document>
