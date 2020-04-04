@@ -84,6 +84,7 @@
     <Compile Include="Views\Reusables\MessageViewController.cs" />
     <Compile Include="Statics\String.cs" />
     <Compile Include="Statics\Convertible.cs" />
+    <Compile Include="Views\Reusables\MessagePopover.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
