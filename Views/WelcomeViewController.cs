@@ -7,17 +7,9 @@ namespace Balsamic.Views
 {
     public partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
-        private static NSPopover InitializePopover()
-        {
-            return new NSPopover
-            {
-                Animates = true,
-                Behavior = NSPopoverBehavior.Transient,
-                ContentViewController = new MessageViewController()
-            };
-        }
-        private readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitializePopover);
-        public NSPopover Popover { get => _lazyPopover.Value; }
+        private static MessagePopover InitializePopover() => new MessagePopover();
+        private readonly System.Lazy<MessagePopover> _lazyPopover = new System.Lazy<MessagePopover>(InitializePopover);
+        public MessagePopover Popover { get => _lazyPopover.Value; }
 
         public string StoryboardIdentifier => Class.ToString();
 
@@ -93,8 +85,7 @@ namespace Balsamic.Views
 
         private void ShowPopover(string message, NSView positioningView)
         {
-            var viewController = (MessageViewController)Popover.ContentViewController;
-            viewController.Message = message;
+            Popover.Message = message;
             Popover.Show(positioningView.Bounds, positioningView, NSRectEdge.MaxXEdge);
         }
 
