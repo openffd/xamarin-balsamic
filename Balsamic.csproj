@@ -82,6 +82,8 @@
     <Compile Include="Views\Reusables\CenteredTextField.cs" />
     <Compile Include="Views\Reusables\CenteredTextFieldCell.cs" />
     <Compile Include="Views\Reusables\MessageViewController.cs" />
+    <Compile Include="Statics\String.cs" />
+    <Compile Include="Statics\Convertible.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
