@@ -1,13 +1,20 @@
 ﻿using AppKit;
 using Foundation;
+using L2FAWindowController = System.Lazy<Balsamic.Views.TwoFactorAuthWindowController>;
 using ObjCRuntime;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Balsamic.Views
 {
     public partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
+        private static TwoFactorAuthWindowController Init2FAWindowController() => new TwoFactorAuthWindowController();
+
         public string StoryboardIdentifier => Class.ToString();
+        
+        private readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
+        private TwoFactorAuthWindowController TwoFactorAuthWindowController => _lazy2FAWindowController.Value;
 
         public NSWorkspace Workspace { get; private set; }
 
@@ -81,8 +88,7 @@ namespace Balsamic.Views
 
         private void Show2FAWindow()
         {
-            var controller = new TwoFactorAuthWindowController();
-            controller.ShowWindow(this);
+            View.Window.BeginSheet(TwoFactorAuthWindowController.Window, (response) => {});
         }
 
         #region INSTextFieldDelegate
