@@ -10,7 +10,7 @@ namespace Balsamic.Views
         [Export("initWithCoder:")]
         public TwoFactorAuthWindowController(NSCoder coder) : base(coder) {}
 
-        public TwoFactorAuthWindowController() : base(typeof(TwoFactorAuthWindow).ToString()) {}
+        public TwoFactorAuthWindowController() : base("TwoFactorAuthWindow") {}
 
         public override void AwakeFromNib()
         {
@@ -18,5 +18,10 @@ namespace Balsamic.Views
         }
 
         public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
+
+        partial void Exit(NSButton _)
+        {
+            Window.Close();
+        }
     }
 }
