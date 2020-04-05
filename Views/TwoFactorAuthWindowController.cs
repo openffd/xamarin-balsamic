@@ -21,7 +21,7 @@ namespace Balsamic.Views
 
         partial void Exit(NSButton _)
         {
-            Window.Close();
+            Window.SheetParent.EndSheet(Window, NSModalResponse.Cancel);
         }
     }
 }
