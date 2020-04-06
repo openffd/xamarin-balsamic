@@ -1,5 +1,5 @@
-﻿using Foundation;
-using AppKit;
+﻿using AppKit;
+using Foundation;
 
 namespace Balsamic.Views
 {

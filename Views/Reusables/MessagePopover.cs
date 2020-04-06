@@ -1,7 +1,9 @@
 ﻿using AppKit;
+using Foundation;
 
 namespace Balsamic.Views
 {
+    [Register("MessagePopover")]
     public class MessagePopover : NSPopover
     {
         private string _message = "";

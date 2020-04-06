@@ -5,6 +5,7 @@ using System;
 
 namespace Balsamic.Views
 {
+    [Register("CenteredTextFieldCell")]
     public class CenteredTextFieldCell : NSTextFieldCell
     {
         public CenteredTextFieldCell()

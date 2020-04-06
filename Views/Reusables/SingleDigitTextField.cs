@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Balsamic.Views
 {
+    [Register("SingleDigitTextField")]
     public class SingleDigitTextField : NSTextField
     {
         public SingleDigitTextField()
