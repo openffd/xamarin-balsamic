@@ -16,22 +16,22 @@ namespace Balsamic.Views
 		AppKit.NSButton CancelButton { get; set; }
 
 		[Outlet]
-		AppKit.NSTextField CodePart1TextField { get; set; }
+		Balsamic.Views.SingleDigitTextField CodePart1TextField { get; set; }
 
 		[Outlet]
-		AppKit.NSTextField CodePart2TextField { get; set; }
+		Balsamic.Views.SingleDigitTextField CodePart2TextField { get; set; }
 
 		[Outlet]
-		AppKit.NSTextField CodePart3TextField { get; set; }
+		Balsamic.Views.SingleDigitTextField CodePart3TextField { get; set; }
 
 		[Outlet]
-		AppKit.NSTextField CodePart4TextField { get; set; }
+		Balsamic.Views.SingleDigitTextField CodePart4TextField { get; set; }
 
 		[Outlet]
-		AppKit.NSTextField CodePart5TextField { get; set; }
+		Balsamic.Views.SingleDigitTextField CodePart5TextField { get; set; }
 
 		[Outlet]
-		AppKit.NSTextField CodePart6TextField { get; set; }
+		Balsamic.Views.SingleDigitTextField CodePart6TextField { get; set; }
 
 		[Outlet]
 		AppKit.NSButton ContinueButton { get; set; }
@@ -56,14 +56,9 @@ namespace Balsamic.Views
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TwoFactorAuthBox != null) {
-				TwoFactorAuthBox.Dispose ();
-				TwoFactorAuthBox = null;
-			}
-
-			if (InstructionTextField != null) {
-				InstructionTextField.Dispose ();
-				InstructionTextField = null;
+			if (CancelButton != null) {
+				CancelButton.Dispose ();
+				CancelButton = null;
 			}
 
 			if (CodePart1TextField != null) {
@@ -96,19 +91,24 @@ namespace Balsamic.Views
 				CodePart6TextField = null;
 			}
 
+			if (ContinueButton != null) {
+				ContinueButton.Dispose ();
+				ContinueButton = null;
+			}
+
+			if (InstructionTextField != null) {
+				InstructionTextField.Dispose ();
+				InstructionTextField = null;
+			}
+
 			if (ResendCodeButton != null) {
 				ResendCodeButton.Dispose ();
 				ResendCodeButton = null;
 			}
 
-			if (CancelButton != null) {
-				CancelButton.Dispose ();
-				CancelButton = null;
-			}
-
-			if (ContinueButton != null) {
-				ContinueButton.Dispose ();
-				ContinueButton = null;
+			if (TwoFactorAuthBox != null) {
+				TwoFactorAuthBox.Dispose ();
+				TwoFactorAuthBox = null;
 			}
 		}
 	}

@@ -52,31 +52,5 @@ namespace Balsamic.Views
             newString = new string(partialString.Where(char.IsDigit).ToArray());
             return false;
         }
-
-        //public override bool IsPartialStringValid(ref string partialString, out NSRange proposedSelRange, string origString, NSRange origSelRange, out string error)
-        //{
-        //    string newString = partialString;
-        //    error = null;
-
-        //    if (partialString.Length > 1)
-        //    {
-        //        return false;
-        //    }
-
-        //    if (partialString.All)
-        //    {
-
-        //    }
-        //}
-
-        //public override bool IsPartialStringValid(ref string partialString, out NSRange proposedSelRange, string origString, NSRange origSelRange, out NSString error)
-        //{
-        //    if (partialString.Length > 1)
-        //    {
-        //        return false;
-        //    }
-
-        //    return true;
-        //}
     }
 }
