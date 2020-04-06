@@ -22,7 +22,6 @@ namespace Balsamic
         {
             windowController.ShowWindow();
         }
-
         
         public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
         {
@@ -35,7 +34,6 @@ namespace Balsamic
                     return NSApplicationTerminateReply.Cancel;
                 }
             }
-
             return NSApplicationTerminateReply.Now;
         }
 

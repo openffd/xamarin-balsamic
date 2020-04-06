@@ -1,15 +1,11 @@
-﻿using System;
-
-using Foundation;
+﻿using Foundation;
 using AppKit;
 
 namespace Balsamic.Views
 {
     public partial class TwoFactorAuthWindow : NSWindow
     {
-        public TwoFactorAuthWindow(IntPtr handle) : base(handle)
-        {
-        }
+        public TwoFactorAuthWindow(System.IntPtr handle) : base(handle) {}
 
         [Export("initWithCoder:")]
         public TwoFactorAuthWindow(NSCoder coder) : base(coder)
@@ -20,5 +16,7 @@ namespace Balsamic.Views
         {
             base.AwakeFromNib();
         }
+
+        public override bool CanBecomeKeyWindow => true;
     }
 }
