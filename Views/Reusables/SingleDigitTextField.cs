@@ -9,6 +9,16 @@ namespace Balsamic.Views
     {
         public SingleDigitTextField()
         {
+            Initialize();
+        }
+
+        public SingleDigitTextField(System.IntPtr handle) : base(handle)
+        {
+            Initialize();
+        }
+
+        void Initialize()
+        {
             Cell = new CenteredTextFieldCell();
             Alignment = NSTextAlignment.Center;
             BackgroundColor = NSColor.Clear;
