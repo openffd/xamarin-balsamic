@@ -15,6 +15,13 @@ namespace Balsamic.Views
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
+
+            CodePart1TextField.Delegate = this;
+            CodePart2TextField.Delegate = this;
+            CodePart3TextField.Delegate = this;
+            CodePart4TextField.Delegate = this;
+            CodePart5TextField.Delegate = this;
+            CodePart6TextField.Delegate = this;
         }
 
         public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
@@ -37,7 +44,14 @@ namespace Balsamic.Views
         [Export("controlTextDidChange:")]
         public void ControlTextDidChange(NSNotification notification)
         {
-            
+            var textField = (NSTextField)notification.Object;
+            if (textField.StringValue.Length == 0)
+            {
+                Window.SelectKeyViewPrecedingView(textField);
+                return;
+            }
+
+            Window.SelectKeyViewFollowingView(textField);  
         }
     }
 }

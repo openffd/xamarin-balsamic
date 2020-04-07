@@ -58,7 +58,7 @@
                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k33-CA-lrC" customClass="SingleDigitTextField">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="48"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="ahJ-9q-SrB">
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="24" name="HelveticaNeue-Bold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -70,7 +70,7 @@
                                                             <real key="minimum" value="0.0"/>
                                                             <real key="maximum" value="9"/>
                                                         </numberFormatter>
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="24" name="HelveticaNeue-Bold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -82,7 +82,7 @@
                                                             <real key="minimum" value="0.0"/>
                                                             <real key="maximum" value="9"/>
                                                         </numberFormatter>
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="24" name="HelveticaNeue-Bold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -114,7 +114,7 @@
                                                             <real key="minimum" value="0.0"/>
                                                             <real key="maximum" value="9"/>
                                                         </numberFormatter>
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="24" name="HelveticaNeue-Bold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -126,7 +126,7 @@
                                                             <real key="minimum" value="0.0"/>
                                                             <real key="maximum" value="9"/>
                                                         </numberFormatter>
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="24" name="HelveticaNeue-Bold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -138,7 +138,7 @@
                                                             <real key="minimum" value="0.0"/>
                                                             <real key="maximum" value="9"/>
                                                         </numberFormatter>
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="24" name="HelveticaNeue-Bold"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
