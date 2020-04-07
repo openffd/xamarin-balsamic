@@ -97,6 +97,7 @@
       <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reusables\SingleDigitTextField.cs" />
+    <Compile Include="SingleDigitFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
