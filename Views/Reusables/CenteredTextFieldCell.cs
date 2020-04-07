@@ -10,8 +10,15 @@ namespace Balsamic.Views
     {
         public CenteredTextFieldCell()
         {
-            Font = NSFont.FromFontName("HelveticaNeue", 14);
+            Initialize();
         }
+
+        public CenteredTextFieldCell(IntPtr handle) : base(handle)
+        {
+            Initialize();
+        }
+
+        void Initialize() {}
 
         public override void EditWithFrame(CGRect aRect, NSView inView, NSText editor, NSObject delegateObject, NSEvent theEvent)
         {
