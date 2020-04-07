@@ -33,6 +33,8 @@ namespace Balsamic.Views
 
         public void ShowInvalidEmailError()
         {
+            AppKitFramework.NSBeep();
+
             ClosePopover();
 
             NSObject.CancelPreviousPerformRequest(this, closePopover, this);
