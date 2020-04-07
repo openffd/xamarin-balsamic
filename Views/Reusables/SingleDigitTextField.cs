@@ -24,14 +24,16 @@ namespace Balsamic.Views
             BackgroundColor = NSColor.Clear;
             Bezeled = true;
             Bordered = true;
+            Editable = true;
+            StringValue = string.Empty;
+            Font = NSFont.FromFontName("HelveticaNeue-Bold", 24);
+            Formatter = new SingleDigitFormatter();
         }
     }
 
     public class SingleDigitFormatter : NSFormatter
     {
-        public SingleDigitFormatter()
-        {
-        }
+        public SingleDigitFormatter() {}
 
         public override string StringFor(NSObject value)
         {
@@ -45,22 +47,26 @@ namespace Balsamic.Views
             return true;
         }
 
-        public override bool IsPartialStringValid(string partialString, out string newString, out NSString error)
+        public override bool IsPartialStringValid(
+            ref string partialString,
+            out NSRange proposedSelRange,
+            string origString,
+            NSRange origSelRange,
+            out string error)
         {
-            newString = partialString;
             error = null;
-            if (partialString.Length >= 1)
+            proposedSelRange = new NSRange(0, 1);
+            switch (partialString.Length)
             {
-                return false;
+                case 0:
+                    partialString = string.Empty;
+                    return false;
+                case 1:
+                    return int.TryParse(partialString, out _);
+                default:
+                    partialString = partialString.Substring(partialString.Length - 1);
+                    return false;
             }
-
-            if (partialString.All(char.IsDigit))
-            {
-                return true;
-            }
-
-            newString = new string(partialString.Where(char.IsDigit).ToArray());
-            return false;
         }
     }
 }
