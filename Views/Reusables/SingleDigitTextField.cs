@@ -3,14 +3,11 @@ using Foundation;
 
 namespace Balsamic.Views
 {
-    public interface ISingleDigitTextFieldDelegate : INSTextFieldDelegate
-    {
-        void TextFieldDidDelete();
-    }
-
     [Register("SingleDigitTextField")]
     public class SingleDigitTextField : NSTextField
     {
+        public bool HasContent() => StringValue.Length > 0;
+
         public SingleDigitTextField()
         {
             Initialize();

@@ -1,11 +1,22 @@
 ﻿using AppKit;
 using Foundation;
 using ObjCRuntime;
+using System.Linq;
+using System.Collections.Generic;
+using IndexedTextFields = System.Collections.Generic.IEnumerable<(Balsamic.Views.SingleDigitTextField textField, int index)>;
 
 namespace Balsamic.Views
 {
     public partial class TwoFactorAuthWindowController : NSWindowController, INSTextFieldDelegate, INSControlTextEditingDelegate
     {
+        private IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
+            CodePart1TextField, CodePart2TextField, CodePart3TextField, CodePart4TextField, CodePart5TextField, CodePart6TextField
+        }.Indexed();
+
+        private bool AreAllTextFieldsSet => IndexedTextFields.All(item => item.textField.HasContent());
+
+        #region Constructors
+
         public TwoFactorAuthWindowController(System.IntPtr handle) : base(handle) {}
 
         [Export("initWithCoder:")]
@@ -13,27 +24,19 @@ namespace Balsamic.Views
 
         public TwoFactorAuthWindowController() : base("TwoFactorAuthWindow") {}
 
+        #endregion
+
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
 
-            CodePart1TextField.Delegate = this;
-            CodePart1TextField.Tag = 1;
+            ContinueButton.Enabled = false;
 
-            CodePart2TextField.Delegate = this;
-            CodePart2TextField.Tag = 2;
-
-            CodePart3TextField.Delegate = this;
-            CodePart3TextField.Tag = 3;
-
-            CodePart4TextField.Delegate = this;
-            CodePart4TextField.Tag = 4;
-
-            CodePart5TextField.Delegate = this;
-            CodePart5TextField.Tag = 5;
-
-            CodePart6TextField.Delegate = this;
-            CodePart6TextField.Tag = 6;
+            foreach (var (textField, index) in IndexedTextFields)
+            {
+                textField.Tag = index;
+                textField.Delegate = this;
+            }
         }
 
         public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
@@ -56,40 +59,27 @@ namespace Balsamic.Views
         [Export("controlTextDidChange:")]
         public void ControlTextDidChange(NSNotification notification)
         {
+            try
+            {
+                HandleControlTextDidChange(notification);
+            }
+            finally
+            {
+                ContinueButton.Enabled = AreAllTextFieldsSet;
+            }
+        }
+
+        private void HandleControlTextDidChange(NSNotification notification)
+        {
             var textField = (NSTextField)notification.Object;
-            //switch (textField.Tag)
-            //{
-            //    case 1:
-            //        if (textField.StringValue.Length == 0)
-            //        {
-
-            //        }
-            //        break;
-            //    case 6:
-            //        break;
-            //}
-
-            if (textField.StringValue.Length == 0 && textField.Tag != 1)
+            if (textField.StringValue.Length == 0 && textField.Tag != 0)
             {
                 Window.SelectKeyViewPrecedingView(textField);
                 return;
             }
 
-            if (textField.Tag != 6)
+            if (textField.Tag < IndexedTextFields.Count() - 1)
                 Window.SelectKeyViewFollowingView(textField);
-        }
-
-        private void HandleDeleteBackward(NSTextField textField)
-        {
-            if (textField.StringValue.Length == 0)
-            {
-                if (textField.Tag == 1)
-                    return;
-
-                Window.SelectKeyViewPrecedingView(textField);
-            }
-
-            textField.StringValue = string.Empty;
         }
 
         [Export("control:textView:doCommandBySelector:")]
@@ -99,14 +89,27 @@ namespace Balsamic.Views
             if (selector.Equals(new Selector("deleteBackward:")))
             {
                 HandleDeleteBackward(textField);
+                ContinueButton.Enabled = AreAllTextFieldsSet;
                 return true;
             }
             else if (selector.Equals(new Selector("insertTab:")))
             {
-                    if (textField.Tag == 6)
-                    return true;
+                return textField.Tag >= IndexedTextFields.Count() - 1;
             }
             return false;
+        }
+
+        private void HandleDeleteBackward(NSTextField textField)
+        {
+            if (textField.StringValue.Length == 0)
+            {
+                if (textField.Tag == 0)
+                    return;
+
+                Window.SelectKeyViewPrecedingView(textField);
+            }
+
+            textField.StringValue = string.Empty;
         }
     }
 }
