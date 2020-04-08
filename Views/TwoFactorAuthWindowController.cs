@@ -1,5 +1,6 @@
 ﻿using AppKit;
 using Foundation;
+using ObjCRuntime;
 
 namespace Balsamic.Views
 {
@@ -17,11 +18,22 @@ namespace Balsamic.Views
             base.AwakeFromNib();
 
             CodePart1TextField.Delegate = this;
+            CodePart1TextField.Tag = 1;
+
             CodePart2TextField.Delegate = this;
+            CodePart2TextField.Tag = 2;
+
             CodePart3TextField.Delegate = this;
+            CodePart3TextField.Tag = 3;
+
             CodePart4TextField.Delegate = this;
+            CodePart4TextField.Tag = 4;
+
             CodePart5TextField.Delegate = this;
+            CodePart5TextField.Tag = 5;
+
             CodePart6TextField.Delegate = this;
+            CodePart6TextField.Tag = 6;
         }
 
         public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
@@ -45,13 +57,56 @@ namespace Balsamic.Views
         public void ControlTextDidChange(NSNotification notification)
         {
             var textField = (NSTextField)notification.Object;
-            if (textField.StringValue.Length == 0)
+            //switch (textField.Tag)
+            //{
+            //    case 1:
+            //        if (textField.StringValue.Length == 0)
+            //        {
+
+            //        }
+            //        break;
+            //    case 6:
+            //        break;
+            //}
+
+            if (textField.StringValue.Length == 0 && textField.Tag != 1)
             {
                 Window.SelectKeyViewPrecedingView(textField);
                 return;
             }
 
-            Window.SelectKeyViewFollowingView(textField);  
+            if (textField.Tag != 6)
+                Window.SelectKeyViewFollowingView(textField);
+        }
+
+        private void HandleDeleteBackward(NSTextField textField)
+        {
+            if (textField.StringValue.Length == 0)
+            {
+                if (textField.Tag == 1)
+                    return;
+
+                Window.SelectKeyViewPrecedingView(textField);
+            }
+
+            textField.StringValue = string.Empty;
+        }
+
+        [Export("control:textView:doCommandBySelector:")]
+        public bool DoCommandBySelector(NSControl control, NSTextView _, Selector selector)
+        {
+            var textField = (NSTextField)control;
+            if (selector.Equals(new Selector("deleteBackward:")))
+            {
+                HandleDeleteBackward(textField);
+                return true;
+            }
+            else if (selector.Equals(new Selector("insertTab:")))
+            {
+                    if (textField.Tag == 6)
+                    return true;
+            }
+            return false;
         }
     }
 }

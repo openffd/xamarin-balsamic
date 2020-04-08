@@ -8,9 +8,7 @@ namespace Balsamic.Views
         public TwoFactorAuthWindow(System.IntPtr handle) : base(handle) {}
 
         [Export("initWithCoder:")]
-        public TwoFactorAuthWindow(NSCoder coder) : base(coder)
-        {
-        }
+        public TwoFactorAuthWindow(NSCoder coder) : base(coder) {}
 
         public override void AwakeFromNib()
         {
