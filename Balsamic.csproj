@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Views\Reusables\SingleDigitTextField.cs" />
     <Compile Include="SingleDigitFormatter.cs" />
+    <Compile Include="Statics\IndexedEnumerable.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
