@@ -122,11 +122,20 @@
     <Compile Include="Views\TwoFactorAuthWindowController.textEditing.cs">
       <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResendCodeView.cs" />
+    <Compile Include="Views\ResendCodeViewController.cs" />
+    <Compile Include="Views\ResendCodeView.designer.cs">
+      <DependentUpon>ResendCodeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResendCodeViewController.designer.cs">
+      <DependentUpon>ResendCodeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
     <InterfaceDefinition Include="Views\TwoFactorAuthWindow.xib" />
+    <InterfaceDefinition Include="Views\ResendCodeView.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
