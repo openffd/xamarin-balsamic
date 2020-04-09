@@ -1,13 +1,12 @@
 ﻿using AppKit;
 using Foundation;
 using IndexedTextFields = System.Collections.Generic.IEnumerable<(Balsamic.Views.SingleDigitTextField textField, int index)>;
-using ObjCRuntime;
 using System.Linq;
 using System.Collections.Generic;
 
 namespace Balsamic.Views
 {
-    public partial class TwoFactorAuthWindowController : NSWindowController, INSTextFieldDelegate, INSControlTextEditingDelegate
+    public partial class TwoFactorAuthWindowController : NSWindowController
     {
         private IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
             CodePart1TextField, CodePart2TextField, CodePart3TextField, CodePart4TextField, CodePart5TextField, CodePart6TextField
@@ -30,7 +29,7 @@ namespace Balsamic.Views
         {
             base.AwakeFromNib();
 
-            ContinueButton.Enabled = false;
+            ContinueButton.Enabled = AreAllTextFieldsSet;
             ContinueButton.KeyEquivalent = "\r";
 
             foreach (var (textField, index) in IndexedTextFields)
@@ -42,6 +41,8 @@ namespace Balsamic.Views
         }
 
         public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
+
+        #region IBActions
 
         partial void Cancel(NSButton _)
         {
@@ -58,62 +59,6 @@ namespace Balsamic.Views
             System.Console.WriteLine("ResendCodeButton");
         }
 
-        [Export("controlTextDidChange:")]
-        public void ControlTextDidChange(NSNotification notification)
-        {
-            try
-            {
-                HandleControlTextDidChange(notification);
-            }
-            finally
-            {
-                ContinueButton.Enabled = AreAllTextFieldsSet;
-            }
-        }
-
-        private void HandleControlTextDidChange(NSNotification notification)
-        {
-            var textField = (NSTextField)notification.Object;
-            if (textField.StringValue.Length == 0 && textField.Tag != 0)
-            {
-                Window.SelectKeyViewPrecedingView(textField);
-                return;
-            }
-
-            if (textField.Tag < IndexedTextFields.Count() - 1)
-            {
-                Window.SelectKeyViewFollowingView(textField);
-            }
-        }
-
-        [Export("control:textView:doCommandBySelector:")]
-        public bool DoCommandBySelector(NSControl control, NSTextView _, Selector selector)
-        {
-            var textField = (NSTextField)control;
-            if (selector.Equals(new Selector("deleteBackward:")))
-            {
-                HandleDeleteBackward(textField);
-                ContinueButton.Enabled = AreAllTextFieldsSet;
-                return true;
-            }
-            else if (selector.Equals(new Selector("insertTab:")))
-            {
-                return textField.Tag >= IndexedTextFields.Count() - 1;
-            }
-            return false;
-        }
-
-        private void HandleDeleteBackward(NSTextField textField)
-        {
-            if (textField.StringValue.Length == 0)
-            {
-                if (textField.Tag == 0)
-                    return;
-
-                Window.SelectKeyViewPrecedingView(textField);
-            }
-
-            textField.StringValue = string.Empty;
-        }
+        #endregion
     }
 }

@@ -99,6 +99,9 @@
     <Compile Include="Views\Reusables\SingleDigitTextField.cs" />
     <Compile Include="SingleDigitFormatter.cs" />
     <Compile Include="Statics\IndexedEnumerable.cs" />
+    <Compile Include="Views\TwoFactorAuthWindowController.textEditing.cs">
+      <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
