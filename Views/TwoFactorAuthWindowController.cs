@@ -1,9 +1,9 @@
 ﻿using AppKit;
 using Foundation;
+using IndexedTextFields = System.Collections.Generic.IEnumerable<(Balsamic.Views.SingleDigitTextField textField, int index)>;
 using ObjCRuntime;
 using System.Linq;
 using System.Collections.Generic;
-using IndexedTextFields = System.Collections.Generic.IEnumerable<(Balsamic.Views.SingleDigitTextField textField, int index)>;
 
 namespace Balsamic.Views
 {
@@ -79,7 +79,9 @@ namespace Balsamic.Views
             }
 
             if (textField.Tag < IndexedTextFields.Count() - 1)
+            {
                 Window.SelectKeyViewFollowingView(textField);
+            }
         }
 
         [Export("control:textView:doCommandBySelector:")]
