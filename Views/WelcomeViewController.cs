@@ -81,6 +81,7 @@ namespace Balsamic.Views
             if (!AppleIDTextField.StringValue.IsValidEmail())
             {
                 ShowInvalidEmailError();
+                return;
             }
 
             Show2FAWindow();
