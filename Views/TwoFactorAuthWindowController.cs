@@ -31,11 +31,13 @@ namespace Balsamic.Views
             base.AwakeFromNib();
 
             ContinueButton.Enabled = false;
+            ContinueButton.KeyEquivalent = "\r";
 
             foreach (var (textField, index) in IndexedTextFields)
             {
-                textField.Tag = index;
                 textField.Delegate = this;
+                textField.StringValue = string.Empty;
+                textField.Tag = index;
             }
         }
 
