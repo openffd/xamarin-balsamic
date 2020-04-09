@@ -1,48 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AppKit;
 using Foundation;
-using AppKit;
+using System;
 
 namespace Balsamic.Views
 {
-    public partial class ResendCodeViewController : AppKit.NSViewController
+    sealed partial class ResendCodeViewController : NSViewController
     {
         #region Constructors
 
-        // Called when created from unmanaged code
         public ResendCodeViewController(IntPtr handle) : base(handle)
         {
             Initialize();
         }
 
-        // Called when created directly from a XIB file
         [Export("initWithCoder:")]
         public ResendCodeViewController(NSCoder coder) : base(coder)
         {
             Initialize();
         }
 
-        // Call to load from the XIB/NIB file
         public ResendCodeViewController() : base("ResendCodeView", NSBundle.MainBundle)
         {
             Initialize();
         }
 
-        // Shared initialization code
-        void Initialize()
-        {
-        }
+        void Initialize() {}
 
         #endregion
 
-        //strongly typed view accessor
-        public new ResendCodeView View
-        {
-            get
-            {
-                return (ResendCodeView)base.View;
-            }
-        }
+        public new ResendCodeView View => (ResendCodeView)base.View;
     }
 }

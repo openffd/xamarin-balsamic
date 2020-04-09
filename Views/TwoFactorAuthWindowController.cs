@@ -14,6 +14,14 @@ namespace Balsamic.Views
 
         private bool AreAllTextFieldsSet => IndexedTextFields.All(item => item.textField.HasContent());
 
+        private static NSPopover InitPopover() => new NSPopover() {
+            Animates = true,
+            Behavior = NSPopoverBehavior.Transient,
+            ContentViewController = new ResendCodeViewController()
+        };
+        private readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitPopover);
+        private NSPopover ResendCodePopover { get => _lazyPopover.Value; }
+
         #region Constructors
 
         public TwoFactorAuthWindowController(System.IntPtr handle) : base(handle) {}
@@ -24,6 +32,8 @@ namespace Balsamic.Views
         public TwoFactorAuthWindowController() : base("TwoFactorAuthWindow") {}
 
         #endregion
+
+        public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
 
         public override void AwakeFromNib()
         {
@@ -40,8 +50,6 @@ namespace Balsamic.Views
             }
         }
 
-        public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
-
         #region IBActions
 
         partial void Cancel(NSButton _)
@@ -54,9 +62,9 @@ namespace Balsamic.Views
             System.Console.WriteLine("ContinueButton");
         }
 
-        partial void ResendCode(NSButton _)
+        partial void ResendCode(NSButton button)
         {
-            System.Console.WriteLine("ResendCodeButton");
+            ResendCodePopover.Show(button.Bounds, button, NSRectEdge.MaxXEdge);
         }
 
         #endregion
