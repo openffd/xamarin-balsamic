@@ -64,7 +64,7 @@ namespace Balsamic.Views
 
         partial void ResendCode(NSButton button)
         {
-            ResendCodePopover.Show(button.Bounds, button, NSRectEdge.MaxXEdge);
+            ResendCodePopover.Show(button.Bounds, button, NSRectEdge.MinYEdge);
         }
 
         #endregion

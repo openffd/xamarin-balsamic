@@ -1,166 +1,236 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
-    <data>
-        <int key="IBDocument.SystemTarget">1060</int>
-        <string key="IBDocument.SystemVersion">10D573</string>
-        <string key="IBDocument.InterfaceBuilderVersion">762</string>
-        <string key="IBDocument.AppKitVersion">1038.29</string>
-        <string key="IBDocument.HIToolboxVersion">460.00</string>
-        <object class="NSMutableDictionary" key="IBDocument.PluginVersions">
-            <string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-            <string key="NS.object.0">762</string>
-        </object>
-        <object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-            <bool key="EncodedWithXMLCoder">YES</bool>
-            <integer value="4" />
-        </object>
-        <object class="NSArray" key="IBDocument.PluginDependencies">
-            <bool key="EncodedWithXMLCoder">YES</bool>
-            <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-        </object>
-        <object class="NSMutableDictionary" key="IBDocument.Metadata">
-            <bool key="EncodedWithXMLCoder">YES</bool>
-            <object class="NSArray" key="dict.sortedKeys" id="0">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-            </object>
-            <object class="NSMutableArray" key="dict.values">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-            </object>
-        </object>
-        <object class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
-            <bool key="EncodedWithXMLCoder">YES</bool>
-            <object class="NSCustomObject" id="1001">
-                <string key="NSClassName">ResendCodeViewController</string>
-            </object>
-            <object class="NSCustomObject" id="1003">
-                <string key="NSClassName">FirstResponder</string>
-            </object>
-            <object class="NSCustomObject" id="1004">
-                <string key="NSClassName">NSApplication</string>
-            </object>
-            <object class="NSCustomView" id="159381209">
-                <reference key="NSNextResponder" />
-                <int key="NSvFlags">268</int>
-                <string key="NSFrameSize">{470, 296}</string>
-                <reference key="NSSuperview" />
-                <string key="NSClassName">ResendCodeView</string>
-            </object>
-        </object>
-        <object class="IBObjectContainer" key="IBDocument.Objects">
-            <object class="NSMutableArray" key="connectionRecords">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-                <object class="IBConnectionRecord">
-                    <object class="IBOutletConnection" key="connection">
-                        <string key="label">view</string>
-                        <reference key="source" ref="1001" />
-                        <reference key="destination" ref="159381209" />
-                    </object>
-                    <int key="connectionID">17</int>
-                </object>
-            </object>
-            <object class="IBMutableOrderedSet" key="objectRecords">
-                <object class="NSArray" key="orderedObjects">
-                    <bool key="EncodedWithXMLCoder">YES</bool>
-                    <object class="IBObjectRecord">
-                        <int key="objectID">0</int>
-                        <reference key="object" ref="0" />
-                        <reference key="children" ref="1000" />
-                        <nil key="parent" />
-                    </object>
-                    <object class="IBObjectRecord">
-                        <int key="objectID">-2</int>
-                        <reference key="object" ref="1001" />
-                        <reference key="parent" ref="0" />
-                        <string key="objectName">File's Owner</string>
-                    </object>
-                    <object class="IBObjectRecord">
-                        <int key="objectID">-1</int>
-                        <reference key="object" ref="1003" />
-                        <reference key="parent" ref="0" />
-                        <string key="objectName">First Responder</string>
-                    </object>
-                    <object class="IBObjectRecord">
-                        <int key="objectID">-3</int>
-                        <reference key="object" ref="1004" />
-                        <reference key="parent" ref="0" />
-                        <string key="objectName">Application</string>
-                    </object>
-                    <object class="IBObjectRecord">
-                        <int key="objectID">4</int>
-                        <reference key="object" ref="159381209" />
-                        <object class="NSMutableArray" key="children">
-                            <bool key="EncodedWithXMLCoder">YES</bool>
-                        </object>
-                        <reference key="parent" ref="0" />
-                    </object>
-                </object>
-            </object>
-            <object class="NSMutableDictionary" key="flattenedProperties">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-                <object class="NSArray" key="dict.sortedKeys">
-                    <bool key="EncodedWithXMLCoder">YES</bool>
-                    <string>-1.IBPluginDependency</string>
-                    <string>-2.IBPluginDependency</string>
-                    <string>-3.IBPluginDependency</string>
-                    <string>4.IBEditorWindowLastContentRect</string>
-                    <string>4.IBPluginDependency</string>
-                </object>
-                <object class="NSMutableArray" key="dict.values">
-                    <bool key="EncodedWithXMLCoder">YES</bool>
-                    <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-                    <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-                    <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-                    <string>{{380, 424}, {470, 296}}</string>
-                    <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-                </object>
-            </object>
-            <object class="NSMutableDictionary" key="unlocalizedProperties">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-                <reference key="dict.sortedKeys" ref="0" />
-                <object class="NSMutableArray" key="dict.values">
-                    <bool key="EncodedWithXMLCoder">YES</bool>
-                </object>
-            </object>
-            <nil key="activeLocalization" />
-            <object class="NSMutableDictionary" key="localizations">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-                <reference key="dict.sortedKeys" ref="0" />
-                <object class="NSMutableArray" key="dict.values">
-                    <bool key="EncodedWithXMLCoder">YES</bool>
-                </object>
-            </object>
-            <nil key="sourceID" />
-            <int key="maxID">17</int>
-        </object>
-        <object class="IBClassDescriber" key="IBDocument.Classes">
-            <object class="NSMutableArray" key="referencedPartialClassDescriptions">
-                <bool key="EncodedWithXMLCoder">YES</bool>
-                <object class="IBPartialClassDescription">
-                    <string key="className">ResendCodeView</string>
-                    <string key="superclassName">NSView</string>
-                    <object class="IBClassDescriptionSource" key="sourceIdentifier">
-                        <string key="majorKey">IBUserSource</string>
-                        <string key="minorKey" />
-                    </object>
-                </object>
-                <object class="IBPartialClassDescription">
-                    <string key="className">ResendCodeViewController</string>
-                    <string key="superclassName">NSViewController</string>
-                    <object class="IBClassDescriptionSource" key="sourceIdentifier">
-                        <string key="majorKey">IBUserSource</string>
-                        <string key="minorKey" />
-                    </object>
-                </object>
-            </object>
-        </object>
-        <int key="IBDocument.localizationMode">0</int>
-        <string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
-        <object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
-            <string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.InterfaceBuilder3</string>
-            <integer value="3000" key="NS.object.0" />
-        </object>
-        <bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-        <nil key="IBDocument.LastKnownRelativeProjectPath" />
-        <int key="IBDocument.defaultPropertyAccessControl">3</int>
-    </data>
-</archive>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ResendCodeViewController">
+            <connections>
+                <outlet property="view" destination="4" id="17"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customView id="4" customClass="ResendCodeView">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="216"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cV-Fo-ZQN">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="216"/>
+                    <subviews>
+                        <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="kDm-0e-h6r">
+                            <rect key="frame" x="0.0" y="144" width="280" height="72"/>
+                            <view key="contentView" id="E8q-DM-9Db">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="72"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H85-Kv-vvJ">
+                                        <rect key="frame" x="20" y="20" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="H85-Kv-vvJ" secondAttribute="height" multiplier="1:1" id="jRI-V8-i3B"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSRefreshFreestandingTemplate" id="zDG-VH-U8M"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SaO-e3-Mvb">
+                                        <rect key="frame" x="72" y="16" width="188" height="40"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VUo-Au-eTC">
+                                                <rect key="frame" x="-2" y="24" width="192" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pw3-is-EH6">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ngQ-WR-K1q">
+                                                <rect key="frame" x="-2" y="0.0" width="192" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="sop-wX-Wzm">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ngQ-WR-K1q" firstAttribute="leading" secondItem="SaO-e3-Mvb" secondAttribute="leading" id="9Xu-E4-2VG"/>
+                                            <constraint firstAttribute="trailing" secondItem="ngQ-WR-K1q" secondAttribute="trailing" id="HP3-Z9-K9P"/>
+                                            <constraint firstItem="VUo-Au-eTC" firstAttribute="leading" secondItem="SaO-e3-Mvb" secondAttribute="leading" id="wKf-zc-AFY"/>
+                                            <constraint firstAttribute="trailing" secondItem="VUo-Au-eTC" secondAttribute="trailing" id="y88-Hi-fXd"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SaO-e3-Mvb" firstAttribute="centerY" secondItem="E8q-DM-9Db" secondAttribute="centerY" id="1Tz-cl-EWl"/>
+                                    <constraint firstItem="SaO-e3-Mvb" firstAttribute="leading" secondItem="H85-Kv-vvJ" secondAttribute="trailing" constant="20" id="4eM-DB-eEr"/>
+                                    <constraint firstItem="H85-Kv-vvJ" firstAttribute="centerY" secondItem="E8q-DM-9Db" secondAttribute="centerY" id="Cz2-xu-Mhk"/>
+                                    <constraint firstAttribute="trailing" secondItem="SaO-e3-Mvb" secondAttribute="trailing" constant="20" id="I04-Dz-Itb"/>
+                                    <constraint firstItem="H85-Kv-vvJ" firstAttribute="top" secondItem="E8q-DM-9Db" secondAttribute="top" constant="20" id="ODd-nw-HtW"/>
+                                    <constraint firstAttribute="bottom" secondItem="H85-Kv-vvJ" secondAttribute="bottom" constant="20" id="bZf-XU-gf0"/>
+                                    <constraint firstItem="H85-Kv-vvJ" firstAttribute="leading" secondItem="E8q-DM-9Db" secondAttribute="leading" constant="20" id="od1-xY-CSQ"/>
+                                </constraints>
+                            </view>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="89U-j4-n9d"/>
+                            </constraints>
+                        </box>
+                        <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="yfG-my-E6F">
+                            <rect key="frame" x="0.0" y="72" width="280" height="72"/>
+                            <view key="contentView" id="gDB-SY-bWg">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="72"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JcM-BS-35T">
+                                        <rect key="frame" x="20" y="20" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="JcM-BS-35T" secondAttribute="height" multiplier="1:1" id="7e9-Vd-ISZ"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSRefreshFreestandingTemplate" id="98P-an-AVp"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2b-i3-sFl">
+                                        <rect key="frame" x="72" y="16" width="188" height="40"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-72-o9Q">
+                                                <rect key="frame" x="-2" y="24" width="192" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="UqK-9X-Oe8">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h7q-x6-Ltj">
+                                                <rect key="frame" x="-2" y="0.0" width="192" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ijE-MF-YZW">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jTP-72-o9Q" firstAttribute="leading" secondItem="t2b-i3-sFl" secondAttribute="leading" id="JKg-QI-P9o"/>
+                                            <constraint firstAttribute="trailing" secondItem="h7q-x6-Ltj" secondAttribute="trailing" id="PKV-qy-wxk"/>
+                                            <constraint firstAttribute="trailing" secondItem="jTP-72-o9Q" secondAttribute="trailing" id="PdR-zF-HDS"/>
+                                            <constraint firstItem="h7q-x6-Ltj" firstAttribute="leading" secondItem="t2b-i3-sFl" secondAttribute="leading" id="QO7-7E-3NZ"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="t2b-i3-sFl" secondAttribute="trailing" constant="20" id="2Uv-bh-hzW"/>
+                                    <constraint firstItem="JcM-BS-35T" firstAttribute="leading" secondItem="gDB-SY-bWg" secondAttribute="leading" constant="20" id="56x-ri-a5E"/>
+                                    <constraint firstAttribute="bottom" secondItem="JcM-BS-35T" secondAttribute="bottom" constant="20" id="LdF-88-S9T"/>
+                                    <constraint firstItem="t2b-i3-sFl" firstAttribute="leading" secondItem="JcM-BS-35T" secondAttribute="trailing" constant="20" id="dMD-dQ-WJW"/>
+                                    <constraint firstItem="JcM-BS-35T" firstAttribute="top" secondItem="gDB-SY-bWg" secondAttribute="top" constant="20" id="dyh-YE-gY4"/>
+                                    <constraint firstItem="JcM-BS-35T" firstAttribute="centerY" secondItem="gDB-SY-bWg" secondAttribute="centerY" id="zAq-p9-EAd"/>
+                                    <constraint firstItem="t2b-i3-sFl" firstAttribute="centerY" secondItem="gDB-SY-bWg" secondAttribute="centerY" id="zev-n9-Rfo"/>
+                                </constraints>
+                            </view>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="eFd-Oi-ZG5"/>
+                            </constraints>
+                        </box>
+                        <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="IdO-1N-0wt">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="72"/>
+                            <view key="contentView" id="2Lp-fr-2yj">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="72"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EXm-SV-leD">
+                                        <rect key="frame" x="20" y="20" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EXm-SV-leD" secondAttribute="height" multiplier="1:1" id="ZRo-fR-ibo"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSRefreshFreestandingTemplate" id="27U-m6-etB"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCT-7Y-PNr">
+                                        <rect key="frame" x="72" y="16" width="188" height="40"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qn6-AB-n9V">
+                                                <rect key="frame" x="-2" y="24" width="192" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="zmH-CX-NGB">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tVp-59-BI2">
+                                                <rect key="frame" x="-2" y="0.0" width="192" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Qz5-KA-Hvb">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tVp-59-BI2" firstAttribute="leading" secondItem="QCT-7Y-PNr" secondAttribute="leading" id="Lmf-f5-Lrj"/>
+                                            <constraint firstAttribute="trailing" secondItem="qn6-AB-n9V" secondAttribute="trailing" id="c0a-Ik-3tS"/>
+                                            <constraint firstItem="qn6-AB-n9V" firstAttribute="leading" secondItem="QCT-7Y-PNr" secondAttribute="leading" id="njh-Tt-6it"/>
+                                            <constraint firstAttribute="trailing" secondItem="tVp-59-BI2" secondAttribute="trailing" id="rkv-2i-Zfm"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EXm-SV-leD" firstAttribute="centerY" secondItem="2Lp-fr-2yj" secondAttribute="centerY" id="4Ny-Dc-BPe"/>
+                                    <constraint firstItem="QCT-7Y-PNr" firstAttribute="centerY" secondItem="2Lp-fr-2yj" secondAttribute="centerY" id="SV6-H0-FdA"/>
+                                    <constraint firstAttribute="bottom" secondItem="EXm-SV-leD" secondAttribute="bottom" constant="20" id="Scy-hd-FMn"/>
+                                    <constraint firstItem="EXm-SV-leD" firstAttribute="leading" secondItem="2Lp-fr-2yj" secondAttribute="leading" constant="20" id="Su6-HN-w0b"/>
+                                    <constraint firstItem="EXm-SV-leD" firstAttribute="top" secondItem="2Lp-fr-2yj" secondAttribute="top" constant="20" id="azB-51-7yi"/>
+                                    <constraint firstAttribute="trailing" secondItem="QCT-7Y-PNr" secondAttribute="trailing" constant="20" id="lXT-4N-71e"/>
+                                    <constraint firstItem="QCT-7Y-PNr" firstAttribute="leading" secondItem="EXm-SV-leD" secondAttribute="trailing" constant="20" id="lrT-28-YK1"/>
+                                </constraints>
+                            </view>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="ATJ-fK-I42"/>
+                            </constraints>
+                        </box>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="9cV-Fo-ZQN" secondAttribute="trailing" id="1R5-Mv-gXa"/>
+                <constraint firstItem="9cV-Fo-ZQN" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="5cu-1E-OuP"/>
+                <constraint firstItem="9cV-Fo-ZQN" firstAttribute="top" secondItem="4" secondAttribute="top" id="8CF-I0-OWf"/>
+                <constraint firstAttribute="bottom" secondItem="9cV-Fo-ZQN" secondAttribute="bottom" id="vW2-9e-gYF"/>
+            </constraints>
+            <point key="canvasLocation" x="137" y="154"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
+    </resources>
+</document>
