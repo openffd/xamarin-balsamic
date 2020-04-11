@@ -7,11 +7,23 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ResendCodeViewController">
             <connections>
+                <outlet property="MoreOptionsBox" destination="IdO-1N-0wt" id="Buh-Es-jYK"/>
+                <outlet property="MoreOptionsDescriptionTextField" destination="tVp-59-BI2" id="Yyv-wH-wAG"/>
+                <outlet property="MoreOptionsHeaderTextField" destination="qn6-AB-n9V" id="8eu-cj-ZdU"/>
+                <outlet property="MoreOptionsImageView" destination="EXm-SV-leD" id="JH8-YR-cmh"/>
+                <outlet property="ResendCodeBox" destination="kDm-0e-h6r" id="O4o-MC-4Np"/>
+                <outlet property="ResendCodeDescriptionTextField" destination="ngQ-WR-K1q" id="cU8-Ui-yex"/>
+                <outlet property="ResendCodeHeaderTextField" destination="VUo-Au-eTC" id="VYe-Zg-rKe"/>
+                <outlet property="ResendCodeImageView" destination="H85-Kv-vvJ" id="Utw-bx-G5p"/>
+                <outlet property="UsePhoneNumberBox" destination="yfG-my-E6F" id="HvN-WN-q6n"/>
+                <outlet property="UsePhoneNumberDescriptionTextField" destination="h7q-x6-Ltj" id="ohF-f0-eok"/>
+                <outlet property="UsePhoneNumberHeaderTextField" destination="jTP-72-o9Q" id="wa9-M6-sud"/>
+                <outlet property="UsePhoneNumberImageView" destination="JcM-BS-35T" id="0X9-j9-TVb"/>
                 <outlet property="view" destination="4" id="17"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="4" customClass="ResendCodeView">
             <rect key="frame" x="0.0" y="0.0" width="280" height="216"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -37,7 +49,7 @@
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VUo-Au-eTC">
                                                 <rect key="frame" x="-2" y="24" width="192" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pw3-is-EH6">
+                                                <textFieldCell key="cell" lineBreakMode="clipping" refusesFirstResponder="YES" title="Label" id="pw3-is-EH6">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -45,7 +57,7 @@
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ngQ-WR-K1q">
                                                 <rect key="frame" x="-2" y="0.0" width="192" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="sop-wX-Wzm">
+                                                <textFieldCell key="cell" lineBreakMode="clipping" refusesFirstResponder="YES" title="Label" id="sop-wX-Wzm">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
