@@ -42,7 +42,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="H85-Kv-vvJ" secondAttribute="height" multiplier="1:1" id="jRI-V8-i3B"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSRefreshFreestandingTemplate" id="zDG-VH-U8M"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="zDG-VH-U8M"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SaO-e3-Mvb">
                                         <rect key="frame" x="72" y="16" width="188" height="40"/>
@@ -105,7 +105,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JcM-BS-35T" secondAttribute="height" multiplier="1:1" id="7e9-Vd-ISZ"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSRefreshFreestandingTemplate" id="98P-an-AVp"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="98P-an-AVp"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2b-i3-sFl">
                                         <rect key="frame" x="72" y="16" width="188" height="40"/>
@@ -168,7 +168,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EXm-SV-leD" secondAttribute="height" multiplier="1:1" id="ZRo-fR-ibo"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSRefreshFreestandingTemplate" id="27U-m6-etB"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="27U-m6-etB"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCT-7Y-PNr">
                                         <rect key="frame" x="72" y="16" width="188" height="40"/>
@@ -242,7 +242,4 @@
             <point key="canvasLocation" x="137" y="154"/>
         </customView>
     </objects>
-    <resources>
-        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
-    </resources>
 </document>

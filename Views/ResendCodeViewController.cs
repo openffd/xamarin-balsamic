@@ -39,6 +39,7 @@ namespace Balsamic.Views
         private void SetupResendCodeBox()
         {
             ResendCodeBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, new Selector("ResendCode:")));
+            ResendCodeImageView.Image = Image.ResendCode;
             ResendCodeImageView.RefusesFirstResponder = true;
             ResendCodeHeaderTextField.RefusesFirstResponder = true;
             ResendCodeDescriptionTextField.RefusesFirstResponder = true;
@@ -47,6 +48,7 @@ namespace Balsamic.Views
         private void SetupUsePhoneNumberBox()
         {
             UsePhoneNumberBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, new Selector("UsePhoneNumber:")));
+            UsePhoneNumberImageView.Image = Image.UsePhoneNumber;
             UsePhoneNumberImageView.RefusesFirstResponder = true;
             UsePhoneNumberHeaderTextField.RefusesFirstResponder = true;
             UsePhoneNumberDescriptionTextField.RefusesFirstResponder = true;
@@ -55,6 +57,7 @@ namespace Balsamic.Views
         private void SetupMoreOptionsBox()
         {
             MoreOptionsBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, new Selector("MoreOptions:")));
+            MoreOptionsImageView.Image = Image.MoreOptions;
             MoreOptionsImageView.RefusesFirstResponder = true;
             MoreOptionsHeaderTextField.RefusesFirstResponder = true;
             MoreOptionsDescriptionTextField.RefusesFirstResponder = true;
@@ -70,6 +73,8 @@ namespace Balsamic.Views
         {
             if (recognizer.State != NSGestureRecognizerState.Ended)
                 return;
+
+            Console.WriteLine("ResendCode:");
         }
 
         [Export("UsePhoneNumber:")]
@@ -78,6 +83,8 @@ namespace Balsamic.Views
         {
             if (recognizer.State != NSGestureRecognizerState.Ended)
                 return;
+
+            Console.WriteLine("UsePhoneNumber:");
         }
 
         [Export("MoreOptions:")]
@@ -86,6 +93,8 @@ namespace Balsamic.Views
         {
             if (recognizer.State != NSGestureRecognizerState.Ended)
                 return;
+
+            Console.WriteLine("MoreOptions:");
         }
 
         [Export("gestureRecognizer:shouldBeRequiredToFailByGestureRecognizer:")]
