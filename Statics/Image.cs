@@ -1,10 +1,13 @@
 ﻿using System;
-namespace Balsamic.Statics
+using Foundation;
+using AppKit;
+
+namespace Balsamic
 {
-    public class Image
+    static class Image
     {
-        public Image()
-        {
-        }
+        internal static NSImage ResendCode = NSImage.ImageNamed("NSRefreshTemplate");
+        internal static NSImage UsePhoneNumber = NSImage.ImageNamed("NSTouchBarNewMessageTemplate");
+        internal static NSImage MoreOptions = NSImage.ImageNamed("NSTouchBarIconViewTemplate");
     }
 }
