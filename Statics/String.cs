@@ -9,7 +9,5 @@ namespace Balsamic
             [Description("⚠️ Not a valid email")]
             InvalidEmail = 0
         }
-
-        
     }
 }

@@ -136,6 +136,7 @@
     <Compile Include="Views\ResendCodeViewController.constants.cs">
       <DependentUpon>ResendCodeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statics\Font.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
