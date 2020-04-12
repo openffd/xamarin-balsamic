@@ -133,7 +133,9 @@
       <DependentUpon>ResendCodeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Statics\Image.cs" />
-    <Compile Include="Views\ResendCodeViewController.constants.cs" />
+    <Compile Include="Views\ResendCodeViewController.constants.cs">
+      <DependentUpon>ResendCodeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
