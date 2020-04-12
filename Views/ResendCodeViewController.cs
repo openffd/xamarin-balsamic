@@ -1,6 +1,5 @@
 ﻿using AppKit;
 using Foundation;
-using ObjCRuntime;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -28,6 +27,10 @@ namespace Balsamic.Views
 
         void Initialize() {}
 
+        #endregion
+
+        public new ResendCodeView View => (ResendCodeView)base.View;
+
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
@@ -38,34 +41,45 @@ namespace Balsamic.Views
 
         private void SetupResendCodeBox()
         {
-            ResendCodeBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, new Selector("ResendCode:")));
+            ResendCodeBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.ResendCode_));
+
             ResendCodeImageView.Image = Image.ResendCode;
             ResendCodeImageView.RefusesFirstResponder = true;
+
+            ResendCodeHeaderTextField.StringValue = String.ResendCode.Header;
             ResendCodeHeaderTextField.RefusesFirstResponder = true;
+
+            ResendCodeDescriptionTextField.StringValue = String.ResendCode.Description;
             ResendCodeDescriptionTextField.RefusesFirstResponder = true;
         }
 
         private void SetupUsePhoneNumberBox()
         {
-            UsePhoneNumberBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, new Selector("UsePhoneNumber:")));
+            UsePhoneNumberBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.UsePhoneNumber_));
+
             UsePhoneNumberImageView.Image = Image.UsePhoneNumber;
             UsePhoneNumberImageView.RefusesFirstResponder = true;
+
+            UsePhoneNumberHeaderTextField.StringValue = String.UsePhoneNumber.Header;
             UsePhoneNumberHeaderTextField.RefusesFirstResponder = true;
+
+
             UsePhoneNumberDescriptionTextField.RefusesFirstResponder = true;
         }
 
         private void SetupMoreOptionsBox()
         {
-            MoreOptionsBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, new Selector("MoreOptions:")));
+            MoreOptionsBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.MoreOptions_));
+
             MoreOptionsImageView.Image = Image.MoreOptions;
             MoreOptionsImageView.RefusesFirstResponder = true;
+
+            MoreOptionsHeaderTextField.StringValue = String.MoreOptions.Header;
             MoreOptionsHeaderTextField.RefusesFirstResponder = true;
+
+            MoreOptionsDescriptionTextField.StringValue = String.MoreOptions.Description;
             MoreOptionsDescriptionTextField.RefusesFirstResponder = true;
         }
-
-        #endregion
-
-        public new ResendCodeView View => (ResendCodeView)base.View;
 
         [Export("ResendCode:")]
         [SuppressMessage(null, "IDE0051")]

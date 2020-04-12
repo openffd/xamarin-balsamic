@@ -2,12 +2,14 @@
 
 namespace Balsamic
 {
-    public static class String
+    static class String
     {
-        public enum ErrorMessage
+        internal enum ErrorMessage
         {
             [Description("⚠️ Not a valid email")]
             InvalidEmail = 0
         }
+
+        
     }
 }
