@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Balsamic.Views
 {
-    public partial class TwoFactorAuthWindowController : NSWindowController
+    sealed partial class TwoFactorAuthWindowController : NSWindowController
     {
         private IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
             CodePart1TextField, CodePart2TextField, CodePart3TextField, CodePart4TextField, CodePart5TextField, CodePart6TextField
@@ -33,14 +33,18 @@ namespace Balsamic.Views
 
         #endregion
 
-        public new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
+        internal new TwoFactorAuthWindow Window => (TwoFactorAuthWindow)base.Window;
 
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
+            SetupSubviewsUponVisibility();
+        }
 
+        void SetupSubviewsUponVisibility()
+        {
             ContinueButton.Enabled = AreAllTextFieldsSet;
-            ContinueButton.KeyEquivalent = "\r";
+            ContinueButton.KeyEquivalent = String.KeyEquivalent.Return.String();
 
             foreach (var (textField, index) in IndexedTextFields)
             {
