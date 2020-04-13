@@ -34,51 +34,58 @@ namespace Balsamic.Views
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
-            SetupResendCodeBox();
-            SetupUsePhoneNumberBox();
-            SetupMoreOptionsBox();
+            SetupResendCodeBoxSubviews();
+            SetupUsePhoneNumberBoxSubviews();
+            SetupMoreOptionsBoxSubviews();
         }
 
-        private void SetupResendCodeBox()
+        private void SetupResendCodeBoxSubviews()
         {
             ResendCodeBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.ResendCode_));
 
             ResendCodeImageView.Image = Image.ResendCode;
             ResendCodeImageView.RefusesFirstResponder = true;
 
-            ResendCodeHeaderTextField.StringValue = String.ResendCode.Header;
-            ResendCodeHeaderTextField.RefusesFirstResponder = true;
-
-            ResendCodeDescriptionTextField.StringValue = String.ResendCode.Description;
-            ResendCodeDescriptionTextField.RefusesFirstResponder = true;
+            SetupHeaderTextField(ResendCodeHeaderTextField, String.ResendCode.Header);
+            SetupDescriptionTextField(ResendCodeDescriptionTextField, String.ResendCode.Description);
         }
 
-        private void SetupUsePhoneNumberBox()
+        private void SetupUsePhoneNumberBoxSubviews()
         {
             UsePhoneNumberBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.UsePhoneNumber_));
 
             UsePhoneNumberImageView.Image = Image.UsePhoneNumber;
             UsePhoneNumberImageView.RefusesFirstResponder = true;
 
-            UsePhoneNumberHeaderTextField.StringValue = String.UsePhoneNumber.Header;
-            UsePhoneNumberHeaderTextField.RefusesFirstResponder = true;
-
-
-            UsePhoneNumberDescriptionTextField.RefusesFirstResponder = true;
+            SetupHeaderTextField(UsePhoneNumberHeaderTextField, String.UsePhoneNumber.Header);
+            SetupDescriptionTextField(UsePhoneNumberDescriptionTextField, String.UsePhoneNumber.Description);
         }
 
-        private void SetupMoreOptionsBox()
+        private void SetupMoreOptionsBoxSubviews()
         {
             MoreOptionsBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.MoreOptions_));
 
             MoreOptionsImageView.Image = Image.MoreOptions;
             MoreOptionsImageView.RefusesFirstResponder = true;
 
-            MoreOptionsHeaderTextField.StringValue = String.MoreOptions.Header;
-            MoreOptionsHeaderTextField.RefusesFirstResponder = true;
+            SetupHeaderTextField(MoreOptionsHeaderTextField, String.MoreOptions.Header);
+            SetupDescriptionTextField(MoreOptionsDescriptionTextField, String.MoreOptions.Description);
+        }
 
-            MoreOptionsDescriptionTextField.StringValue = String.MoreOptions.Description;
-            MoreOptionsDescriptionTextField.RefusesFirstResponder = true;
+        private void SetupHeaderTextField(NSTextField headerTextField, string stringValue)
+        {
+            headerTextField.StringValue = stringValue;
+            headerTextField.RefusesFirstResponder = true;
+            headerTextField.Font = Font.Header;
+            headerTextField.TextColor = Color.Header;
+        }
+
+        private void SetupDescriptionTextField(NSTextField descriptionTextField, string stringValue)
+        {
+            descriptionTextField.StringValue = stringValue;
+            descriptionTextField.RefusesFirstResponder = true;
+            descriptionTextField.Font = Font.Description;
+            descriptionTextField.TextColor = Color.Description;
         }
 
         [Export("ResendCode:")]

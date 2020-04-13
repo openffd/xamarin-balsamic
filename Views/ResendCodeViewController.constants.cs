@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using System;
 
 namespace Balsamic.Views
 {
@@ -40,6 +41,18 @@ namespace Balsamic.Views
             internal static ObjCRuntime.Selector ResendCode_ => new ObjCRuntime.Selector("ResendCode:");
             internal static ObjCRuntime.Selector UsePhoneNumber_ => new ObjCRuntime.Selector("UsePhoneNumber:");
             internal static ObjCRuntime.Selector MoreOptions_ => new ObjCRuntime.Selector("MoreOptions:");
+        }
+
+        static class Font
+        {
+            internal static NSFont Header => NSFont.FromFontName(Balsamic.Font.Name.HelveticaNeueBold.String(), 14);
+            internal static NSFont Description => NSFont.FromFontName(Balsamic.Font.Name.HelveticaNeue.String(), 13);
+        }
+
+        static class Color
+        {
+            internal static NSColor Header => NSColor.White;
+            internal static NSColor Description => NSColor.FromWhite((nfloat)0.6, 1);
         }
     }
 }
