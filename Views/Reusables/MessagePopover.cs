@@ -4,10 +4,10 @@ using Foundation;
 namespace Balsamic.Views
 {
     [Register("MessagePopover")]
-    public class MessagePopover : NSPopover
+    sealed class MessagePopover : NSPopover
     {
         private string _message = "";
-        public string Message
+        internal string Message
         {
             get => _message;
             set {
@@ -16,7 +16,7 @@ namespace Balsamic.Views
             }
         }
 
-        public MessagePopover(string message = "")
+        internal MessagePopover(string message = "")
         {
             _message = message;
             Animates = true;
