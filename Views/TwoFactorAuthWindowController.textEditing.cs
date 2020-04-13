@@ -20,7 +20,7 @@ namespace Balsamic.Views
             }
         }
 
-        private void HandleControlTextDidChange(NSNotification notification)
+        void HandleControlTextDidChange(NSNotification notification)
         {
             var textField = (NSTextField)notification.Object;
             if (textField.StringValue.Length == 0 && textField.Tag != 0)
@@ -52,7 +52,7 @@ namespace Balsamic.Views
             return false;
         }
 
-        private void HandleDeleteBackward(NSTextField textField)
+        void HandleDeleteBackward(NSTextField textField)
         {
             if (textField.StringValue.Length == 0)
             {

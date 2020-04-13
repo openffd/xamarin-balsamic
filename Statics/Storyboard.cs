@@ -2,13 +2,13 @@
 
 namespace Balsamic
 {
-    public static class Storyboard
+    static class Storyboard
     {
-        private enum Name
+        enum Name
         {
-            Welcome = 0
+            Welcome
         }
 
-        public static readonly NSStoryboard Welcome = NSStoryboard.FromName(Name.Welcome.ToString(), null);
+        internal static NSStoryboard Welcome => NSStoryboard.FromName(Name.Welcome.ToString(), null);
     }
 }

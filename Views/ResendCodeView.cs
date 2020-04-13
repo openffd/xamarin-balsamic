@@ -3,7 +3,7 @@ using Foundation;
 
 namespace Balsamic.Views
 {
-    public partial class ResendCodeView : AppKit.NSView
+    sealed partial class ResendCodeView : AppKit.NSView
     {
         #region Constructors
 

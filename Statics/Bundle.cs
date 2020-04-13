@@ -2,22 +2,22 @@
 
 namespace Balsamic
 {
-    public static class Bundle
+    static class Bundle
     {
-        public static class Main
+        internal static class Main
         {
-            public enum DictionaryKey
+            internal enum DictionaryKey
             {
                 CFBundleDisplayName = 0,
                 CFBundleName = 1
             }
         }
 
-        public static string DisplayName(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleDisplayName);
+        internal static string DisplayName(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleDisplayName);
 
-        public static string Name(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleName);
+        internal static string Name(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleName);
 
-        private static string StringForInfoDictionary(this NSBundle bundle, Main.DictionaryKey key)
+        static string StringForInfoDictionary(this NSBundle bundle, Main.DictionaryKey key)
         {
             return bundle.ObjectForInfoDictionary(key.ToString()).ToString() ?? string.Empty;
         }

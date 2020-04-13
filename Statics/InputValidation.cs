@@ -1,8 +1,8 @@
 ﻿namespace Balsamic
 {
-    public static class InputValidation
+    static class InputValidation
     {
-        public static bool IsValidEmail(this string input)
+        internal static bool IsValidEmail(this string input)
         {
             try
             {

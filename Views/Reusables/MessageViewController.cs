@@ -4,9 +4,9 @@ using Foundation;
 namespace Balsamic.Views
 {
     [Register("MessageViewController")]
-    public class MessageViewController : NSViewController
+    sealed class MessageViewController : NSViewController
     {
-        public string Message { get; set; }
+        internal string Message { get; set; }
 
         #region Constructors
 
@@ -31,7 +31,7 @@ namespace Balsamic.Views
 
         #endregion
 
-        public new NSView View
+        internal new NSView View
         {
             get => base.View;
             set => base.View = value;

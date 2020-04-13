@@ -6,7 +6,7 @@ using System;
 namespace Balsamic.Views
 {
     [Register("CenteredTextFieldCell")]
-    public class CenteredTextFieldCell : NSTextFieldCell
+    sealed class CenteredTextFieldCell : NSTextFieldCell
     {
         public CenteredTextFieldCell()
         {
@@ -35,7 +35,7 @@ namespace Balsamic.Views
             base.DrawInteriorWithFrame(AdjustFrame(cellFrame), inView);
         }
 
-        private CGRect AdjustFrame(CGRect frame)
+        CGRect AdjustFrame(CGRect frame)
         {
             var fontDelta = Font.Ascender - Font.Descender;
             var dy = Math.Floor(0.5 * (frame.Height - fontDelta));

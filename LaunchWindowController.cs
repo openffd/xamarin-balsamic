@@ -4,9 +4,9 @@ using Foundation;
 
 namespace Balsamic
 {
-    public class LaunchWindowController : NSWindowController, AppDelegate.IWindowController
+    sealed class LaunchWindowController : NSWindowController, AppDelegate.IWindowController
     {
-        public new LaunchWindow Window => (LaunchWindow)base.Window;
+        internal new LaunchWindow Window => (LaunchWindow)base.Window;
         
         public LaunchWindowController(System.IntPtr handle) : base(handle) {}
 
@@ -19,7 +19,6 @@ namespace Balsamic
             {
                 ContentViewController = (NSViewController)Balsamic.Storyboard.Welcome.InstantiateInitialController()
             };
-            Window.AwakeFromNib();
         }
 
         public override void AwakeFromNib()

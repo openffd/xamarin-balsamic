@@ -4,9 +4,9 @@ using Foundation;
 namespace Balsamic.Views
 {
     [Register("SingleDigitTextField")]
-    public class SingleDigitTextField : NSTextField
+    sealed class SingleDigitTextField : NSTextField
     {
-        public bool HasContent() => StringValue.Length > 0;
+        internal bool HasContent() => StringValue.Length > 0;
 
         public SingleDigitTextField()
         {

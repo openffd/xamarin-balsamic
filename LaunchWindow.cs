@@ -3,7 +3,7 @@ using Foundation;
 
 namespace Balsamic
 {
-    public class LaunchWindow : NSWindow
+    sealed class LaunchWindow : NSWindow
     {
         public LaunchWindow(CoreGraphics.CGRect contentRect, NSWindowStyle aStyle, NSBackingStore bufferingType, bool deferCreation) :
             base(contentRect, aStyle, bufferingType, deferCreation)
@@ -22,18 +22,7 @@ namespace Balsamic
             base.AwakeFromNib();
         }
 
-        public override NSView ContentView
-        {
-            get => base.ContentView;
-            set
-            {
-                value.WantsLayer = true;
-                value.Layer.Frame = value.Frame;
-                value.Layer.CornerRadius = 20;
-                value.Layer.MasksToBounds = true;
-                base.ContentView = value;
-            }
-        }
+        internal new NSView ContentView => base.ContentView;
 
         public override bool CanBecomeKeyWindow => true;
     }

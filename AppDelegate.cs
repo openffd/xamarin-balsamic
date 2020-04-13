@@ -3,16 +3,16 @@ using Foundation;
 
 namespace Balsamic
 {
-    public partial class AppDelegate : NSApplicationDelegate
+    sealed partial class AppDelegate : NSApplicationDelegate
     {
-        public interface IWindowController
+        internal interface IWindowController
         {
             NSWindow Window { get; }
 
             void ShowWindow();
         }
 
-        private readonly IWindowController windowController = new LaunchWindowController();
+        readonly IWindowController windowController = new LaunchWindowController();
 
         public AppDelegate() {}
 

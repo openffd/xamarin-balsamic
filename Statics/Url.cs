@@ -2,14 +2,14 @@
 
 namespace Balsamic
 {
-    public static class Url
+    static class Url
     {
-        private static class String
+        static class String
         {
-            public const string ForgotPassword = "iforgot.apple.com/password/verify/appleid";
-            public const string HttpsScheme = "https";
+            internal const string ForgotPassword = "iforgot.apple.com/password/verify/appleid";
+            internal const string HttpsScheme = "https";
         }
         
-        public static readonly NSUrl ForgotPassword = new NSUrl($"{String.HttpsScheme}://{String.ForgotPassword}");
+        internal static readonly NSUrl ForgotPassword = new NSUrl($"{String.HttpsScheme}://{String.ForgotPassword}");
     }
 }

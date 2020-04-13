@@ -2,7 +2,7 @@
 
 namespace Balsamic
 {
-    internal sealed class SingleDigitFormatter : NSFormatter
+    sealed class SingleDigitFormatter : NSFormatter
     {
         public SingleDigitFormatter() {}
 

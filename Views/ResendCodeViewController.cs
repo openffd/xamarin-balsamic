@@ -29,7 +29,7 @@ namespace Balsamic.Views
 
         #endregion
 
-        public new ResendCodeView View => (ResendCodeView)base.View;
+        internal new ResendCodeView View => (ResendCodeView)base.View;
 
         public override void AwakeFromNib()
         {
@@ -39,7 +39,7 @@ namespace Balsamic.Views
             SetupMoreOptionsBoxSubviews();
         }
 
-        private void SetupResendCodeBoxSubviews()
+        void SetupResendCodeBoxSubviews()
         {
             ResendCodeBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.ResendCode_));
 
@@ -50,7 +50,7 @@ namespace Balsamic.Views
             SetupDescriptionTextField(ResendCodeDescriptionTextField, String.ResendCode.Description);
         }
 
-        private void SetupUsePhoneNumberBoxSubviews()
+        void SetupUsePhoneNumberBoxSubviews()
         {
             UsePhoneNumberBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.UsePhoneNumber_));
 
@@ -61,7 +61,7 @@ namespace Balsamic.Views
             SetupDescriptionTextField(UsePhoneNumberDescriptionTextField, String.UsePhoneNumber.Description);
         }
 
-        private void SetupMoreOptionsBoxSubviews()
+        void SetupMoreOptionsBoxSubviews()
         {
             MoreOptionsBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.MoreOptions_));
 
@@ -72,7 +72,7 @@ namespace Balsamic.Views
             SetupDescriptionTextField(MoreOptionsDescriptionTextField, String.MoreOptions.Description);
         }
 
-        private void SetupHeaderTextField(NSTextField headerTextField, string stringValue)
+        void SetupHeaderTextField(NSTextField headerTextField, string stringValue)
         {
             headerTextField.StringValue = stringValue;
             headerTextField.RefusesFirstResponder = true;
@@ -80,7 +80,7 @@ namespace Balsamic.Views
             headerTextField.TextColor = Color.Header;
         }
 
-        private void SetupDescriptionTextField(NSTextField descriptionTextField, string stringValue)
+        void SetupDescriptionTextField(NSTextField descriptionTextField, string stringValue)
         {
             descriptionTextField.StringValue = stringValue;
             descriptionTextField.RefusesFirstResponder = true;
@@ -90,7 +90,7 @@ namespace Balsamic.Views
 
         [Export("ResendCode:")]
         [SuppressMessage(null, "IDE0051")]
-        private void ResendCode(NSClickGestureRecognizer recognizer)
+        void ResendCode(NSClickGestureRecognizer recognizer)
         {
             if (recognizer.State != NSGestureRecognizerState.Ended)
                 return;
@@ -100,7 +100,7 @@ namespace Balsamic.Views
 
         [Export("UsePhoneNumber:")]
         [SuppressMessage(null, "IDE0051")]
-        private void UsePhoneNumber(NSClickGestureRecognizer recognizer)
+        void UsePhoneNumber(NSClickGestureRecognizer recognizer)
         {
             if (recognizer.State != NSGestureRecognizerState.Ended)
                 return;
@@ -110,7 +110,7 @@ namespace Balsamic.Views
 
         [Export("MoreOptions:")]
         [SuppressMessage(null, "IDE0051")]
-        private void MoreOptions(NSClickGestureRecognizer recognizer)
+        void MoreOptions(NSClickGestureRecognizer recognizer)
         {
             if (recognizer.State != NSGestureRecognizerState.Ended)
                 return;

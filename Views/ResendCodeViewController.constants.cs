@@ -6,7 +6,7 @@ namespace Balsamic.Views
     sealed partial class ResendCodeViewController
     {
        static class String
-        {
+       {
             internal static class ResendCode
             {
                 internal static string Header => "Resend Code";

@@ -6,7 +6,7 @@ namespace Balsamic.Views
     [Register("MessagePopover")]
     sealed class MessagePopover : NSPopover
     {
-        private string _message = "";
+        string _message = "";
         internal string Message
         {
             get => _message;

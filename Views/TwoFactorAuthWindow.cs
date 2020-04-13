@@ -3,7 +3,7 @@ using AppKit;
 
 namespace Balsamic.Views
 {
-    public partial class TwoFactorAuthWindow : NSWindow
+    sealed partial class TwoFactorAuthWindow : NSWindow
     {
         public TwoFactorAuthWindow(System.IntPtr handle) : base(handle) {}
 
