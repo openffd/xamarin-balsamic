@@ -8,19 +8,19 @@ namespace Balsamic.Views
 {
     sealed partial class TwoFactorAuthWindowController : NSWindowController
     {
-        private IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
+        IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
             CodePart1TextField, CodePart2TextField, CodePart3TextField, CodePart4TextField, CodePart5TextField, CodePart6TextField
         }.Indexed();
 
-        private bool AreAllTextFieldsSet => IndexedTextFields.All(item => item.textField.HasContent());
+        bool AreAllTextFieldsSet => IndexedTextFields.All(item => item.textField.HasContent());
 
-        private static NSPopover InitPopover() => new NSPopover() {
+        static NSPopover InitPopover() => new NSPopover() {
             Animates = true,
             Behavior = NSPopoverBehavior.Transient,
             ContentViewController = new ResendCodeViewController()
         };
-        private readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitPopover);
-        private NSPopover ResendCodePopover { get => _lazyPopover.Value; }
+        readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitPopover);
+        NSPopover ResendCodePopover { get => _lazyPopover.Value; }
 
         #region Constructors
 
