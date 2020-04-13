@@ -85,9 +85,10 @@ namespace Balsamic.Views
             Show2FAWindow();
         }
 
-        private void Show2FAWindow()
+        void Show2FAWindow()
         {
-            View.Window.BeginSheet(TwoFactorAuthWindowController.Window, (response) => {});
+            var windowController = new TwoFactorAuthWindowController();
+            View.Window.BeginSheet(windowController.Window, _ => {});
         }
 
         #region INSTextFieldDelegate
