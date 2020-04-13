@@ -138,12 +138,21 @@
     </Compile>
     <Compile Include="Statics\Font.cs" />
     <Compile Include="Utilities\SingleDigitFormatter.cs" />
+    <Compile Include="Views\MyAppsWindow.cs" />
+    <Compile Include="Views\MyAppsWindow.designer.cs">
+      <DependentUpon>MyAppsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyAppsWindowController.cs" />
+    <Compile Include="Views\MyAppsWindowController.designer.cs">
+      <DependentUpon>MyAppsWindowController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
     <InterfaceDefinition Include="Views\TwoFactorAuthWindow.xib" />
     <InterfaceDefinition Include="Views\ResendCodeView.xib" />
+    <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
