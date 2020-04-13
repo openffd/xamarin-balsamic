@@ -79,6 +79,7 @@
     <Folder Include="Views\" />
     <Folder Include="Statics\" />
     <Folder Include="Views\Reusables\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -119,7 +120,6 @@
       <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reusables\SingleDigitTextField.cs" />
-    <Compile Include="SingleDigitFormatter.cs" />
     <Compile Include="Statics\IndexedEnumerable.cs" />
     <Compile Include="Views\TwoFactorAuthWindowController.textEditing.cs">
       <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
@@ -137,6 +137,7 @@
       <DependentUpon>ResendCodeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Statics\Font.cs" />
+    <Compile Include="Utilities\SingleDigitFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
