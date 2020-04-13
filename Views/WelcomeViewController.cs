@@ -7,16 +7,14 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Balsamic.Views
 {
-    public partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
+    sealed partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
-        private static TwoFactorAuthWindowController Init2FAWindowController() => new TwoFactorAuthWindowController();
+        internal string StoryboardIdentifier => Class.ToString();
+        internal NSWorkspace Workspace { get; private set; }
 
-        public string StoryboardIdentifier => Class.ToString();
-        
-        private readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
-        private TwoFactorAuthWindowController TwoFactorAuthWindowController => _lazy2FAWindowController.Value;
-
-        public NSWorkspace Workspace { get; private set; }
+        static TwoFactorAuthWindowController Init2FAWindowController() => new TwoFactorAuthWindowController();
+        readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
+        TwoFactorAuthWindowController TwoFactorAuthWindowController => _lazy2FAWindowController.Value;
 
         #region Constructors
 
@@ -36,14 +34,14 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize()
+        private void Initialize()
         {
             Workspace = NSWorkspace.SharedWorkspace;
         }
 
         #endregion
 
-        public new NSView View => base.View;
+        internal new NSView View => base.View;
 
         public override void ViewDidLoad()
         {
@@ -55,7 +53,7 @@ namespace Balsamic.Views
 
         [Action("TextMoved:")]
         [SuppressMessage(null, "IDE0051")]
-        private void TextMoved(NSTextField _) {}
+        void TextMoved(NSTextField _) {}
 
         #region IBActions
 
@@ -76,7 +74,7 @@ namespace Balsamic.Views
 
         #endregion
 
-        private void AttemptSignin()
+        void AttemptSignin()
         {
             if (!AppleIDTextField.StringValue.IsValidEmail())
             {

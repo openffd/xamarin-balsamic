@@ -7,31 +7,29 @@ namespace Balsamic.Views
 {
     partial class WelcomeViewController
     {
-        private static MessagePopover InitializePopover() => new MessagePopover();
+        readonly Selector closePopover = new Selector("closePopover");
 
-        private readonly System.Lazy<MessagePopover> _lazyPopover = new System.Lazy<MessagePopover>(InitializePopover);
-
-        private readonly Selector closePopover = new Selector("closePopover");
-
-        public MessagePopover Popover { get => _lazyPopover.Value; }
+        static MessagePopover InitializePopover() => new MessagePopover();
+        readonly System.Lazy<MessagePopover> _lazyPopover = new System.Lazy<MessagePopover>(InitializePopover);
+        MessagePopover MessagePopover => _lazyPopover.Value;
 
         [Export("closePopover")]
         [SuppressMessage(null, "IDE0051")]
-        public void ClosePopover()
+        void ClosePopover()
         {
-            if (Popover.Shown)
-            {
-                Popover.Close();
-            }
+            if (!MessagePopover.Shown)
+                return;
+
+            MessagePopover.Close();
         }
 
-        private void ShowPopover(string message, NSView positioningView)
+        void ShowPopover(string message, NSView positioningView)
         {
-            Popover.Message = message;
-            Popover.Show(positioningView.Bounds, positioningView, NSRectEdge.MaxXEdge);
+            MessagePopover.Message = message;
+            MessagePopover.Show(positioningView.Bounds, positioningView, NSRectEdge.MaxXEdge);
         }
 
-        public void ShowInvalidEmailError()
+        void ShowInvalidEmailError()
         {
             AppKitFramework.NSBeep();
 
