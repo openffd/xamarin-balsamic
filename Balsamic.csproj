@@ -153,6 +153,7 @@
     <InterfaceDefinition Include="Views\TwoFactorAuthWindow.xib" />
     <InterfaceDefinition Include="Views\ResendCodeView.xib" />
     <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
+    <InterfaceDefinition Include="Views\MyApps.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

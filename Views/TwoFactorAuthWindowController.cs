@@ -63,7 +63,7 @@ namespace Balsamic.Views
 
         partial void Continue(NSButton _)
         {
-            System.Console.WriteLine("ContinueButton");
+            ShowMyApps();
         }
 
         partial void ResendCode(NSButton button)
@@ -72,5 +72,12 @@ namespace Balsamic.Views
         }
 
         #endregion
+
+        void ShowMyApps()
+        {
+            var windowsController = new MyAppsWindowController();
+            windowsController.ShowWindow(this);
+            Window.SheetParent.Close();
+        }
     }
 }
