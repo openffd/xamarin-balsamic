@@ -9,12 +9,6 @@ namespace Balsamic.Views
             internal static string SigninInstructions => "Sign in with your Apple ID:";
             internal static string ForgotPasswordButtonTitle => "Forgot password?";
 
-            internal static class ImageName
-            {
-                internal static string AppLogo => "NSUserAccounts";
-                internal static string GoForward => "NSGoForwardTemplate";
-            }
-
             internal static class Placeholder
             {
                 internal static string AppleID => "Apple ID";
@@ -24,8 +18,9 @@ namespace Balsamic.Views
 
         static class Image
         {
-            internal static NSImage AppLogo => NSImage.ImageNamed(String.ImageName.AppLogo);
-            internal static NSImage GoForward => NSImage.ImageNamed(String.ImageName.GoForward);
+            internal static NSImage AppLogo => Balsamic.Image.UserAccounts;
+            internal static NSImage GoForward => Balsamic.Image.GoForwardTemplate;
+            internal static NSImage Close => Balsamic.Image.StatusUnavailable;
         }
     }
 }

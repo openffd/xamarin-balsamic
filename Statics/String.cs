@@ -7,13 +7,13 @@ namespace Balsamic
         internal enum KeyEquivalent
         {
             [Description("\r")]
-            Return
+            Return,
         }
 
         internal enum ErrorMessage
         {
             [Description("⚠️ Not a valid email")]
-            InvalidEmail
+            InvalidEmail,
         }
     }
 }

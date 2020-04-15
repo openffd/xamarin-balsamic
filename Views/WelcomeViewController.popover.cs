@@ -36,7 +36,7 @@ namespace Balsamic.Views
             ClosePopover();
 
             NSObject.CancelPreviousPerformRequest(this, closePopover, this);
-            ShowPopover(String.ErrorMessage.InvalidEmail.String(), AppleIDTextField);
+            ShowPopover(Balsamic.String.ErrorMessage.InvalidEmail.String(), AppleIDTextField);
             PerformSelector(closePopover, this, 2.5);
         }
     }

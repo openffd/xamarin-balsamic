@@ -5,7 +5,7 @@ namespace Balsamic
 {
     static class Image
     {
-        static class System
+        static class SystemImage
         {
             internal enum Name
             {
@@ -18,8 +18,8 @@ namespace Balsamic
             }
         }
 
-        internal static NSImage GoForwardTemplate => NSImage.ImageNamed(System.Name.GoForwardTemplate.String());
-        internal static NSImage StatusUnavailable => NSImage.ImageNamed(System.Name.StatusUnavailable.String());
-        internal static NSImage UserAccounts => NSImage.ImageNamed(System.Name.UserAccounts.String());
+        internal static NSImage GoForwardTemplate => NSImage.ImageNamed(SystemImage.Name.GoForwardTemplate.String());
+        internal static NSImage StatusUnavailable => NSImage.ImageNamed(SystemImage.Name.StatusUnavailable.String());
+        internal static NSImage UserAccounts => NSImage.ImageNamed(SystemImage.Name.UserAccounts.String());
     }
 }
