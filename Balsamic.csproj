@@ -146,6 +146,9 @@
     <Compile Include="Views\MyAppsWindowController.designer.cs">
       <DependentUpon>MyAppsWindowController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\WelcomeViewController.constants.cs">
+      <DependentUpon>WelcomeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
