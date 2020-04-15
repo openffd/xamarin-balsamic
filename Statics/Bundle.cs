@@ -15,10 +15,10 @@ namespace Balsamic
             }
         }
 
-        internal static string DisplayName(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleDisplayName);
-        internal static string Name(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleName);
-        internal static string Version(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleShortVersionString);
-        internal static string Build(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleVersion);
+        internal static string GetDisplayName(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleDisplayName);
+        internal static string GetName(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleName);
+        internal static string GetVersion(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleShortVersionString);
+        internal static string GetBuild(this NSBundle bundle) => bundle.StringForInfoDictionary(Main.DictionaryKey.CFBundleVersion);
 
         static string StringForInfoDictionary(this NSBundle bundle, Main.DictionaryKey key)
         {

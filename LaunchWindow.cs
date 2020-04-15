@@ -12,7 +12,7 @@ namespace Balsamic
             IsOpaque = true;
             MovableByWindowBackground = true;
             ReleasedWhenClosed = false;
-            Title = NSBundle.MainBundle.Name();
+            Title = NSBundle.MainBundle.GetName();
             TitlebarAppearsTransparent = true;
             TitleVisibility = NSWindowTitleVisibility.HiddenWhenActive;
         }
