@@ -18,7 +18,7 @@ namespace Balsamic.Views
 
         #region Constructors
 
-        public WelcomeViewController(System.IntPtr handle) : base(handle)
+        public WelcomeViewController(IntPtr handle) : base(handle)
         {
             Initialize();
         }
@@ -47,8 +47,97 @@ namespace Balsamic.Views
         {
             base.ViewDidLoad();
 
+            AppIconImageView.Image = Image.AppLogo;
+            AppIconImageView.ImageScaling = NSImageScale.ProportionallyUpOrDown;
+            AppIconImageView.RefusesFirstResponder = true;
+
+            SetupCloseButton();
+            SetupBackgroundVisualEffect();
+            SetupWelcomeTextField();
+            SetupVersionTextField();
+            SetupSigninHeaderTextField();
+            SetupAppleIDTextField();
+            SetupPasswordTextField();
+            SetupForgotPasswordButton();
+            SetupSigninButton();
+        }
+
+        void SetupCloseButton()
+        {
+            CloseButton.Image = Image.Close;
+            CloseButton.BezelStyle = NSBezelStyle.RoundRect;
+            CloseButton.Alignment = NSTextAlignment.Center;
+            CloseButton.SetButtonType(NSButtonType.MomentaryLightButton);
+        }
+
+        void SetupBackgroundVisualEffect()
+        {
+            BackgroundVisualEffectView.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
+            BackgroundVisualEffectView.Material = NSVisualEffectMaterial.UltraDark;
+            BackgroundVisualEffectView.State = NSVisualEffectState.FollowsWindowActiveState;
+        }
+
+        void SetupWelcomeTextField()
+        {
+            WelcomeTextField.StringValue = NSBundle.MainBundle.GetName();
+            WelcomeTextField.Font = Font.WelcomeTextField;
+            WelcomeTextField.Alignment = NSTextAlignment.Center;
+            WelcomeTextField.TextColor = NSColor.White;
+        }
+
+        void SetupVersionTextField()
+        {
+            VersionTextField.StringValue = String.AppBuildVersion;
+            VersionTextField.Font = Font.VersionTextField;
+            VersionTextField.Alignment = NSTextAlignment.Center;
+            VersionTextField.TextColor = NSColor.FromWhite((nfloat)0.8, 1);
+        }
+
+        void SetupSigninHeaderTextField()
+        {
+            SigninHeaderTextField.StringValue = String.SigninInstructions;
+            SigninHeaderTextField.Font = Font.SigninHeaderTextField;
+            SigninHeaderTextField.Alignment = NSTextAlignment.Left;
+            SigninHeaderTextField.TextColor = NSColor.White;
+        }
+
+        void SetupAppleIDTextField()
+        {
             AppleIDTextField.Delegate = this;
+            AppleIDTextField.PlaceholderString = String.Placeholder.AppleID;
+            AppleIDTextField.Alignment = NSTextAlignment.Natural;
+            AppleIDTextField.BezelStyle = NSTextFieldBezelStyle.Rounded;
+            AppleIDTextField.Font = Font.AppleIDTextField;
+            AppleIDTextField.Editable = true;
+        }
+
+        void SetupPasswordTextField()
+        {
             PasswordTextField.Delegate = this;
+            PasswordTextField.PlaceholderString = String.Placeholder.Password;
+            PasswordTextField.Alignment = NSTextAlignment.Natural;
+            PasswordTextField.BezelStyle = NSTextFieldBezelStyle.Rounded;
+            PasswordTextField.Font = Font.PasswordTextField;
+            PasswordTextField.Editable = true;
+        }
+
+        void SetupForgotPasswordButton()
+        {
+            ForgotPasswordButton.Title = String.ForgotPasswordButtonTitle;
+            ForgotPasswordButton.Font = Font.ForgotPasswordButton;
+            ForgotPasswordButton.BezelStyle = NSBezelStyle.Recessed;
+            ForgotPasswordButton.SetButtonType(NSButtonType.MomentaryPushIn);
+            ForgotPasswordButton.Bordered = false;
+            ForgotPasswordButton.ContentTintColor = NSColor.SystemBlueColor;
+        }
+
+        void SetupSigninButton()
+        {
+            SigninButton.BezelStyle = NSBezelStyle.TexturedSquare;
+            SigninButton.SetButtonType(NSButtonType.MomentaryPushIn);
+            SigninButton.Bordered = true;
+            SigninButton.Image = Image.GoForward;
+            SigninButton.ImageScaling = NSImageScale.ProportionallyDown;
         }
 
         [Action("TextMoved:")]

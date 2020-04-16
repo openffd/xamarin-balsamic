@@ -90,8 +90,8 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2b-NF-qsD">
-                                                    <rect key="frame" x="-2" y="116" width="175" height="17"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Sign in with your Apple ID:" id="5aK-6i-lWi">
+                                                    <rect key="frame" x="-2" y="116" width="40" height="17"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="5aK-6i-lWi">
                                                         <font key="font" size="14" name="HelveticaNeue-Medium"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -102,7 +102,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="0Oy-iv-Tws"/>
                                                     </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" placeholderString="Apple ID" bezelStyle="round" id="HWF-be-Jnp">
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="HWF-be-Jnp">
                                                         <font key="font" size="16" name="HelveticaNeue-Light"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -113,19 +113,19 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="biH-03-Tzs"/>
                                                     </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" placeholderString="Password" bezelStyle="round" id="8Jk-R5-uxR" customClass="NSSecureTextFieldCell">
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="8Jk-R5-uxR" customClass="NSSecureTextFieldCell">
                                                         <font key="font" size="16" name="HelveticaNeue-Light"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-ZM-fCO">
-                                                    <rect key="frame" x="274" y="-3" width="48" height="37"/>
+                                                    <rect key="frame" x="270" y="-7" width="56" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="5Tb-tZ-AYQ"/>
                                                         <constraint firstAttribute="height" constant="32" id="F5r-kJ-GgG"/>
                                                     </constraints>
-                                                    <buttonCell key="cell" type="bevel" title=" " bezelStyle="regularSquare" image="NSGoForwardTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hol-bM-PUA">
+                                                    <buttonCell key="cell" type="push" title=" " bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hol-bM-PUA">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
@@ -140,11 +140,10 @@
                                                         <constraint firstAttribute="height" constant="32" id="BhS-2g-h7i"/>
                                                         <constraint firstAttribute="width" constant="164" id="YpA-ZE-t9V"/>
                                                     </constraints>
-                                                    <buttonCell key="cell" type="bevel" title="Forgot your password?" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="0o1-73-dpd">
+                                                    <buttonCell key="cell" type="recessed" title="Button" bezelStyle="recessed" alignment="left" state="on" imageScaling="proportionallyDown" inset="2" id="0o1-73-dpd">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" size="13" name="HelveticaNeue-Medium"/>
+                                                        <font key="font" metaFont="systemBold" size="12"/>
                                                     </buttonCell>
-                                                    <color key="contentTintColor" name="linkColor" catalog="System" colorSpace="catalog"/>
                                                     <connections>
                                                         <action selector="ForgotPassword:" target="0M7-q7-Toe" id="PUU-y1-jyW"/>
                                                     </connections>
@@ -221,7 +220,4 @@
             <point key="canvasLocation" x="245" y="-584"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSGoForwardTemplate" width="9" height="12"/>
-    </resources>
 </document>
