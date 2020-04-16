@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using static Balsamic.Font.Name;
 using System;
 
 namespace Balsamic.Views
@@ -45,8 +46,8 @@ namespace Balsamic.Views
 
         static class Font
         {
-            internal static NSFont Header => NSFont.FromFontName(Balsamic.Font.Name.HelveticaNeueBold.String(), 14);
-            internal static NSFont Description => NSFont.FromFontName(Balsamic.Font.Name.HelveticaNeue.String(), 13);
+            internal static NSFont Header => NSFont.FromFontName(HelveticaNeueBold.String(), 14);
+            internal static NSFont Description => NSFont.FromFontName(HelveticaNeue.String(), 13);
         }
 
         static class Color
