@@ -19,6 +19,12 @@ namespace Balsamic.Views
 		AppKit.NSTextField AppleIDTextField { get; set; }
 
 		[Outlet]
+		AppKit.NSVisualEffectView BackgroundVisualEffectView { get; set; }
+
+		[Outlet]
+		AppKit.NSButton CloseButton { get; set; }
+
+		[Outlet]
 		AppKit.NSButton ForgotPasswordButton { get; set; }
 
 		[Outlet]
@@ -47,29 +53,29 @@ namespace Balsamic.Views
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (CloseButton != null) {
+				CloseButton.Dispose ();
+				CloseButton = null;
+			}
+
+			if (BackgroundVisualEffectView != null) {
+				BackgroundVisualEffectView.Dispose ();
+				BackgroundVisualEffectView = null;
+			}
+
 			if (AppIconImageView != null) {
 				AppIconImageView.Dispose ();
 				AppIconImageView = null;
 			}
 
-			if (VersionTextField != null) {
-				VersionTextField.Dispose ();
-				VersionTextField = null;
-			}
-
-			if (WelcomeTextField != null) {
-				WelcomeTextField.Dispose ();
-				WelcomeTextField = null;
-			}
-
-			if (SigninHeaderTextField != null) {
-				SigninHeaderTextField.Dispose ();
-				SigninHeaderTextField = null;
-			}
-
 			if (AppleIDTextField != null) {
 				AppleIDTextField.Dispose ();
 				AppleIDTextField = null;
+			}
+
+			if (ForgotPasswordButton != null) {
+				ForgotPasswordButton.Dispose ();
+				ForgotPasswordButton = null;
 			}
 
 			if (PasswordTextField != null) {
@@ -82,9 +88,19 @@ namespace Balsamic.Views
 				SigninButton = null;
 			}
 
-			if (ForgotPasswordButton != null) {
-				ForgotPasswordButton.Dispose ();
-				ForgotPasswordButton = null;
+			if (SigninHeaderTextField != null) {
+				SigninHeaderTextField.Dispose ();
+				SigninHeaderTextField = null;
+			}
+
+			if (VersionTextField != null) {
+				VersionTextField.Dispose ();
+				VersionTextField = null;
+			}
+
+			if (WelcomeTextField != null) {
+				WelcomeTextField.Dispose ();
+				WelcomeTextField = null;
 			}
 		}
 	}

@@ -12,7 +12,7 @@
                     <view key="view" autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dW8-Yq-nCU">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="440"/>
                         <subviews>
-                            <visualEffectView wantsLayer="YES" blendingMode="withinWindow" material="ultraDark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-A3-MWs">
+                            <visualEffectView wantsLayer="YES" blendingMode="withinWindow" material="light" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-A3-MWs">
                                 <rect key="frame" x="0.0" y="0.0" width="440" height="440"/>
                                 <subviews>
                                     <box boxType="custom" borderType="none" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="155-fp-gJn">
@@ -29,22 +29,22 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="IqF-RF-DLG" secondAttribute="height" multiplier="1:1" id="fTk-bw-mW6"/>
                                                             </constraints>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSUserAccounts" id="ZK7-mi-8S8"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="ZK7-mi-8S8"/>
                                                         </imageView>
                                                         <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zcH-zY-PeN">
-                                                            <rect key="frame" x="2" y="0.0" width="136" height="52"/>
+                                                            <rect key="frame" x="29" y="0.0" width="83" height="52"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NIk-Av-VUb">
-                                                                    <rect key="frame" x="-2" y="16" width="140" height="36"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Balsamic" id="iaE-P8-Grh">
+                                                                    <rect key="frame" x="-2" y="16" width="87" height="36"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="iaE-P8-Grh">
                                                                         <font key="font" size="30" name="HelveticaNeue-Bold"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tRZ-za-cay">
-                                                                    <rect key="frame" x="17" y="0.0" width="103" height="12"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Version 1.0 (ba2ss3w)" id="uTB-Ya-2Jb">
+                                                                    <rect key="frame" x="25" y="0.0" width="32" height="12"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="uTB-Ya-2Jb">
                                                                         <font key="font" size="10" name="HelveticaNeue-Light"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -185,7 +185,7 @@
                                     <constraint firstAttribute="width" secondItem="0Du-L3-f9U" secondAttribute="height" multiplier="1:1" id="JqB-tS-73u"/>
                                     <constraint firstAttribute="width" constant="16" id="aa1-n9-Qjo"/>
                                 </constraints>
-                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSStatusUnavailable" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="iph-BM-mBs">
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="iph-BM-mBs">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="controlContent"/>
                                 </buttonCell>
@@ -206,6 +206,8 @@
                     <connections>
                         <outlet property="AppIconImageView" destination="IqF-RF-DLG" id="9Ak-SA-dfw"/>
                         <outlet property="AppleIDTextField" destination="i7c-jl-g6W" id="GeO-zx-WY2"/>
+                        <outlet property="BackgroundVisualEffectView" destination="Yfc-A3-MWs" id="S8Y-Le-o04"/>
+                        <outlet property="CloseButton" destination="0Du-L3-f9U" id="Ge5-UO-igW"/>
                         <outlet property="ForgotPasswordButton" destination="y9X-e4-BP6" id="WAc-cO-9zW"/>
                         <outlet property="PasswordTextField" destination="Nud-Ge-68Q" id="DLy-Gu-Tha"/>
                         <outlet property="SigninButton" destination="DAf-ZM-fCO" id="CHV-P1-ljS"/>
@@ -221,7 +223,5 @@
     </scenes>
     <resources>
         <image name="NSGoForwardTemplate" width="9" height="12"/>
-        <image name="NSStatusUnavailable" width="16" height="16"/>
-        <image name="NSUserAccounts" width="32" height="32"/>
     </resources>
 </document>
