@@ -12,11 +12,29 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="KCx-4s-dRb" customClass="MyAppsWindow">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="contentRect" x="245" y="301" width="550" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <connections>
-                            <outlet property="delegate" destination="YPi-hK-gRE" id="qBL-7X-VGG"/>
-                        </connections>
+                        <toolbar key="toolbar" implicitIdentifier="6742A873-9F96-46F7-8200-8FDB9F2DB8ED" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="Cb7-rl-HXE">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="vqA-hM-ejj"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="vR8-mx-XSv"/>
+                                <toolbarItem implicitItemIdentifier="F3558E3B-7AB5-46CE-803F-7F614FE35588" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="fVl-yk-Vn6">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="7w6-Vb-97g">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OcI-bf-vaK">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="vR8-mx-XSv"/>
+                                <toolbarItem reference="fVl-yk-Vn6"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                     </window>
                     <connections>
                         <segue destination="c4a-kX-D5w" kind="relationship" relationship="window.shadowedContentViewController" id="aNv-BR-q01"/>
@@ -24,7 +42,7 @@
                 </windowController>
                 <customObject id="w2h-ZP-CvJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="71"/>
+            <point key="canvasLocation" x="219" y="-72"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="fo5-3Z-khB">
@@ -49,7 +67,7 @@
                 </splitViewController>
                 <customObject id="Wbj-cL-4yY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="680"/>
+            <point key="canvasLocation" x="243" y="640"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XZs-yF-oEA">

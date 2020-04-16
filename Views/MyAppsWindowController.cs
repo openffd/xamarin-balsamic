@@ -4,8 +4,10 @@ using System;
 
 namespace Balsamic.Views
 {
-    public partial class MyAppsWindowController : NSWindowController
+    public partial class MyAppsWindowController : NSWindowController, AppDelegate.IWindowController
     {
+        #region Constructors
+
         public MyAppsWindowController(IntPtr handle) : base(handle) {}
 
         [Export("initWithCoder:")]
@@ -13,11 +15,26 @@ namespace Balsamic.Views
 
         public MyAppsWindowController() : base("MyAppsWindow") {}
 
+        #endregion
+
+        #region Overrides
+
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
+
+            Window.Appearance = NSAppearance.GetAppearance(NSAppearance.NameDarkAqua);
+            Window.TitleVisibility = NSWindowTitleVisibility.Hidden;
+        }
+
+        public void ShowWindow()
+        {
+            Window.Center();
+            Window.MakeKeyAndOrderFront(this);
         }
 
         internal new MyAppsWindow Window => (MyAppsWindow)base.Window;
+
+        #endregion
     }
 }
