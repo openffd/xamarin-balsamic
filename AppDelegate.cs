@@ -12,7 +12,8 @@ namespace Balsamic
             void ShowWindow();
         }
 
-        readonly IWindowController windowController = new LaunchWindowController();
+        readonly IWindowController launchWindowController = new LaunchWindowController();
+        readonly IWindowController myAppsWindowController = Storyboard.MyApps.InstantiateInitialController() as Views.MyAppsWindowController;
 
         public AppDelegate() {}
 
@@ -20,7 +21,8 @@ namespace Balsamic
 
         public override void DidFinishLaunching(NSNotification notification)
         {
-            windowController.ShowWindow();
+            //windowController.ShowWindow();
+            myAppsWindowController.ShowWindow();
         }
         
         public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
