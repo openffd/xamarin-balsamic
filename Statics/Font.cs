@@ -12,6 +12,9 @@ namespace Balsamic
             [Description("HelveticaNeue-Light")]
             HelveticaNeueLight,
 
+            [Description("HelveticaNeue-Medium")]
+            HelveticaNeueMedium,
+
             [Description("HelveticaNeue")]
             HelveticaNeue,
         }
