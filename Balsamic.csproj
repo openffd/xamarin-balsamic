@@ -149,6 +149,10 @@
     <Compile Include="Views\WelcomeViewController.constants.cs">
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyAppsSplitViewController.cs" />
+    <Compile Include="Views\MyAppsSplitViewController.designer.cs">
+      <DependentUpon>MyAppsSplitViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
