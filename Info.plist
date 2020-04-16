@@ -7,9 +7,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.rageniv.Balsamic</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3AE233</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.15</string>
 	<key>CFBundleDevelopmentRegion</key>
