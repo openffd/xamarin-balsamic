@@ -73,6 +73,18 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleLeadingPanel.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleBottomPanel.imageset\toggle_bottom_panel%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleBottomPanel.imageset\toggle_bottom_panel%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleBottomPanel.imageset\toggle_bottom_panel.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleBottomPanel.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleLeadingPanel.imageset\toggle_leading_panel%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleLeadingPanel.imageset\toggle_leading_panel%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleLeadingPanel.imageset\toggle_leading_panel.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\toggle_trailing_panel.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\toggle_trailing_panel%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\toggle_trailing_panel%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
