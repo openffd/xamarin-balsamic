@@ -92,6 +92,7 @@
     <Folder Include="Statics\" />
     <Folder Include="Views\Reusables\" />
     <Folder Include="Utilities\" />
+    <Folder Include="Views\MyApps\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -165,6 +166,14 @@
     <Compile Include="Views\MyAppsSplitViewController.designer.cs">
       <DependentUpon>MyAppsSplitViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyApps\TrailingSidebarView.cs" />
+    <Compile Include="Views\MyApps\TrailingSidebarViewController.cs" />
+    <Compile Include="Views\MyApps\TrailingSidebarView.designer.cs">
+      <DependentUpon>TrailingSidebarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\TrailingSidebarViewController.designer.cs">
+      <DependentUpon>TrailingSidebarViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -173,6 +182,7 @@
     <InterfaceDefinition Include="Views\ResendCodeView.xib" />
     <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps.storyboard" />
+    <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
