@@ -23,7 +23,7 @@ namespace Balsamic.Views
         {
             base.AwakeFromNib();
 
-            Window.Appearance = NSAppearance.GetAppearance(NSAppearance.NameDarkAqua);
+            Window.Appearance = NSAppearance.GetAppearance(NSAppearance.NameVibrantLight);
             Window.TitleVisibility = NSWindowTitleVisibility.Hidden;
         }
 

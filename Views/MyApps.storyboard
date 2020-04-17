@@ -14,29 +14,36 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="550" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="6742A873-9F96-46F7-8200-8FDB9F2DB8ED" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="Cb7-rl-HXE">
+                        <toolbar key="toolbar" implicitIdentifier="6742A873-9F96-46F7-8200-8FDB9F2DB8ED" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="Cb7-rl-HXE">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="vqA-hM-ejj"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="vR8-mx-XSv"/>
-                                <toolbarItem implicitItemIdentifier="F3558E3B-7AB5-46CE-803F-7F614FE35588" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="fVl-yk-Vn6">
+                                <toolbarItem implicitItemIdentifier="C3528C0F-1B9A-4937-911D-62A7BC05E8F3" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="dAd-QV-eqn">
                                     <nil key="toolTip"/>
-                                    <button key="view" verticalHuggingPriority="750" id="7w6-Vb-97g">
-                                        <rect key="frame" x="0.0" y="14" width="82" height="32"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="CXw-nh-iqM">
+                                        <rect key="frame" x="0.0" y="14" width="105" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OcI-bf-vaK">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="pF6-wg-1Rr">
                                             <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
+                                            <segments>
+                                                <segment image="ToggleLeadingPanel" imageScaling="proportionallyUpOrDown" width="32" selected="YES"/>
+                                                <segment image="ToggleBottomPanel" width="32" enabled="NO" tag="1"/>
+                                                <segment image="ToggleTrailingPanel" width="32" selected="YES">
+                                                    <nil key="label"/>
+                                                </segment>
+                                            </segments>
+                                        </segmentedCell>
+                                    </segmentedControl>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="vR8-mx-XSv"/>
-                                <toolbarItem reference="fVl-yk-Vn6"/>
+                                <toolbarItem reference="dAd-QV-eqn"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
                     <connections>
+                        <outlet property="Toolbar" destination="Cb7-rl-HXE" id="Pj7-or-a8s"/>
                         <segue destination="c4a-kX-D5w" kind="relationship" relationship="window.shadowedContentViewController" id="aNv-BR-q01"/>
                     </connections>
                 </windowController>
@@ -44,15 +51,15 @@
             </objects>
             <point key="canvasLocation" x="219" y="-72"/>
         </scene>
-        <!--Split View Controller-->
+        <!--My Apps Split View Controller-->
         <scene sceneID="fo5-3Z-khB">
             <objects>
-                <splitViewController id="c4a-kX-D5w" sceneMemberID="viewController">
+                <splitViewController id="c4a-kX-D5w" customClass="MyAppsSplitViewController" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="IH0-Bk-1YG"/>
-                        <splitViewItem id="WjG-zu-teb"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="WjG-zu-teb"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="xg5-gm-ajc">
+                    <splitView key="splitView" vertical="YES" id="xg5-gm-ajc">
                         <rect key="frame" x="0.0" y="0.0" width="558" height="448"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -67,33 +74,38 @@
                 </splitViewController>
                 <customObject id="Wbj-cL-4yY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="243" y="640"/>
+            <point key="canvasLocation" x="290" y="666"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XZs-yF-oEA">
             <objects>
                 <viewController id="u1m-nQ-NnY" sceneMemberID="viewController">
                     <view key="view" id="4Wh-ej-mDy">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="HoW-Jh-fxM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885" y="456"/>
+            <point key="canvasLocation" x="969" y="267"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DMH-ip-Xev">
             <objects>
                 <viewController id="k65-px-bSO" sceneMemberID="viewController">
                     <view key="view" id="BJO-P4-UlN">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="GFV-da-GPW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885" y="935"/>
+            <point key="canvasLocation" x="1034" y="1261"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ToggleBottomPanel" width="17" height="17"/>
+        <image name="ToggleLeadingPanel" width="17" height="17"/>
+        <image name="ToggleTrailingPanel" width="17" height="17"/>
+    </resources>
 </document>
