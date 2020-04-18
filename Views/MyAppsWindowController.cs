@@ -1,10 +1,11 @@
 ﻿using AppKit;
+using static Balsamic.AppDelegate;
 using Foundation;
 using System;
 
 namespace Balsamic.Views
 {
-    public partial class MyAppsWindowController : NSWindowController, AppDelegate.IWindowController
+    sealed partial class MyAppsWindowController : NSWindowController, IWindowController
     {
         #region Constructors
 
@@ -23,7 +24,7 @@ namespace Balsamic.Views
         {
             base.AwakeFromNib();
 
-            Window.Appearance = NSAppearance.GetAppearance(NSAppearance.NameVibrantLight);
+            Window.Appearance = NSAppearance.GetAppearance(NSAppearance.NameVibrantDark);
             Window.TitleVisibility = NSWindowTitleVisibility.Hidden;
         }
 
