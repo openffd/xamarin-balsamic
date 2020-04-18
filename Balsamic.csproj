@@ -182,6 +182,14 @@
     <Compile Include="Views\MyApps\LeadingContentListViewController.designer.cs">
       <DependentUpon>LeadingContentListViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentView.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentViewController.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView.designer.cs">
+      <DependentUpon>MyAppsContentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentViewController.designer.cs">
+      <DependentUpon>MyAppsContentViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -192,6 +200,7 @@
     <InterfaceDefinition Include="Views\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView.xib" />
+    <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
