@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using CoreGraphics;
 using Foundation;
 using System;
 
@@ -14,6 +15,8 @@ namespace Balsamic.Views
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
+
+            SetFrame(new CGRect(CGPoint.Empty, new CGSize(1200, 900)), true);
         }
     }
 }
