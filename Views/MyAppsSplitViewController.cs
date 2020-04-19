@@ -40,6 +40,7 @@ namespace Balsamic.Views
 
             SplitView.IsVertical = true;
             SplitView.DividerStyle = NSSplitViewDividerStyle.Thin;
+            SplitView.SetValueForKey(NSColor.FromWhite((nfloat)0.15, (nfloat)0.9), (NSString)"dividerColor");
         }
 
         public override void ViewDidLoad()
