@@ -84,16 +84,16 @@
     <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\toggle_trailing_panel.png" />
     <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\toggle_trailing_panel%403x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\ToggleTrailingPanel.imageset\toggle_trailing_panel%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider16.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider16%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider32.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider32%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider128.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider128%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider256.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider256%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider512.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\cider512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16x16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16x16%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32x32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32x32%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128x128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128x128%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256x256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256x256%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512x512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512x512%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
