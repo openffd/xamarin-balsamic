@@ -33,6 +33,9 @@
                                                 </segment>
                                             </segments>
                                         </segmentedCell>
+                                        <connections>
+                                            <action selector="ToggleSidebar:" target="YPi-hK-gRE" id="Zzg-rw-jc8"/>
+                                        </connections>
                                     </segmentedControl>
                                 </toolbarItem>
                             </allowedToolbarItems>

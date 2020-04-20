@@ -14,6 +14,9 @@ namespace Balsamic.Views
 	{
 		[Outlet]
 		AppKit.NSToolbar Toolbar { get; set; }
+
+		[Action ("ToggleSidebar:")]
+		partial void ToggleSidebar (AppKit.NSSegmentedControl sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

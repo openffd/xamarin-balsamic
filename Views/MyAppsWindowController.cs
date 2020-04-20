@@ -37,5 +37,18 @@ namespace Balsamic.Views
         internal new MyAppsWindow Window => (MyAppsWindow)base.Window;
 
         #endregion
+
+        partial void ToggleSidebar(NSSegmentedControl sender)
+        {
+            switch (sender.SelectedSegment)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
+        }
     }
 }
