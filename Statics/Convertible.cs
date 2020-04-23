@@ -7,6 +7,11 @@ namespace Balsamic
 {
     static class Convertible
     {
+        internal static Foundation.NSString NSString<T>(this T someEnum) where T : IConvertible
+        {
+            return (Foundation.NSString)someEnum.String();
+        }
+
         internal static string String<T>(this T someEnum) where T : IConvertible
         {
             var isEnum = someEnum is Enum;
