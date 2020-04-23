@@ -13,6 +13,9 @@ namespace Balsamic.Views
 	partial class MyAppsWindowController
 	{
 		[Outlet]
+		AppKit.NSSegmentedControl ToggleSidebarSegmentedControl { get; set; }
+
+		[Outlet]
 		AppKit.NSToolbar Toolbar { get; set; }
 
 		[Action ("ToggleSidebar:")]
@@ -23,6 +26,11 @@ namespace Balsamic.Views
 			if (Toolbar != null) {
 				Toolbar.Dispose ();
 				Toolbar = null;
+			}
+
+			if (ToggleSidebarSegmentedControl != null) {
+				ToggleSidebarSegmentedControl.Dispose ();
+				ToggleSidebarSegmentedControl = null;
 			}
 		}
 	}
