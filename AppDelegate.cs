@@ -21,7 +21,7 @@ namespace Balsamic
 
         public override void DidFinishLaunching(NSNotification notification)
         {
-            myAppsWindowController.ShowWindow();
+            launchWindowController.ShowWindow();
         }
         
         public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
