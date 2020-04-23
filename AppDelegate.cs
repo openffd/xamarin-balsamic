@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using static AppKit.NSApplicationTerminateReply;
 using Foundation;
 
 namespace Balsamic
