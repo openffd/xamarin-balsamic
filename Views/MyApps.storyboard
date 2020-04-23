@@ -46,6 +46,7 @@
                         </toolbar>
                     </window>
                     <connections>
+                        <outlet property="ToggleSidebarSegmentedControl" destination="CXw-nh-iqM" id="9Fa-KU-Ku3"/>
                         <outlet property="Toolbar" destination="Cb7-rl-HXE" id="Pj7-or-a8s"/>
                         <segue destination="c4a-kX-D5w" kind="relationship" relationship="window.shadowedContentViewController" id="aNv-BR-q01"/>
                     </connections>
