@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Foundation;
+using System.ComponentModel;
 
 namespace Balsamic
 {
@@ -14,6 +15,38 @@ namespace Balsamic
         {
             [Description("⚠️ Not a valid email")]
             InvalidEmail,
+        }
+
+        internal static class KeyPath
+        {
+            internal enum NSSplitView
+            {
+                [Description("dividerColor")]
+                DividerColor,
+            }
+
+            internal enum NSSplitViewItem
+            {
+                [Description("collapsed")]
+                Collapsed,
+            }
+        }
+
+        internal static class Notification
+        {
+            internal static class ToggleCollapsed
+            {
+                internal static NSString Name => (NSString)"ToggleCollapsed";
+
+                internal enum UserInfoKey
+                {
+                    [Description("IsCollapsed")]
+                    IsCollapsed,
+
+                    [Description("SegmentIndex")]
+                    SegmentIndex,
+                }
+            }
         }
     }
 }
