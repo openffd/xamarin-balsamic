@@ -1,6 +1,11 @@
 ﻿using AppKit;
+using static Balsamic.String;
+using static Balsamic.String.Notification;
 using Balsamic.Views.MyApps;
+using CoreAnimation;
 using Foundation;
+using static Foundation.NSKeyValueObservingOptions;
+using ReactiveUI;
 using System;
 using System.Linq;
 
@@ -8,9 +13,43 @@ namespace Balsamic.Views
 {
     sealed partial class MyAppsSplitViewController : NSSplitViewController
     {
-        NSViewController LeadingSidebarViewController => SplitViewItems.First().ViewController;
-        NSViewController ItemContentViewController => SplitViewItems[1].ViewController;
-        NSViewController TrailingSidebarViewController => SplitViewItems.Last().ViewController;
+        NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
+
+        LeadingContentListViewController LeadingContentListViewController   { get; } = new LeadingContentListViewController();
+        MyAppsContentViewController MyAppsContentViewController             { get; } = new MyAppsContentViewController();
+        TrailingSidebarViewController TrailingSidebarViewController         { get; } = new TrailingSidebarViewController();
+
+        NSLayoutConstraint LeadingContentListViewWidthLayoutConstraint  { get; set; }
+        NSLayoutConstraint MyAppsContentViewWidthLayoutConstraint       { get; set; }
+        NSLayoutConstraint TrailingSidebarViewWidthLayoutConstraint     { get; set; }
+
+        #region Internal Methods
+
+        internal void ToggleLeadingSidebar()
+        {
+            var animator = SplitViewItems.First().Animator as NSSplitViewItem;
+            LeadingContentListViewWidthLayoutConstraint.Active = false;
+            NSAnimationContext.RunAnimation(context => {
+                context.Duration = 3;
+                animator.Collapsed = !animator.Collapsed;
+            }, () => {
+                LeadingContentListViewWidthLayoutConstraint.Active = true;
+            });
+        }
+
+        internal void ToggleTrailingSidebar()
+        {
+            var animator = SplitViewItems.Last().Animator as NSSplitViewItem;
+            TrailingSidebarViewWidthLayoutConstraint.Active = false;
+            NSAnimationContext.RunAnimation(context => {
+                context.Duration = 3;
+                animator.Collapsed = !animator.Collapsed;
+            }, () => {
+                TrailingSidebarViewWidthLayoutConstraint.Active = true;
+            });
+        }
+
+        #endregion
 
         #region Constructors
 
@@ -40,51 +79,75 @@ namespace Balsamic.Views
 
             SplitView.IsVertical = true;
             SplitView.DividerStyle = NSSplitViewDividerStyle.Thin;
-            SplitView.SetValueForKey(NSColor.FromWhite((nfloat)0.15, (nfloat)0.9), (NSString)"dividerColor");
+            SplitView.SetValueForKey(NSColor.FromWhite((nfloat)0.15, (nfloat)0.9), KeyPath.NSSplitView.DividerColor.NSString());
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            SetupLeadingContentListViewController();
-            SetupContentViewController();
-            SetupTrailingSidebarViewController();
+            SetupLeadingContentListViewControllerLayoutConstraint();
+            SetupTrailingSidebarViewControllerLayoutConstraint();
+
+            SetupLeadingSplitViewItem();
+            SetupCenterSplitViewItem();
+            SetupTrailingSplitViewItem();
         }
 
-        public override void ViewDidAppear()
+        void SetupLeadingContentListViewControllerLayoutConstraint()
         {
-            base.ViewDidAppear();
+            var layoutConstraint = LeadingContentListViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(280);
+            layoutConstraint.Active = true;
+            LeadingContentListViewWidthLayoutConstraint = layoutConstraint;
         }
 
-        void SetupLeadingContentListViewController()
+        void SetupTrailingSidebarViewControllerLayoutConstraint()
         {
-            var viewController = new LeadingContentListViewController();
-            viewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(280).Active = true;
+            var layoutConstraint = TrailingSidebarViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(12);
+            layoutConstraint.Active = true;
+            TrailingSidebarViewWidthLayoutConstraint = layoutConstraint;
+        }
 
-            var splitViewItem = NSSplitViewItem.CreateContentList(viewController);
-            splitViewItem.MaximumThickness = 440;
+        void SetupLeadingSplitViewItem()
+        {
+            var splitViewItem = NSSplitViewItem.CreateContentList(LeadingContentListViewController);
+            splitViewItem.CanCollapse = true;
+            splitViewItem.MaximumThickness = 400;
+            _ = splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
+                var userInfo = new NSDictionary
+                (
+                    ToggleCollapsed.UserInfoKey.IsCollapsed.String(), change.NewValue,
+                    ToggleCollapsed.UserInfoKey.SegmentIndex.String(), 0
+                );
+                NotificationCenter.PostNotificationName(ToggleCollapsed.Name, null, userInfo);
+            });
             AddSplitViewItem(splitViewItem);
         }
 
-        void SetupContentViewController()
+        void SetupCenterSplitViewItem()
         {
-            var viewController = new MyAppsContentViewController();
             var splitViewItem = new NSSplitViewItem()
             {
-                ViewController = viewController,
+                ViewController = MyAppsContentViewController,
                 MinimumThickness = 12,
             };
             AddSplitViewItem(splitViewItem);
         }
 
-        void SetupTrailingSidebarViewController()
+        void SetupTrailingSplitViewItem()
         {
-            var viewController = new TrailingSidebarViewController();
-            viewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(12).Active = true;
-            var splitViewItem = NSSplitViewItem.CreateSidebar(viewController);
+            var splitViewItem = NSSplitViewItem.CreateSidebar(TrailingSidebarViewController);
+            splitViewItem.CanCollapse = true;
             splitViewItem.MaximumThickness = 280;
             splitViewItem.MinimumThickness = 12;
+            _ = splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
+                var userInfo = new NSDictionary
+                (
+                    ToggleCollapsed.UserInfoKey.IsCollapsed.String(), change.NewValue,
+                    ToggleCollapsed.UserInfoKey.SegmentIndex.String(), 2
+                );
+                NotificationCenter.PostNotificationName(ToggleCollapsed.Name, null, userInfo);
+            });
             AddSplitViewItem(splitViewItem);
         }
     }
