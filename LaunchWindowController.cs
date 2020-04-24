@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using static AppKit.NSWindowStyle;
 using CoreGraphics;
 using Foundation;
 
@@ -15,9 +16,10 @@ namespace Balsamic
 
         public LaunchWindowController() : base()
         {
-            base.Window = new LaunchWindow(CGRect.Empty, NSWindowStyle.Borderless, NSBackingStore.Buffered, false)
+            base.Window = new LaunchWindow(CGRect.Empty, Borderless | Closable | Miniaturizable | Titled, NSBackingStore.Buffered, false)
             {
-                ContentViewController = (NSViewController)Balsamic.Storyboard.Welcome.InstantiateInitialController()
+                ContentViewController = (NSViewController)Balsamic.Storyboard.Welcome.InstantiateInitialController(),
+                Toolbar = new NSToolbar() { ShowsBaselineSeparator = false },
             };
         }
 
