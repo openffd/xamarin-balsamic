@@ -33,10 +33,10 @@ namespace Balsamic
             {
                 if (!(window.Delegate == null || window.Delegate.WindowShouldClose(this)))
                 {
-                    return NSApplicationTerminateReply.Cancel;
+                    return Cancel;
                 }
             }
-            return NSApplicationTerminateReply.Now;
+            return Now;
         }
 
         public override void WillTerminate(NSNotification notification) {}
