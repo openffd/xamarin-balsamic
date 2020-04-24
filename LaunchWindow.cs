@@ -14,7 +14,7 @@ namespace Balsamic
             ReleasedWhenClosed = false;
             Title = NSBundle.MainBundle.GetName();
             TitlebarAppearsTransparent = true;
-            TitleVisibility = NSWindowTitleVisibility.HiddenWhenActive;
+            TitleVisibility = NSWindowTitleVisibility.Hidden;
         }
 
         public override void AwakeFromNib()
