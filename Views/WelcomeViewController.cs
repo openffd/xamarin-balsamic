@@ -51,8 +51,6 @@ namespace Balsamic.Views
             AppIconImageView.ImageScaling = NSImageScale.ProportionallyUpOrDown;
             AppIconImageView.RefusesFirstResponder = true;
 
-            SetupCloseButton();
-            SetupBackgroundVisualEffect();
             SetupWelcomeTextField();
             SetupVersionTextField();
             SetupSigninHeaderTextField();
@@ -60,21 +58,6 @@ namespace Balsamic.Views
             SetupPasswordTextField();
             SetupForgotPasswordButton();
             SetupSigninButton();
-        }
-
-        void SetupCloseButton()
-        {
-            CloseButton.Image = Image.Close;
-            CloseButton.BezelStyle = NSBezelStyle.RoundRect;
-            CloseButton.Alignment = NSTextAlignment.Center;
-            CloseButton.SetButtonType(NSButtonType.MomentaryLightButton);
-        }
-
-        void SetupBackgroundVisualEffect()
-        {
-            BackgroundVisualEffectView.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
-            BackgroundVisualEffectView.Material = NSVisualEffectMaterial.UltraDark;
-            BackgroundVisualEffectView.State = NSVisualEffectState.FollowsWindowActiveState;
         }
 
         void SetupWelcomeTextField()
