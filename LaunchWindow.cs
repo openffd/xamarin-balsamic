@@ -15,6 +15,7 @@ namespace Balsamic
             Title = NSBundle.MainBundle.GetName();
             TitlebarAppearsTransparent = true;
             TitleVisibility = NSWindowTitleVisibility.Hidden;
+            Toolbar = new NSToolbar() { ShowsBaselineSeparator = false };
         }
 
         public override void AwakeFromNib()
