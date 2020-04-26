@@ -18,6 +18,7 @@ namespace Balsamic
             }
         }
 
+        internal static NSImage AppLogo => NSImage.ImageNamed("AppLogo");
         internal static NSImage GoForwardTemplate => NSImage.ImageNamed(SystemImage.Name.GoForwardTemplate.String());
         internal static NSImage StatusUnavailable => NSImage.ImageNamed(SystemImage.Name.StatusUnavailable.String());
         internal static NSImage UserAccounts => NSImage.ImageNamed(SystemImage.Name.UserAccounts.String());
