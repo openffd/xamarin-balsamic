@@ -22,14 +22,14 @@ namespace Balsamic.Views
 
         static class Image
         {
-            internal static NSImage AppLogo => Balsamic.Image.UserAccounts;
+            internal static NSImage AppLogo => Balsamic.Image.AppLogo;
             internal static NSImage GoForward => Balsamic.Image.GoForwardTemplate;
             internal static NSImage Close => Balsamic.Image.StatusUnavailable;
         }
 
         static class Font
         {
-            internal static NSFont WelcomeTextField => NSFont.FromFontName(HelveticaNeueBold.String(), 30);
+            internal static NSFont WelcomeTextField => NSFont.FromFontName(HelveticaNeueBold.String(), 34);
             internal static NSFont VersionTextField => NSFont.FromFontName(HelveticaNeueLight.String(), 10);
             internal static NSFont SigninHeaderTextField => NSFont.FromFontName(HelveticaNeueMedium.String(), 14);
             internal static NSFont AppleIDTextField => NSFont.FromFontName(HelveticaNeueLight.String(), 16);
