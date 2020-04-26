@@ -94,6 +94,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256x256%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512x512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512x512%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppLogo.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppLogo.imageset\512x512.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppLogo.imageset\512x512%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -102,6 +105,7 @@
     <Folder Include="Views\Reusables\" />
     <Folder Include="Utilities\" />
     <Folder Include="Views\MyApps\" />
+    <Folder Include="Resources\Assets.xcassets\AppLogo.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
