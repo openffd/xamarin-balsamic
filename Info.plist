@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>Balsamic</string>
+	<string>Apple Cider</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rageniv.Balsamic</string>
+	<string>com.rageniv.ac</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string>
 	<key>CFBundleVersion</key>
@@ -33,5 +33,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>CFBundleDisplayName</key>
+	<string>Apple Cider</string>
 </dict>
 </plist>
