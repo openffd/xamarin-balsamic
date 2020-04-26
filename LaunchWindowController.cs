@@ -1,7 +1,9 @@
 ﻿using AppKit;
+using static AppKit.NSBackingStore;
 using static AppKit.NSWindowStyle;
 using CoreGraphics;
 using Foundation;
+using System;
 
 namespace Balsamic
 {
@@ -9,17 +11,18 @@ namespace Balsamic
     {
         internal new LaunchWindow Window => (LaunchWindow)base.Window;
         
-        public LaunchWindowController(System.IntPtr handle) : base(handle) {}
+        public LaunchWindowController(IntPtr handle) : base(handle) {}
 
         [Export("initWithCoder:")]
         public LaunchWindowController(NSCoder coder) : base(coder) {}
 
         public LaunchWindowController() : base()
         {
-            base.Window = new LaunchWindow(CGRect.Empty, Borderless | Closable | Miniaturizable | Titled, NSBackingStore.Buffered, false)
+            base.Window = new LaunchWindow(CGRect.Empty, Borderless | Closable | Miniaturizable | Titled, Buffered, false)
             {
+                BackgroundColor = NSColor.FromWhite((nfloat)0.125, (nfloat)0.98),
                 ContentViewController = (NSViewController)Balsamic.Storyboard.Welcome.InstantiateInitialController(),
-                Toolbar = new NSToolbar() { ShowsBaselineSeparator = false },
+                
             };
         }
 
