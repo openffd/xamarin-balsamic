@@ -617,7 +617,7 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Window" hidden="YES" id="aUF-d1-5bR">
+                <menuItem title="Window" id="aUF-d1-5bR">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
                         <items>
@@ -642,7 +642,7 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Help" hidden="YES" id="wpr-3q-Mcd">
+                <menuItem title="Help" id="wpr-3q-Mcd">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
