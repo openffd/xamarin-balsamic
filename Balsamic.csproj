@@ -54,20 +54,23 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Mac" />
     <Reference Include="Splat">
-      <HintPath>packages\Splat.9.4.1\lib\netstandard2.0\Splat.dll</HintPath>
+      <HintPath>packages\Splat.9.4.5\lib\netstandard2.0\Splat.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive">
-      <HintPath>packages\System.Reactive.4.3.2\lib\netstandard2.0\System.Reactive.dll</HintPath>
+      <HintPath>packages\System.Reactive.4.4.1\lib\netstandard2.0\System.Reactive.dll</HintPath>
     </Reference>
     <Reference Include="DynamicData">
-      <HintPath>packages\DynamicData.6.14.8\lib\netstandard2.0\DynamicData.dll</HintPath>
+      <HintPath>packages\DynamicData.6.14.14\lib\netstandard2.0\DynamicData.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI">
-      <HintPath>packages\ReactiveUI.11.3.1\lib\xamarinmac20\ReactiveUI.dll</HintPath>
+      <HintPath>packages\ReactiveUI.11.3.8\lib\xamarinmac20\ReactiveUI.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
     <Reference Include="System.Drawing.Common.dll" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
