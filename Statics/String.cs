@@ -48,5 +48,10 @@ namespace Balsamic
                 }
             }
         }
+
+        internal static class MenuItemTitle
+        {
+            internal static string CheckForUpdates = "Check for Updates...";
+        }
     }
 }
