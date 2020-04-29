@@ -22,16 +22,19 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>false</EnableCodeSigning>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
-    <CreatePackage>false</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <CodeSigningKey>Developer ID Application</CodeSigningKey>
+    <CreatePackage>true</CreatePackage>
+    <EnablePackageSigning>true</EnablePackageSigning>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <AOTMode>None</AOTMode>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
+    <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
+    <CodeSignProvision>onemore</CodeSignProvision>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <LinkMode>SdkOnly</LinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,15 +42,18 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>false</EnableCodeSigning>
+    <EnableCodeSigning>true</EnableCodeSigning>
     <CreatePackage>true</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnablePackageSigning>true</EnablePackageSigning>
     <IncludeMonoRuntime>true</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
     <LinkMode>SdkOnly</LinkMode>
     <AOTMode>None</AOTMode>
+    <CodeSigningKey>Developer ID Application: Jacqueline Rae Lao (9795XVPG4N)</CodeSigningKey>
+    <PackageSigningKey>Developer ID Installer</PackageSigningKey>
+    <CodeSignProvision>mbpfdev</CodeSignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
