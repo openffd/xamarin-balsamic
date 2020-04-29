@@ -1,7 +1,9 @@
 ﻿using AppKit;
 using static AppKit.NSApplicationTerminateReply;
+using static Balsamic.String;
+using Balsamic.Views;
 using Foundation;
-using Sparkle;
+using System.Linq;
 
 namespace Balsamic
 {
@@ -14,9 +16,12 @@ namespace Balsamic
             void ShowWindow();
         }
 
-        readonly IWindowController launchWindowController = new LaunchWindowController();
-        readonly IWindowController myAppsWindowController = Storyboard.MyApps.InstantiateInitialController() as Views.MyAppsWindowController;
-        readonly SUUpdater updater = new SUUpdater();
+#if LAUNCH
+        IWindowController WindowController { get; } = new LaunchWindowController();
+#else
+        IWindowController WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
+#endif
+        NSApplication SharedApplication => NSApplication.SharedApplication;
 
         public AppDelegate() {}
 
@@ -24,22 +29,21 @@ namespace Balsamic
 
         public override void WillFinishLaunching(NSNotification notification)
         {
-            var item = new NSMenuItem("Check for Updates...", delegate {
-                System.Console.WriteLine("Checking for updates...");
-            });
-            NSApplication.SharedApplication.MainMenu.Items[0].Submenu.InsertItem(item, 1);
+            SetupCheckForUpdatesMenuItem();
         }
 
         void SetupCheckForUpdatesMenuItem()
         {
-
+            var menuItem = new NSMenuItem(MenuItemTitle.CheckForUpdates, delegate {
+                System.Console.WriteLine("Checking for updates...");
+            });
+            var mainMenuFirstItem = SharedApplication.MainMenu.Items.First();
+            mainMenuFirstItem.Submenu.InsertItem(menuItem, 1);
         }
 
         public override void DidFinishLaunching(NSNotification notification)
         {
-            //NSApplication.SharedApplication.MainMenu.Items[0].Submenu.Inse //Items[1].Action = new ObjCRuntime.Selector("Hello");
-
-            myAppsWindowController.ShowWindow();
+            WindowController.ShowWindow();
         }
         
         public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
