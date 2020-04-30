@@ -228,7 +228,7 @@
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\Sparkle.csproj">
       <Project>{5B22F6E9-3675-42B5-9CAA-090BA39A5407}</Project>
-      <Name>Sparkle</Name>
+      <Name>BalsamicSpark</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
