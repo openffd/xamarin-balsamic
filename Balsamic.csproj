@@ -23,7 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <EnableCodeSigning>true</EnableCodeSigning>
-    <CodeSigningKey>Developer ID Application</CodeSigningKey>
+    <CodeSigningKey>Developer ID Application: Jacqueline Rae Lao (9795XVPG4N)</CodeSigningKey>
     <CreatePackage>true</CreatePackage>
     <EnablePackageSigning>true</EnablePackageSigning>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
@@ -32,9 +32,10 @@
     <AOTMode>None</AOTMode>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
-    <CodeSignProvision>onemore</CodeSignProvision>
     <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
     <LinkMode>SdkOnly</LinkMode>
+    <CodeSignProvision>ac</CodeSignProvision>
+    <UseHardenedRuntime>true</UseHardenedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,6 +55,7 @@
     <CodeSigningKey>Developer ID Application: Jacqueline Rae Lao (9795XVPG4N)</CodeSigningKey>
     <PackageSigningKey>Developer ID Installer</PackageSigningKey>
     <CodeSignProvision>mbpfdev</CodeSignProvision>
+    <UseHardenedRuntime>true</UseHardenedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -223,12 +225,6 @@
     <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="SparkleSharp\Sparkle\Sparkle.csproj">
-      <Project>{5B22F6E9-3675-42B5-9CAA-090BA39A5407}</Project>
-      <Name>Sparkle</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
