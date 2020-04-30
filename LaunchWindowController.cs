@@ -22,7 +22,6 @@ namespace Balsamic
             {
                 BackgroundColor = NSColor.FromWhite((nfloat)0.125, (nfloat)0.98),
                 ContentViewController = (NSViewController)Balsamic.Storyboard.Welcome.InstantiateInitialController(),
-                
             };
         }
 

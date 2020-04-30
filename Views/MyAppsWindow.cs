@@ -16,7 +16,7 @@ namespace Balsamic.Views
         {
             base.AwakeFromNib();
 
-            SetFrame(new CGRect(CGPoint.Empty, new CGSize(1400, 1000)), true);
+            SetFrame(new CGRect(CGPoint.Empty, new CGSize(1350, 950)), true);
         }
     }
 }
