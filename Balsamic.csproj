@@ -226,7 +226,7 @@
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SparkleSharp\Sparkle\Sparkle.csproj">
+    <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
       <Project>{5B22F6E9-3675-42B5-9CAA-090BA39A5407}</Project>
       <Name>BalsamicSpark</Name>
     </ProjectReference>
