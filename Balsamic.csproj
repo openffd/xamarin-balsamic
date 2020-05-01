@@ -54,7 +54,6 @@
     <CodeSigningKey>Developer ID Application: Jacqueline Rae Lao (9795XVPG4N)</CodeSigningKey>
     <PackageSigningKey>Developer ID Installer</PackageSigningKey>
     <CodeSignProvision>mbpfdev</CodeSignProvision>
-    <UseHardenedRuntime>true</UseHardenedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
