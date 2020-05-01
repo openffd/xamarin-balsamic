@@ -16,7 +16,7 @@ namespace Balsamic
             void ShowWindow();
         }
 
-#if LAUNCH
+#if DEBUG
         IWindowController WindowController { get; } = new LaunchWindowController();
 #else
         IWindowController WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
