@@ -29,8 +29,8 @@ namespace Balsamic.Views
 
         static class Font
         {
-            internal static NSFont WelcomeTextField => NSFont.FromFontName(HelveticaNeueBold.String(), 34);
-            internal static NSFont VersionTextField => NSFont.FromFontName(HelveticaNeueLight.String(), 10);
+            internal static NSFont WelcomeTextField => NSFont.FromFontName(SFProDisplayBold.String(), 34);
+            internal static NSFont VersionTextField => NSFont.FromFontName(SFProDisplayRegular.String(), 10);
             internal static NSFont SigninHeaderTextField => NSFont.FromFontName(HelveticaNeueMedium.String(), 14);
             internal static NSFont AppleIDTextField => NSFont.FromFontName(HelveticaNeueLight.String(), 16);
             internal static NSFont PasswordTextField => NSFont.FromFontName(HelveticaNeueLight.String(), 16);
