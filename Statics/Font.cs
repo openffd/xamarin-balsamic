@@ -17,6 +17,12 @@ namespace Balsamic
 
             [Description("HelveticaNeue")]
             HelveticaNeue,
+
+            [Description("SFProDisplay-Bold")]
+            SFProDisplayBold,
+
+            [Description("SFProDisplay-Regular")]
+            SFProDisplayRegular,
         }
     }
 }
