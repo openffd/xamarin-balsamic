@@ -1,9 +1,10 @@
-﻿using AppKit;
+using AppKit;
 using static AppKit.NSApplicationTerminateReply;
 using static Balsamic.String;
 using Balsamic.Views;
 using Foundation;
 using System.Linq;
+using Sparkle;
 
 namespace Balsamic
 {
@@ -16,7 +17,7 @@ namespace Balsamic
             void ShowWindow();
         }
 
-#if DEBUG
+#if RELEASE
         IWindowController WindowController { get; } = new LaunchWindowController();
 #else
         IWindowController WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
@@ -36,6 +37,8 @@ namespace Balsamic
         {
             var menuItem = new NSMenuItem(MenuItemTitle.CheckForUpdates, delegate {
                 System.Console.WriteLine("Checking for updates...");
+                var updater = SUUpdater.SharedUpdater;
+                updater.CheckForUpdates(this);
             });
             var mainMenuFirstItem = SharedApplication.MainMenu.Items.First();
             mainMenuFirstItem.Submenu.InsertItem(menuItem, 1);
