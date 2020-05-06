@@ -32,7 +32,7 @@
     <AOTMode>None</AOTMode>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <PackageSigningKey>Developer ID Installer</PackageSigningKey>
     <LinkMode>SdkOnly</LinkMode>
     <CodeSignProvision>ac</CodeSignProvision>
   </PropertyGroup>
