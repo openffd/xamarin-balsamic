@@ -1,3 +1,6 @@
+delta/feed/
+delta/pkg/
+
 # globs
 Makefile.in
 *.userprefs
