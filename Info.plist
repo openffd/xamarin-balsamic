@@ -7,9 +7,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.rageniv.ac</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>0.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>3AE233</string>
+	<string>0.1.089</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.15</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -35,5 +35,7 @@
 	</dict>
 	<key>CFBundleDisplayName</key>
 	<string>Apple Cider</string>
+	<key>SUFeedURL</key>
+	<string>https://applecider.s3-ap-southeast-1.amazonaws.com/ac.xml</string>
 </dict>
 </plist>
