@@ -23,6 +23,7 @@ namespace Balsamic
         IWindowController WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
 #endif
         NSApplication SharedApplication => NSApplication.SharedApplication;
+        SUUpdater SharedUpdater => SUUpdater.SharedUpdater;
 
         public AppDelegate() {}
 
@@ -36,9 +37,7 @@ namespace Balsamic
         void SetupCheckForUpdatesMenuItem()
         {
             var menuItem = new NSMenuItem(MenuItemTitle.CheckForUpdates, delegate {
-                System.Console.WriteLine("Checking for updates...");
-                var updater = SUUpdater.SharedUpdater;
-                updater.CheckForUpdates(this);
+                SharedUpdater.CheckForUpdates(this);
             });
             var mainMenuFirstItem = SharedApplication.MainMenu.Items.First();
             mainMenuFirstItem.Submenu.InsertItem(menuItem, 1);
