@@ -115,6 +115,7 @@
     <Folder Include="Views\MyApps\" />
     <Folder Include="Resources\Assets.xcassets\AppLogo.imageset\" />
     <Folder Include="Views\MyApps\LeadingContentListView\" />
+    <Folder Include="Views\ResendCode\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -159,18 +160,7 @@
     <Compile Include="Views\TwoFactorAuthWindowController.textEditing.cs">
       <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ResendCodeView.cs" />
-    <Compile Include="Views\ResendCodeViewController.cs" />
-    <Compile Include="Views\ResendCodeView.designer.cs">
-      <DependentUpon>ResendCodeView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ResendCodeViewController.designer.cs">
-      <DependentUpon>ResendCodeViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Statics\Image.cs" />
-    <Compile Include="Views\ResendCodeViewController.constants.cs">
-      <DependentUpon>ResendCodeViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Statics\Font.cs" />
     <Compile Include="Utilities\SingleDigitFormatter.cs" />
     <Compile Include="Views\MyAppsWindow.cs" />
@@ -214,17 +204,28 @@
     <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListViewController.designer.cs">
       <DependentUpon>LeadingContentListViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResendCode\ResendCodeView.cs" />
+    <Compile Include="Views\ResendCode\ResendCodeView.designer.cs">
+      <DependentUpon>ResendCodeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResendCode\ResendCodeViewController.cs" />
+    <Compile Include="Views\ResendCode\ResendCodeViewController.designer.cs">
+      <DependentUpon>ResendCodeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResendCode\ResendCodeViewController.constants.cs">
+      <DependentUpon>ResendCodeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
     <InterfaceDefinition Include="Views\TwoFactorAuthWindow.xib" />
-    <InterfaceDefinition Include="Views\ResendCodeView.xib" />
     <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\LeadingContentListView.xib" />
+    <InterfaceDefinition Include="Views\ResendCode\ResendCodeView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
