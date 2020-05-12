@@ -29,5 +29,13 @@ namespace Balsamic.Views.MyApps
         #endregion
 
         internal new LeadingContentListView View => base.View as LeadingContentListView;
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            OutlineView.AutosaveExpandedItems = true;
+
+        }
     }
 }
