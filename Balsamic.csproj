@@ -155,20 +155,8 @@
     <Compile Include="Statics\Image.cs" />
     <Compile Include="Statics\Font.cs" />
     <Compile Include="Utilities\SingleDigitFormatter.cs" />
-    <Compile Include="Views\MyAppsWindow.cs" />
-    <Compile Include="Views\MyAppsWindow.designer.cs">
-      <DependentUpon>MyAppsWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyAppsWindowController.cs" />
-    <Compile Include="Views\MyAppsWindowController.designer.cs">
-      <DependentUpon>MyAppsWindowController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\WelcomeViewController.constants.cs">
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyAppsSplitViewController.cs" />
-    <Compile Include="Views\MyAppsSplitViewController.designer.cs">
-      <DependentUpon>MyAppsSplitViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListOutlineViewDataSource.cs" />
     <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListOutlineViewDelegate.cs" />
@@ -218,17 +206,29 @@
     <Compile Include="Views\MyApps\MyAppsContentView\MyAppsContentViewController.designer.cs">
       <DependentUpon>MyAppsContentViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyApps\MyAppsSplitViewController.cs" />
+    <Compile Include="Views\MyApps\MyAppsSplitViewController.designer.cs">
+      <DependentUpon>MyAppsSplitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\MyAppsWindow.cs" />
+    <Compile Include="Views\MyApps\MyAppsWindow.designer.cs">
+      <DependentUpon>MyAppsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\MyAppsWindowController.cs" />
+    <Compile Include="Views\MyApps\MyAppsWindowController.designer.cs">
+      <DependentUpon>MyAppsWindowController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
-    <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
-    <InterfaceDefinition Include="Views\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\LeadingContentListView.xib" />
     <InterfaceDefinition Include="Views\ResendCode\ResendCodeView.xib" />
     <InterfaceDefinition Include="Views\TwoFactorAuth\TwoFactorAuthWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView\TrailingSidebarView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\MyAppsContentView.xib" />
+    <InterfaceDefinition Include="Views\MyApps\MyApps.storyboard" />
+    <InterfaceDefinition Include="Views\MyApps\MyAppsWindow.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
