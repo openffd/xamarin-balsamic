@@ -116,6 +116,7 @@
     <Folder Include="Resources\Assets.xcassets\AppLogo.imageset\" />
     <Folder Include="Views\MyApps\LeadingContentListView\" />
     <Folder Include="Views\ResendCode\" />
+    <Folder Include="Views\TwoFactorAuth\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -147,19 +148,8 @@
     <Compile Include="Views\WelcomeViewController.popover.cs"> 
       <DependentUpon>WelcomeViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TwoFactorAuthWindow.cs" />
-    <Compile Include="Views\TwoFactorAuthWindow.designer.cs">
-      <DependentUpon>TwoFactorAuthWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TwoFactorAuthWindowController.cs" />
-    <Compile Include="Views\TwoFactorAuthWindowController.designer.cs">
-      <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Reusables\SingleDigitTextField.cs" />
     <Compile Include="Statics\IndexedEnumerable.cs" />
-    <Compile Include="Views\TwoFactorAuthWindowController.textEditing.cs">
-      <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Statics\Image.cs" />
     <Compile Include="Statics\Font.cs" />
     <Compile Include="Utilities\SingleDigitFormatter.cs" />
@@ -215,17 +205,28 @@
     <Compile Include="Views\ResendCode\ResendCodeViewController.constants.cs">
       <DependentUpon>ResendCodeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TwoFactorAuth\TwoFactorAuthWindow.cs" />
+    <Compile Include="Views\TwoFactorAuth\TwoFactorAuthWindow.designer.cs">
+      <DependentUpon>TwoFactorAuthWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TwoFactorAuth\TwoFactorAuthWindowController.cs" />
+    <Compile Include="Views\TwoFactorAuth\TwoFactorAuthWindowController.designer.cs">
+      <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TwoFactorAuth\TwoFactorAuthWindowController.textEditing.cs">
+      <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
-    <InterfaceDefinition Include="Views\TwoFactorAuthWindow.xib" />
     <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\LeadingContentListView.xib" />
     <InterfaceDefinition Include="Views\ResendCode\ResendCodeView.xib" />
+    <InterfaceDefinition Include="Views\TwoFactorAuth\TwoFactorAuthWindow.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
