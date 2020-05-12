@@ -117,6 +117,7 @@
     <Folder Include="Views\MyApps\LeadingContentListView\" />
     <Folder Include="Views\ResendCode\" />
     <Folder Include="Views\TwoFactorAuth\" />
+    <Folder Include="Views\MyApps\TrailingSidebarView\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -168,14 +169,6 @@
     <Compile Include="Views\MyAppsSplitViewController.designer.cs">
       <DependentUpon>MyAppsSplitViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyApps\TrailingSidebarView.cs" />
-    <Compile Include="Views\MyApps\TrailingSidebarViewController.cs" />
-    <Compile Include="Views\MyApps\TrailingSidebarView.designer.cs">
-      <DependentUpon>TrailingSidebarView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyApps\TrailingSidebarViewController.designer.cs">
-      <DependentUpon>TrailingSidebarViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\MyApps\MyAppsContentView.cs" />
     <Compile Include="Views\MyApps\MyAppsContentViewController.cs" />
     <Compile Include="Views\MyApps\MyAppsContentView.designer.cs">
@@ -216,17 +209,25 @@
     <Compile Include="Views\TwoFactorAuth\TwoFactorAuthWindowController.textEditing.cs">
       <DependentUpon>TwoFactorAuthWindowController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyApps\TrailingSidebarView\TrailingSidebarView.cs" />
+    <Compile Include="Views\MyApps\TrailingSidebarView\TrailingSidebarView.designer.cs">
+      <DependentUpon>TrailingSidebarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\TrailingSidebarView\TrailingSidebarViewController.cs" />
+    <Compile Include="Views\MyApps\TrailingSidebarView\TrailingSidebarViewController.designer.cs">
+      <DependentUpon>TrailingSidebarViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
     <InterfaceDefinition Include="Views\Welcome.storyboard" />
     <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps.storyboard" />
-    <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\LeadingContentListView.xib" />
     <InterfaceDefinition Include="Views\ResendCode\ResendCodeView.xib" />
     <InterfaceDefinition Include="Views\TwoFactorAuth\TwoFactorAuthWindow.xib" />
+    <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView\TrailingSidebarView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
