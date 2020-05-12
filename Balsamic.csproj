@@ -212,6 +212,7 @@
       <DependentUpon>MyAppsContentViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MyApps\LeadingContentListOutlineViewDelegate.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListOutlineViewDataSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />

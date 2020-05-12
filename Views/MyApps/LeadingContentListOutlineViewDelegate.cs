@@ -2,9 +2,9 @@
 
 namespace Balsamic.Views.MyApps
 {
-    public class LeadingContentOutlineDelegate : NSOutlineViewDelegate
+    public class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
     {
-        public LeadingContentOutlineDelegate()
+        public LeadingContentListOutlineViewDelegate()
         {
 
         }
