@@ -119,6 +119,7 @@
     <Folder Include="Views\TwoFactorAuth\" />
     <Folder Include="Views\MyApps\TrailingSidebarView\" />
     <Folder Include="Views\MyApps\MyAppsContentView\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -218,6 +219,7 @@
     <Compile Include="Views\MyApps\MyAppsWindowController.designer.cs">
       <DependentUpon>MyAppsWindowController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Node.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
