@@ -114,6 +114,7 @@
     <Folder Include="Utilities\" />
     <Folder Include="Views\MyApps\" />
     <Folder Include="Resources\Assets.xcassets\AppLogo.imageset\" />
+    <Folder Include="Views\MyApps\LeadingContentListView\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -195,14 +196,6 @@
     <Compile Include="Views\MyApps\TrailingSidebarViewController.designer.cs">
       <DependentUpon>TrailingSidebarViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyApps\LeadingContentListView.cs" />
-    <Compile Include="Views\MyApps\LeadingContentListViewController.cs" />
-    <Compile Include="Views\MyApps\LeadingContentListView.designer.cs">
-      <DependentUpon>LeadingContentListView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyApps\LeadingContentListViewController.designer.cs">
-      <DependentUpon>LeadingContentListViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\MyApps\MyAppsContentView.cs" />
     <Compile Include="Views\MyApps\MyAppsContentViewController.cs" />
     <Compile Include="Views\MyApps\MyAppsContentView.designer.cs">
@@ -211,8 +204,16 @@
     <Compile Include="Views\MyApps\MyAppsContentViewController.designer.cs">
       <DependentUpon>MyAppsContentViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyApps\LeadingContentListOutlineViewDelegate.cs" />
-    <Compile Include="Views\MyApps\LeadingContentListOutlineViewDataSource.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListOutlineViewDataSource.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListOutlineViewDelegate.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListView.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListView.designer.cs">
+      <DependentUpon>LeadingContentListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListViewController.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListViewController.designer.cs">
+      <DependentUpon>LeadingContentListViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -222,8 +223,8 @@
     <InterfaceDefinition Include="Views\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\TrailingSidebarView.xib" />
-    <InterfaceDefinition Include="Views\MyApps\LeadingContentListView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView.xib" />
+    <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\LeadingContentListView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
