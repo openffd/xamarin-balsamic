@@ -29,7 +29,7 @@
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
-    <AOTMode>None</AOTMode>
+    <AOTMode>Core</AOTMode>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
     <PackageSigningKey>Developer ID Installer</PackageSigningKey>
@@ -50,7 +50,7 @@
     <UseRefCounting>true</UseRefCounting>
     <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
     <LinkMode>SdkOnly</LinkMode>
-    <AOTMode>None</AOTMode>
+    <AOTMode>Core</AOTMode>
     <CodeSigningKey>Developer ID Application: Jacqueline Rae Lao (9795XVPG4N)</CodeSigningKey>
     <PackageSigningKey>Developer ID Installer</PackageSigningKey>
     <CodeSignProvision>ac</CodeSignProvision>
