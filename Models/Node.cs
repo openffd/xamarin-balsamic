@@ -1,10 +1,11 @@
 ﻿using AppKit;
 using Foundation;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Balsamic.Models
 {
-    sealed class Node : NSObject 
+    sealed class Node : NSObject, IEnumerator, IEnumerable
     {
         private readonly List<Node> _nodes = new List<Node>();
 
@@ -13,7 +14,7 @@ namespace Balsamic.Models
         internal NSImage Image { get; set; }
         internal string Tag { get; set; } = string.Empty;
 
-        public Node() {}
+        public Node() { }
 
         public Node(string title, string description, NSImage image, string tag, SelectionDelegate selectionDelegate)
         {
@@ -35,6 +36,31 @@ namespace Balsamic.Models
         internal int Count => _nodes.Count;
 
         internal bool HasChildren => Count > 0;
+
+        #endregion
+
+        #region Enumerable
+
+        private int _position = -1;
+
+        public IEnumerator GetEnumerator()
+        {
+            _position = -1;
+            return this as IEnumerator;
+        }
+
+        public bool MoveNext()
+        {
+            _position++;
+            return _position < Count;
+        }
+
+        public void Reset()
+        {
+            _position = -1;
+        }
+
+        public object Current => _position < 0 ? null : _nodes[_position];
 
         #endregion
 
