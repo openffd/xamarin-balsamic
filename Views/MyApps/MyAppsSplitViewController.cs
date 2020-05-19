@@ -8,6 +8,7 @@ using static Foundation.NSKeyValueObservingOptions;
 using ReactiveUI;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Balsamic.Views
 {
@@ -22,6 +23,8 @@ namespace Balsamic.Views
         NSLayoutConstraint LeadingContentListViewWidthLayoutConstraint  { get; set; }
         NSLayoutConstraint MyAppsContentViewWidthLayoutConstraint       { get; set; }
         NSLayoutConstraint TrailingSidebarViewWidthLayoutConstraint     { get; set; }
+
+        List<IDisposable> Disposables { get; set; } = new List<IDisposable>();
 
         #region Internal Methods
 
@@ -94,6 +97,13 @@ namespace Balsamic.Views
             SetupTrailingSplitViewItem();
         }
 
+        public override void ViewWillDisappear()
+        {
+            base.ViewWillDisappear();
+
+            Disposables.ForEach(item => item.Dispose());
+        }
+
         void SetupLeadingContentListViewControllerLayoutConstraint()
         {
             var layoutConstraint = LeadingContentListViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(280);
@@ -113,15 +123,16 @@ namespace Balsamic.Views
             var splitViewItem = NSSplitViewItem.CreateContentList(LeadingContentListViewController);
             splitViewItem.CanCollapse = true;
             splitViewItem.MaximumThickness = 400;
-            _ = splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
+            AddSplitViewItem(splitViewItem);
+
+            Disposables.Add(splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
                 var userInfo = new NSDictionary
                 (
                     ToggleCollapsed.UserInfoKey.IsCollapsed.String(), change.NewValue,
                     ToggleCollapsed.UserInfoKey.SegmentIndex.String(), 0
                 );
                 NotificationCenter.PostNotificationName(ToggleCollapsed.Name, null, userInfo);
-            });
-            AddSplitViewItem(splitViewItem);
+            }));
         }
 
         void SetupCenterSplitViewItem()
@@ -140,15 +151,16 @@ namespace Balsamic.Views
             splitViewItem.CanCollapse = true;
             splitViewItem.MaximumThickness = 280;
             splitViewItem.MinimumThickness = 12;
-            _ = splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
+            AddSplitViewItem(splitViewItem);
+
+            Disposables.Add(splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
                 var userInfo = new NSDictionary
                 (
                     ToggleCollapsed.UserInfoKey.IsCollapsed.String(), change.NewValue,
                     ToggleCollapsed.UserInfoKey.SegmentIndex.String(), 2
                 );
                 NotificationCenter.PostNotificationName(ToggleCollapsed.Name, null, userInfo);
-            });
-            AddSplitViewItem(splitViewItem);
+            }));
         }
     }
 }
