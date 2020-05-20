@@ -124,6 +124,7 @@
     <Folder Include="Data\Account\" />
     <Folder Include="Data\Application\" />
     <Folder Include="Data\Version\" />
+    <Folder Include="Models\Sample\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -224,6 +225,7 @@
       <DependentUpon>MyAppsWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Node.cs" />
+    <Compile Include="Models\Sample\DataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -243,9 +245,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Data\Account\account.json" />
     <BundleResource Include="Data\Application\applications.json" />
     <BundleResource Include="Data\Version\versions.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Account\account.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
