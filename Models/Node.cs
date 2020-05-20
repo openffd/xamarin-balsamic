@@ -2,6 +2,7 @@
 using Foundation;
 using System.Collections;
 using System.Collections.Generic;
+using static Balsamic.Models.NodeType;
 
 namespace Balsamic.Models
 {
@@ -41,7 +42,7 @@ namespace Balsamic.Models
 
         #region Enumerable
 
-        private int _position = -1;
+        private protected int _position = -1;
 
         public IEnumerator GetEnumerator()
         {
@@ -98,11 +99,19 @@ namespace Balsamic.Models
         }
     }
 
-    class OutlineViewNode : Node
+    internal enum NodeType { Account, Application, Version, Separator, Unknown }
+
+    sealed class LeadingContentListOutlineViewNode : Node
     {
-        internal bool IsHello()
-        {
-            
-        }
+        internal NodeType Type { get; set; } = Unknown;
+
+        internal List<Node> Children => _nodes;
+
+        internal bool IsAccount     => Type == Account;
+        internal bool IsApplication => Type == Application;
+        internal bool IsVersion     => Type == Version;
+        internal bool IsSeparator   => Type == Separator;
+
+        internal bool Leaf => IsAccount;
     }
 }
