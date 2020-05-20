@@ -5,16 +5,16 @@ using System.Collections.Generic;
 
 namespace Balsamic.Models
 {
-    sealed class Node : NSObject, IEnumerator, IEnumerable
+    class Node : NSObject, IEnumerator, IEnumerable
     {
-        private readonly List<Node> _nodes = new List<Node>();
+        private protected readonly List<Node> _nodes = new List<Node>();
 
         internal string Title { get; set; } = string.Empty;
         internal new string Description { get; set; } = string.Empty;
         internal NSImage Image { get; set; }
         internal string Tag { get; set; } = string.Empty;
 
-        public Node() { }
+        public Node() {}
 
         public Node(string title, string description, NSImage image, string tag, SelectionDelegate selectionDelegate)
         {
@@ -95,6 +95,14 @@ namespace Balsamic.Models
         internal void RaiseSelectedEvent()
         {
             Delegate?.Invoke();
+        }
+    }
+
+    class OutlineViewNode : Node
+    {
+        internal bool IsHello()
+        {
+            
         }
     }
 }
