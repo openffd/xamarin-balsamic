@@ -1,0 +1,61 @@
+﻿[
+  {
+    "app-id": "7E1471E5-B810-4FE8-8FD0-C39332309AFB",
+    "copyright": "2020 All rights reserved.",
+    "id": "8303AA2F-80AF-49BE-BE6C-81592065196A",
+    "metadata": [
+      {
+        "app-store-name": "Numni",
+        "app-store-subtitle": "Manage classes you take",
+        "description": "Enrolling in a new class can be both exciting and nerve-racking. After all, the possibilities are endless. Now, while we cannot expect everything to go our way, what we can do is prepare for it. This is where Numni comes in. \n\nHere are the following things you get to do with Numni: \n\n- List down all of your class schedules and other activities such as study groups, seminars, practical exams and more. \n- Look at your calendar to view your scheduled activities in one glance. \n- Add notes to your activities to make sure you never forget details. \n- Enable notifications to be reminded of your schedules and activities through reminders.\n- Enter your password to be able to secure all of your details.  \n\nGood luck with your new class! Enjoy it with Numni! Download the app now!  ",
+        "id": "B5B685FC-80CE-4710-8027-8F7A316ECB74",
+        "keywords": "class, plan, schedule your class, plan class, schedule, schedule class, remind class, list class",
+        "lang": "en-AU",
+        "store-id": "1219297620",
+        "support-url": "http:\/\/numni-support.mystrikingly.com\/",
+        "version-id": "8303AA2F-80AF-49BE-BE6C-81592065196A"
+      }
+    ],
+    "origin": "live",
+    "platform": "ios",
+    "review": {
+      "email": "jacquelineraelao@gmail.com",
+      "first-name": "Jacqueline Rae",
+      "last-name": "Lao",
+      "needs-credentials": false,
+      "phone": "+63 936 955 7681"
+    },
+    "state": "developerRemovedFromSale",
+    "store-id": "835126230",
+    "version": "1.0"
+  },
+  {
+    "app-id": "BF888FE1-278C-4BDA-ABD1-82E076C9F02F",
+    "id": "A1886C0A-B89F-41C8-B410-AC40C3E887D4",
+    "metadata": [
+      {
+        "app-store-name": "Xamplr",
+        "id": "E015F20F-0D37-436A-B36B-EE3539A77C52",
+        "lang": "ar-SA",
+        "store-id": "1219910769",
+        "version-id": "A1886C0A-B89F-41C8-B410-AC40C3E887D4"
+      },
+      {
+        "app-store-name": "Xamplr",
+        "app-store-subtitle-edited": "Hola",
+        "id": "B2F598C1-9DF4-4470-93A6-12894C9CD1B1",
+        "lang": "en-US",
+        "store-id": "1219655688",
+        "version-id": "A1886C0A-B89F-41C8-B410-AC40C3E887D4"
+      }
+    ],
+    "origin": "edit",
+    "platform": "ios",
+    "review": {
+      "needs-credentials": true
+    },
+    "state": "prepareForUpload",
+    "store-id": "835273666",
+    "version": "1.0"
+  }
+]

@@ -1,0 +1,28 @@
+﻿[
+  {
+    "account-id": "B2346725-71F8-4843-891C-4B5307C65D12",
+    "bundle-id": "com.numnijudo.app",
+    "icon-url": "https:\/\/is3-ssl.mzstatic.com\/image\/thumb\/Purple123\/v4\/d2\/16\/2c\/d2162c11-58d7-c596-9fba-ac9cf3c70046\/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-85-220.png\/340x340bb-80.png",
+    "id": "7E1471E5-B810-4FE8-8FD0-C39332309AFB",
+    "lang": "en-AU",
+    "local": true,
+    "name": "Numni",
+    "platform": "ios",
+    "primary-category": "MZGenre.Utilities",
+    "SKU": "numni",
+    "store-id": "1502956222",
+    "version-count": 1
+  },
+  {
+    "account-id": "B2346725-71F8-4843-891C-4B5307C65D12",
+    "bundle-id": "com.xamplr.vine",
+    "id": "BF888FE1-278C-4BDA-ABD1-82E076C9F02F",
+    "lang": "ar-SA",
+    "local": true,
+    "name": "Xamplr",
+    "platform": "ios",
+    "SKU": "1585210479",
+    "store-id": "1504637757",
+    "version-count": 1
+  }
+]
