@@ -32,6 +32,15 @@ namespace Balsamic
             }
         }
 
+        internal enum FileExtension
+        {
+            [Description("json")]
+            Json,
+
+            [Description("xml")]
+            Xml,
+        }
+
         internal static class Notification
         {
             internal static class ToggleCollapsed
