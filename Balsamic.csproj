@@ -120,6 +120,7 @@
     <Folder Include="Views\MyApps\TrailingSidebarView\" />
     <Folder Include="Views\MyApps\MyAppsContentView\" />
     <Folder Include="Models\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -237,6 +238,9 @@
       <Project>{5B22F6E9-3675-42B5-9CAA-090BA39A5407}</Project>
       <Name>BalsamicSpark</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Data\account.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
