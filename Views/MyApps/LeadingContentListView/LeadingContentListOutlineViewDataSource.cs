@@ -20,7 +20,7 @@ namespace Balsamic.Views.MyApps
             if (item == null)
                 return Nodes.Count;
 
-            return (item as Node).Nodes.Count;
+            return (item as Node).Count;
         }
 
         public override NSObject GetChild(NSOutlineView outlineView, nint childIndex, NSObject item)
@@ -28,7 +28,12 @@ namespace Balsamic.Views.MyApps
             if (item == null)
                 return Nodes[(int)childIndex];
 
-            return (item as Node).Nodes[(int)childIndex];
+            return (item as Node)[(int)childIndex];
+        }
+
+        public override NSObject GetObjectValue(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
+        {
+            return new NSString((item as Node).Title);
         }
 
         public override bool ItemExpandable(NSOutlineView outlineView, NSObject item)
@@ -48,5 +53,18 @@ namespace Balsamic.Views.MyApps
         }
 
         #endregion
+
+        internal Node NodeForRow(int row)
+        {
+            int index = 0;
+            foreach (Node node in Nodes)
+            {
+                if (row >= index && row <= (index + node.Count))
+                    return node[row - index - 1];
+
+                index += node.Count + 1;
+            }
+            return null;
+        }
     }
 }
