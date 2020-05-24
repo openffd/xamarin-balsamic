@@ -121,10 +121,11 @@
     <Folder Include="Views\MyApps\MyAppsContentView\" />
     <Folder Include="Models\" />
     <Folder Include="Data\" />
-    <Folder Include="Data\Account\" />
-    <Folder Include="Data\Application\" />
-    <Folder Include="Data\Version\" />
     <Folder Include="Models\Sample\" />
+    <Folder Include="Data\Sample\" />
+    <Folder Include="Data\Sample\Account\" />
+    <Folder Include="Data\Sample\Application\" />
+    <Folder Include="Data\Sample\Version\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -226,6 +227,7 @@
     </Compile>
     <Compile Include="Models\Node.cs" />
     <Compile Include="Models\Sample\DataProvider.cs" />
+    <Compile Include="Models\Sample\Account.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -245,11 +247,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Data\Application\applications.json" />
-    <BundleResource Include="Data\Version\versions.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Data\Account\account.json" />
+    <BundleResource Include="Data\Sample\Account\account.json" />
+    <BundleResource Include="Data\Sample\Application\applications.json" />
+    <BundleResource Include="Data\Sample\Version\versions.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
