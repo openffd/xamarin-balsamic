@@ -227,7 +227,8 @@
     </Compile>
     <Compile Include="Models\Node.cs" />
     <Compile Include="Models\Sample\DataProvider.cs" />
-    <Compile Include="Models\Sample\Account.cs" />
+    <Compile Include="Models\Sample\AppleDevAccount.cs" />
+    <Compile Include="Models\Sample\ApplicationInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />

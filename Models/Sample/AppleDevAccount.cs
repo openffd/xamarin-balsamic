@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class Account : NSObject
+    sealed class AppleDevAccount : NSObject
     {
         internal static string ResourcePath = "Data/Sample/Account/account";
 
