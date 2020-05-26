@@ -46,7 +46,7 @@ namespace Balsamic.Models
         public IEnumerator GetEnumerator()
         {
             _position = -1;
-            return this as IEnumerator;
+            return this;
         }
 
         public bool MoveNext()
