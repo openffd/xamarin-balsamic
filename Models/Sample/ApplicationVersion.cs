@@ -6,7 +6,7 @@ namespace Balsamic.Models.Sample
 {
     sealed class ApplicationVersion : NSObject
     {
-        internal static string ResourcePath = "Data/Version/versions";
+        internal static string ResourcePath = "Data/ApplicationVersion/ApplicationVersion";
 
         [JsonProperty(PropertyName = "app-id")]
         public string AppId { get; set; }

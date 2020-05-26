@@ -5,7 +5,7 @@ namespace Balsamic.Models.Sample
 {
     sealed class AppleDevAccount : NSObject
     {
-        internal static string ResourcePath = "Data/Sample/Account/account";
+        internal static string ResourcePath = "Data/Sample/AppleDevAccount/AppleDevAccount";
 
         [JsonProperty(PropertyName = "apple-id-key")]
         public string AppleIdKey { get; set; }

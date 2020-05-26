@@ -5,7 +5,7 @@ namespace Balsamic.Models.Sample
 {
     sealed class ApplicationDetail : NSObject
     {
-        internal static string ResourcePath = "Data/Application/applications";
+        internal static string ResourcePath = "Data/ApplicationDetail/ApplicationDetail";
 
         [JsonProperty(PropertyName = "account-id")]
         public string AccountId { get; set; }
