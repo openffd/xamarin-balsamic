@@ -1,11 +1,14 @@
 ﻿using System;
 using Foundation;
 using AppKit;
+using Balsamic.Models.Sample;
 
 namespace Balsamic.Views.MyApps
 {
     sealed partial class LeadingContentListViewController : NSViewController
     {
+        readonly DataProvider DataProvider = new DataProvider();
+
         #region Constructors
 
         public LeadingContentListViewController(IntPtr handle) : base(handle)
@@ -34,8 +37,13 @@ namespace Balsamic.Views.MyApps
         {
             base.ViewDidLoad();
 
-            OutlineView.AutosaveExpandedItems = true;
+            var dataSource = new LeadingContentListOutlineViewDataSource();
 
+            OutlineView.AutosaveExpandedItems = true;
+            OutlineView.DataSource = dataSource;
+            OutlineView.Delegate = new LeadingContentListOutlineViewDelegate();
+            OutlineView.SelectionHighlightStyle = NSTableViewSelectionHighlightStyle.SourceList;
+            OutlineView.ReloadData();
         }
     }
 }
