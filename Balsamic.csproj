@@ -123,9 +123,9 @@
     <Folder Include="Data\" />
     <Folder Include="Models\Sample\" />
     <Folder Include="Data\Sample\" />
-    <Folder Include="Data\Sample\Account\" />
-    <Folder Include="Data\Sample\Application\" />
-    <Folder Include="Data\Sample\Version\" />
+    <Folder Include="Data\Sample\AppleDevAccount\" />
+    <Folder Include="Data\Sample\ApplicationDetail\" />
+    <Folder Include="Data\Sample\ApplicationVersion\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -251,9 +251,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Data\Sample\Account\account.json" />
-    <BundleResource Include="Data\Sample\Application\applications.json" />
-    <BundleResource Include="Data\Sample\Version\versions.json" />
+    <BundleResource Include="Data\Sample\AppleDevAccount\AppleDevAccount.json" />
+    <BundleResource Include="Data\Sample\ApplicationDetail\ApplicationDetail.json" />
+    <BundleResource Include="Data\Sample\ApplicationVersion\ApplicationVersion.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
