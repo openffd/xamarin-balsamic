@@ -6,11 +6,11 @@ namespace Balsamic.Models
 {
     enum LeadingContentListOutlineViewNodeType
     {
-        Account,
-        Application,
-        Version,
+        AppleDevAccount,
+        ApplicationDetail,
+        ApplicationVersion,
         Separator,
-        Unknown
+        Unknown,
     }
 
     interface ILeadingContentListOutlineViewNodePayload
@@ -27,11 +27,11 @@ namespace Balsamic.Models
 
         internal List<Node> Children => _nodes;
 
-        internal bool IsAccount     => NodeType == Account;
-        internal bool IsApplication => NodeType == Application;
-        internal bool IsVersion     => NodeType == Version;
-        internal bool IsSeparator   => NodeType == Separator;
+        internal bool IsAppleDevAccount     => NodeType == AppleDevAccount;
+        internal bool IsApplicationDetail   => NodeType == ApplicationDetail;
+        internal bool IsApplicationVersion  => NodeType == ApplicationVersion;
+        internal bool IsSeparator           => NodeType == Separator;
 
-        internal bool Leaf => IsVersion || IsSeparator;
+        internal bool Leaf => IsApplicationVersion || IsSeparator;
     }
 }
