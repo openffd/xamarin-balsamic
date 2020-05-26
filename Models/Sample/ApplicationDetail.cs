@@ -1,9 +1,10 @@
-﻿using Foundation;
+﻿using AppKit;
+using Foundation;
 using Newtonsoft.Json;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class ApplicationDetail : NSObject
+    sealed class ApplicationDetail : NSObject, ILeadingContentListOutlineViewNodePayload
     {
         internal static string ResourcePath = "Data/Sample/ApplicationDetail/ApplicationDetail";
 
@@ -42,5 +43,15 @@ namespace Balsamic.Models.Sample
 
         [JsonProperty(PropertyName = "version-count")]
         public int VersionCount { get; set; }
+
+        #region ILeadingContentListOutlineViewNodePayload
+
+        public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.ApplicationDetail;
+
+        public NSImage Image => throw new System.NotImplementedException();
+
+        public string Title => Name;
+
+        #endregion
     }
 }

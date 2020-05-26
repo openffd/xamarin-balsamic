@@ -1,9 +1,10 @@
-﻿using Foundation;
+﻿using AppKit;
+using Foundation;
 using Newtonsoft.Json;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class AppleDevAccount : NSObject
+    sealed class AppleDevAccount : NSObject, ILeadingContentListOutlineViewNodePayload
     {
         internal static string ResourcePath = "Data/Sample/AppleDevAccount/AppleDevAccount";
 
@@ -27,5 +28,15 @@ namespace Balsamic.Models.Sample
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
+
+        #region ILeadingContentListOutlineViewNodePayload
+
+        public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.AppleDevAccount;
+
+        public NSImage Image => throw new System.NotImplementedException();
+
+        public string Title => TeamName;
+
+        #endregion
     }
 }

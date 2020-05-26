@@ -1,10 +1,11 @@
-﻿using Foundation;
+﻿using AppKit;
+using Foundation;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class ApplicationVersion : NSObject
+    sealed class ApplicationVersion : NSObject, ILeadingContentListOutlineViewNodePayload
     {
         internal static string ResourcePath = "Data/Sample/ApplicationVersion/ApplicationVersion";
 
@@ -37,5 +38,17 @@ namespace Balsamic.Models.Sample
 
         [JsonProperty(PropertyName = "version")]
         public string VersionString { get; set; }
+
+        internal string StateText => "Developer Removed from Sale";
+
+        #region ILeadingContentListOutlineViewNodePayload
+
+        public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.ApplicationVersion;
+
+        public NSImage Image => throw new System.NotImplementedException();
+
+        public string Title => $"{VersionString} {StateText}";
+
+        #endregion
     }
 }
