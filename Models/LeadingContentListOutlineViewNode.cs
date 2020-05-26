@@ -1,15 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using AppKit;
+using System.Collections.Generic;
 using static Balsamic.Models.LeadingContentListOutlineViewNodeType;
 
 namespace Balsamic.Models
 {
-    internal enum LeadingContentListOutlineViewNodeType
+    enum LeadingContentListOutlineViewNodeType
     {
         Account,
         Application,
         Version,
         Separator,
         Unknown
+    }
+
+    interface ILeadingContentListOutlineViewNodePayload
+    {
+        LeadingContentListOutlineViewNodeType NodeType { get; }
+        NSImage Image { get; }
+        string Title { get; }
+        string Description { get; }
     }
 
     sealed class LeadingContentListOutlineViewNode : Node
