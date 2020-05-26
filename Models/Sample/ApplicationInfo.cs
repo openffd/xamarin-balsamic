@@ -3,9 +3,9 @@ using Newtonsoft.Json;
 
 namespace Balsamic.Models.Sample
 {
-    class ApplicationInfo : NSObject
+    sealed class ApplicationInfo : NSObject
     {
-        public static string ResourcePath = "Data/Application/applications";
+        internal static string ResourcePath = "Data/Application/applications";
 
         [JsonProperty(PropertyName = "account-id")]
         public string AccountId { get; set; }
