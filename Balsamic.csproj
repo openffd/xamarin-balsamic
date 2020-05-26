@@ -228,7 +228,7 @@
     <Compile Include="Models\Node.cs" />
     <Compile Include="Models\Sample\DataProvider.cs" />
     <Compile Include="Models\Sample\AppleDevAccount.cs" />
-    <Compile Include="Models\Sample\ApplicationInfo.cs" />
+    <Compile Include="Models\Sample\ApplicationDetail.cs" />
     <Compile Include="Models\Sample\ApplicationVersion.cs" />
     <Compile Include="Models\Sample\ApplicationVersionMetadata.cs" />
     <Compile Include="Models\Sample\ApplicationVersionReview.cs" />
