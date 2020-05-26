@@ -232,6 +232,7 @@
     <Compile Include="Models\Sample\ApplicationVersion.cs" />
     <Compile Include="Models\Sample\ApplicationVersionMetadata.cs" />
     <Compile Include="Models\Sample\ApplicationVersionReview.cs" />
+    <Compile Include="Models\LeadingContentListOutlineViewNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
