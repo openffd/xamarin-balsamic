@@ -2,7 +2,6 @@
 using Foundation;
 using System.Collections;
 using System.Collections.Generic;
-using static Balsamic.Models.NodeType;
 
 namespace Balsamic.Models
 {
@@ -97,21 +96,5 @@ namespace Balsamic.Models
         {
             Delegate?.Invoke();
         }
-    }
-
-    internal enum NodeType { Account, Application, Version, Separator, Unknown }
-
-    sealed class LeadingContentListOutlineViewNode : Node
-    {
-        internal NodeType Type { get; set; } = Unknown;
-
-        internal List<Node> Children => _nodes;
-
-        internal bool IsAccount     => Type == Account;
-        internal bool IsApplication => Type == Application;
-        internal bool IsVersion     => Type == Version;
-        internal bool IsSeparator   => Type == Separator;
-
-        internal bool Leaf => IsAccount;
     }
 }
