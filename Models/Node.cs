@@ -1,5 +1,4 @@
-﻿using AppKit;
-using Foundation;
+﻿using Foundation;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,23 +6,28 @@ namespace Balsamic.Models
 {
     class Node : NSObject, IEnumerator, IEnumerable
     {
+        internal delegate void SelectionDelegate();
+
         private protected readonly List<Node> _nodes = new List<Node>();
 
-        //internal string Title { get; set; } = string.Empty;
-        //internal new string Description { get; set; } = string.Empty;
-        //internal NSImage Image { get; set; }
+        internal event SelectionDelegate Delegate;
         internal string Tag { get; set; } = string.Empty;
+
+        #region Constructors
 
         public Node() {}
 
-        public Node(string title, string description, NSImage image, string tag, SelectionDelegate selectionDelegate)
+        public Node(string tag)
         {
-            //Title = title;
-            //Description = description;
-            //Image = image;
             Tag = tag;
+        }
+
+        public Node(SelectionDelegate selectionDelegate) : this(string.Empty)
+        {
             Delegate = selectionDelegate;
         }
+
+        #endregion
 
         #region Indexing
 
@@ -87,14 +91,6 @@ namespace Balsamic.Models
         internal void Clear()
         {
             _nodes.Clear();
-        }
-
-        internal delegate void SelectionDelegate();
-        internal event SelectionDelegate Delegate;
-
-        internal void RaiseSelectedEvent()
-        {
-            Delegate?.Invoke();
         }
     }
 }
