@@ -73,6 +73,11 @@ namespace Balsamic.Models
             _nodes.Add(childNode);
         }
 
+        internal void AddRange(List<Node> nodes)
+        {
+            _nodes.AddRange(nodes);
+        }
+
         internal void Insert(int index, Node childNode)
         {
             _nodes.Insert(index, childNode);
