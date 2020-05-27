@@ -23,10 +23,18 @@ namespace Balsamic.Models
 
     sealed class LeadingContentListOutlineViewNode : Node
     {
-        internal LeadingContentListOutlineViewNodeType NodeType { get; set; } = Unknown;
+        internal ILeadingContentListOutlineViewNodePayload Payload { get; set; }
+
+        public LeadingContentListOutlineViewNode(ILeadingContentListOutlineViewNodePayload payload)
+        {
+            Payload = payload;
+        }
 
         internal List<Node> Children => _nodes;
 
+        internal string Title => Payload.Title;
+
+        internal LeadingContentListOutlineViewNodeType NodeType => Payload.NodeType;
         internal bool IsAppleDevAccount     => NodeType == AppleDevAccount;
         internal bool IsApplicationDetail   => NodeType == ApplicationDetail;
         internal bool IsApplicationVersion  => NodeType == ApplicationVersion;
