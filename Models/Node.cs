@@ -9,18 +9,18 @@ namespace Balsamic.Models
     {
         private protected readonly List<Node> _nodes = new List<Node>();
 
-        internal string Title { get; set; } = string.Empty;
-        internal new string Description { get; set; } = string.Empty;
-        internal NSImage Image { get; set; }
+        //internal string Title { get; set; } = string.Empty;
+        //internal new string Description { get; set; } = string.Empty;
+        //internal NSImage Image { get; set; }
         internal string Tag { get; set; } = string.Empty;
 
         public Node() {}
 
         public Node(string title, string description, NSImage image, string tag, SelectionDelegate selectionDelegate)
         {
-            Title = title;
-            Description = description;
-            Image = image;
+            //Title = title;
+            //Description = description;
+            //Image = image;
             Tag = tag;
             Delegate = selectionDelegate;
         }
