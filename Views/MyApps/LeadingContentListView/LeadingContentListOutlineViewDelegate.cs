@@ -22,11 +22,11 @@ namespace Balsamic.Views.MyApps
             {
                 tableCellView = new NSTableCellView();
             }
-            tableCellView.TextField.StringValue = (item as Node).Title;
+            tableCellView.TextField.StringValue = (item as LeadingContentListOutlineViewNode).Title;
             return tableCellView;
         }
 
-        public override bool IsGroupItem(NSOutlineView outlineView, NSObject item) => (item as Node).HasChildren;
+        public override bool IsGroupItem(NSOutlineView outlineView, NSObject item) => (item as LeadingContentListOutlineViewNode).HasChildren;
 
         public override bool ShouldSelectItem(NSOutlineView outlineView, NSObject item)
         {

@@ -9,7 +9,7 @@ namespace Balsamic.Views.MyApps
 {
     public class LeadingContentListOutlineViewDataSource : NSOutlineViewDataSource
     {
-        internal List<Node> Nodes = new List<Node>();
+        internal List<LeadingContentListOutlineViewNode> Nodes = new List<LeadingContentListOutlineViewNode>();
 
         public LeadingContentListOutlineViewDataSource() {}
 
@@ -20,7 +20,7 @@ namespace Balsamic.Views.MyApps
             if (item == null)
                 return Nodes.Count;
 
-            return (item as Node).Count;
+            return (item as LeadingContentListOutlineViewNode).Count;
         }
 
         public override NSObject GetChild(NSOutlineView outlineView, nint childIndex, NSObject item)
@@ -28,12 +28,12 @@ namespace Balsamic.Views.MyApps
             if (item == null)
                 return Nodes[(int)childIndex];
 
-            return (item as Node)[(int)childIndex];
+            return (item as LeadingContentListOutlineViewNode)[(int)childIndex];
         }
 
         public override NSObject GetObjectValue(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
-            return new NSString((item as Node).Title);
+            return new NSString((item as LeadingContentListOutlineViewNode).Title);
         }
 
         public override bool ItemExpandable(NSOutlineView outlineView, NSObject item)
@@ -41,7 +41,7 @@ namespace Balsamic.Views.MyApps
             if (item == null)
                 return Nodes.First().HasChildren;
 
-            return (item as Node).HasChildren;
+            return (item as LeadingContentListOutlineViewNode).HasChildren;
         }
 
         public override void SortDescriptorsChanged(NSOutlineView outlineView, NSSortDescriptor[] oldDescriptors)
@@ -54,13 +54,13 @@ namespace Balsamic.Views.MyApps
 
         #endregion
 
-        internal Node NodeForRow(int row)
+        internal LeadingContentListOutlineViewNode NodeForRow(int row)
         {
             int index = 0;
-            foreach (Node node in Nodes)
+            foreach (LeadingContentListOutlineViewNode node in Nodes)
             {
                 if (row >= index && row <= (index + node.Count))
-                    return node[row - index - 1];
+                    return (LeadingContentListOutlineViewNode)node[row - index - 1];
 
                 index += node.Count + 1;
             }
