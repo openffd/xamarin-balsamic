@@ -22,20 +22,25 @@ namespace Balsamic.Views.MyApps
             {
                 tableCellView = new NSTableCellView();
             }
-            tableCellView.TextField.StringValue = (item as LeadingContentListOutlineViewNode).Title;
+            tableCellView.TextField.StringValue = ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).Title;
             return tableCellView;
         }
 
-        public override bool IsGroupItem(NSOutlineView outlineView, NSObject item) => (item as LeadingContentListOutlineViewNode).HasChildren;
-
-        public override bool ShouldSelectItem(NSOutlineView outlineView, NSObject item)
+        public override nfloat GetRowHeight(NSOutlineView outlineView, NSObject item)
         {
-            return outlineView.GetParent(item) != null;
+            var height = outlineView.RowHeight;
+            return (item as NSTreeNode).RepresentedObject is LeadingContentListOutlineViewNode node && node.IsSeparator ? 8 : height;
         }
 
-        public override bool ShouldEditTableColumn(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
+        public override bool ShouldShowOutlineCell(NSOutlineView outlineView, NSObject item)
         {
-            return false;
+            return (item as NSTreeNode).RepresentedObject is LeadingContentListOutlineViewNode node && node.HasChildren;
         }
+
+        public override bool IsGroupItem(NSOutlineView outlineView, NSObject item) => false;
+
+        public override bool ShouldSelectItem(NSOutlineView outlineView, NSObject item) => true;
+
+        public override bool ShouldEditTableColumn(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item) => false;
     }
 }
