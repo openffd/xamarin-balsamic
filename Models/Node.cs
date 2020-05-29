@@ -37,6 +37,7 @@ namespace Balsamic.Models
             set => _nodes[index] = value;
         }
 
+        [Export("Count")]
         internal int Count => _nodes.Count;
 
         internal bool HasChildren => Count > 0;
