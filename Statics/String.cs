@@ -5,6 +5,15 @@ namespace Balsamic
 {
     static class String
     {
+        internal enum BindingOption
+        {
+            [Description("NSAlwaysPresentsApplicationModalAlertsBindingOption")]
+            NSAlwaysPresentsApplicationModalAlertsBindingOption,
+
+            [Description("NSRaisesForNotApplicableKeysBindingOption")]
+            NSRaisesForNotApplicableKeysBindingOption,
+        }
+
         internal enum KeyEquivalent
         {
             [Description("\r")]
