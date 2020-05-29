@@ -40,16 +40,48 @@ namespace Balsamic.Views.MyApps
 
         internal new LeadingContentListView View => base.View as LeadingContentListView;
 
+        public override void AwakeFromNib()
+        {
+            base.AwakeFromNib();
+        }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            var dataSource = new LeadingContentListOutlineViewDataSource();
+            var appleDevAccountNode = new LeadingContentListOutlineViewNode(DataProvider.AppleDevAccount);
+            var applicationDetailNodes = DataProvider.ApplicationDetails.Select(
+                item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
+            var applicationVersionNodes = DataProvider.ApplicationVersions.Select(
+                item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
+            applicationDetailNodes.First().AddRange(applicationVersionNodes);
+            appleDevAccountNode.AddRange(applicationDetailNodes);
+            Contents.Add(appleDevAccountNode);
 
+            TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, "Contents", null);
+            TreeController.ObjectClass = new ObjCRuntime.Class("LeadingContentListOutlineViewNode");
+
+            SetupOutlineView();
+        }
+
+        void SetupOutlineView()
+        {
+            OutlineView.Bind(
+                NSOutlineViewKeyPath.SelectionIndexPaths.NSString(),
+                TreeController, NSTreeControllerKeyPath.SelectionIndexPaths.String(),
+                new NSDictionary(new NSString("NSRaisesForNotApplicableKeysBindingOption"), new NSNumber(true)));
+            OutlineView.Bind(
+                NSOutlineViewKeyPath.SortDescriptors.NSString(),
+                TreeController, NSTreeControllerKeyPath.SortDescriptors.String(),
+                null);
+            OutlineView.Bind(
+                NSOutlineViewKeyPath.Content.NSString(),
+                TreeController, NSTreeControllerKeyPath.ArrangedObjects.String(),
+                new NSDictionary(new NSString("NSAlwaysPresentsApplicationModalAlertsBindingOption"), new NSNumber(true)));
             OutlineView.AutosaveExpandedItems = true;
-            OutlineView.DataSource = dataSource;
+            OutlineView.DataSource = new LeadingContentListOutlineViewDataSource();
             OutlineView.Delegate = new LeadingContentListOutlineViewDelegate();
-            OutlineView.SelectionHighlightStyle = NSTableViewSelectionHighlightStyle.SourceList;
+            OutlineView.SelectionHighlightStyle = NSTableViewSelectionHighlightStyle.Regular;
             OutlineView.ReloadData();
         }
     }
