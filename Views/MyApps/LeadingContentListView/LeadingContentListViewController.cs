@@ -1,13 +1,20 @@
-﻿using System;
-using Foundation;
-using AppKit;
+﻿using AppKit;
+using Balsamic.Models;
 using Balsamic.Models.Sample;
+using Foundation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using static Balsamic.String.KeyPath;
 
 namespace Balsamic.Views.MyApps
 {
     sealed partial class LeadingContentListViewController : NSViewController
     {
         readonly DataProvider DataProvider = new DataProvider();
+
+        [Export("Contents")]
+        NSMutableArray Contents { get; set; } = new NSMutableArray();
 
         #region Constructors
 
