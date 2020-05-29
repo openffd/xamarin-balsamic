@@ -22,6 +22,7 @@ namespace Balsamic.Models
         string Description { get; }
     }
 
+    [Register("LeadingContentListOutlineViewNode")]
     sealed class LeadingContentListOutlineViewNode : Node
     {
         internal ILeadingContentListOutlineViewNodePayload Payload { get; set; }
@@ -33,6 +34,9 @@ namespace Balsamic.Models
 
         internal List<Node> Children => _nodes;
 
+        [Export("Children")]
+        internal NSArray ChildrenArray => NSArray.FromNSObjects(_nodes.ToArray());
+
         internal string Title => Payload.Title;
 
         internal LeadingContentListOutlineViewNodeType NodeType => Payload.NodeType;
@@ -41,6 +45,7 @@ namespace Balsamic.Models
         internal bool IsApplicationVersion  => NodeType == ApplicationVersion;
         internal bool IsSeparator           => NodeType == Separator;
 
+        [Export("Leaf")]
         internal bool Leaf => IsApplicationVersion || IsSeparator;
     }
 }
