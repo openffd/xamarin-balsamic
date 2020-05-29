@@ -5,6 +5,7 @@ using Foundation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Balsamic.String.BindingOption;
 using static Balsamic.String.KeyPath;
 
 namespace Balsamic.Views.MyApps
@@ -69,7 +70,7 @@ namespace Balsamic.Views.MyApps
             OutlineView.Bind(
                 NSOutlineViewKeyPath.SelectionIndexPaths.NSString(),
                 TreeController, NSTreeControllerKeyPath.SelectionIndexPaths.String(),
-                new NSDictionary(new NSString("NSRaisesForNotApplicableKeysBindingOption"), new NSNumber(true)));
+                new NSDictionary(NSRaisesForNotApplicableKeysBindingOption.NSString(), new NSNumber(true)));
             OutlineView.Bind(
                 NSOutlineViewKeyPath.SortDescriptors.NSString(),
                 TreeController, NSTreeControllerKeyPath.SortDescriptors.String(),
@@ -77,7 +78,7 @@ namespace Balsamic.Views.MyApps
             OutlineView.Bind(
                 NSOutlineViewKeyPath.Content.NSString(),
                 TreeController, NSTreeControllerKeyPath.ArrangedObjects.String(),
-                new NSDictionary(new NSString("NSAlwaysPresentsApplicationModalAlertsBindingOption"), new NSNumber(true)));
+                new NSDictionary(NSAlwaysPresentsApplicationModalAlertsBindingOption.NSString(), new NSNumber(true)));
             OutlineView.AutosaveExpandedItems = true;
             OutlineView.DataSource = new LeadingContentListOutlineViewDataSource();
             OutlineView.Delegate = new LeadingContentListOutlineViewDelegate();
