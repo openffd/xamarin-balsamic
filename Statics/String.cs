@@ -19,6 +19,18 @@ namespace Balsamic
 
         internal static class KeyPath
         {
+            internal enum NSOutlineViewKeyPath
+            {
+                [Description("content")]
+                Content,
+
+                [Description("selectionIndexPaths")]
+                SelectionIndexPaths,
+
+                [Description("sortDescriptors")]
+                SortDescriptors,
+            }
+
             internal enum NSSplitView
             {
                 [Description("dividerColor")]
@@ -29,6 +41,21 @@ namespace Balsamic
             {
                 [Description("collapsed")]
                 Collapsed,
+            }
+
+            internal enum NSTreeControllerKeyPath
+            {
+                [Description("arrangedObjects")]
+                ArrangedObjects,
+
+                [Description("contentArray")]
+                ContentArray,
+
+                [Description("selectionIndexPaths")]
+                SelectionIndexPaths,
+
+                [Description("sortDescriptors")]
+                SortDescriptors,
             }
         }
 
