@@ -1,10 +1,11 @@
 ﻿using AppKit;
+using Foundation;
 using System.Collections.Generic;
 using static Balsamic.Models.LeadingContentListOutlineViewNodeType;
 
 namespace Balsamic.Models
 {
-    enum LeadingContentListOutlineViewNodeType
+    internal enum LeadingContentListOutlineViewNodeType
     {
         AppleDevAccount,
         ApplicationDetail,
@@ -13,7 +14,7 @@ namespace Balsamic.Models
         Unknown,
     }
 
-    interface ILeadingContentListOutlineViewNodePayload
+    internal interface ILeadingContentListOutlineViewNodePayload
     {
         LeadingContentListOutlineViewNodeType NodeType { get; }
         NSImage Image { get; }
