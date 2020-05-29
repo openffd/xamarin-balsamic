@@ -7,26 +7,24 @@ using System.Linq;
 
 namespace Balsamic.Views.MyApps
 {
-    public class LeadingContentListOutlineViewDataSource : NSOutlineViewDataSource
+    class LeadingContentListOutlineViewDataSource : NSOutlineViewDataSource
     {
-        internal List<LeadingContentListOutlineViewNode> Nodes = new List<LeadingContentListOutlineViewNode>();
-
         public LeadingContentListOutlineViewDataSource() {}
 
         #region Overrides
 
         public override nint GetChildrenCount(NSOutlineView outlineView, NSObject item)
         {
-            if (item == null)
-                return Nodes.Count;
+            //if (item == null)
+            //    return Nodes.Count;
 
             return ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).Count;
         }
 
         public override NSObject GetChild(NSOutlineView outlineView, nint childIndex, NSObject item)
         {
-            if (item == null)
-                return Nodes[(int)childIndex];
+            //if (item == null)
+            //    return Nodes[(int)childIndex];
 
             return ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode)[(int)childIndex];
         }
@@ -38,8 +36,8 @@ namespace Balsamic.Views.MyApps
 
         public override bool ItemExpandable(NSOutlineView outlineView, NSObject item)
         {
-            if (item == null)
-                return Nodes.First().HasChildren;
+            //if (item == null)
+            //    return Nodes.First().HasChildren;
 
             return ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).HasChildren;
         }
@@ -54,17 +52,17 @@ namespace Balsamic.Views.MyApps
 
         #endregion
 
-        internal LeadingContentListOutlineViewNode NodeForRow(int row)
-        {
-            int index = 0;
-            foreach (LeadingContentListOutlineViewNode node in Nodes)
-            {
-                if (row >= index && row <= (index + node.Count))
-                    return (LeadingContentListOutlineViewNode)node[row - index - 1];
+        //internal LeadingContentListOutlineViewNode NodeForRow(int row)
+        //{
+        //    int index = 0;
+        //    foreach (LeadingContentListOutlineViewNode node in Nodes)
+        //    {
+        //        if (row >= index && row <= (index + node.Count))
+        //            return (LeadingContentListOutlineViewNode)node[row - index - 1];
 
-                index += node.Count + 1;
-            }
-            return null;
-        }
+        //        index += node.Count + 1;
+        //    }
+        //    return null;
+        //}
     }
 }
