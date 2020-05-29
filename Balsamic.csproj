@@ -76,6 +76,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="WebP.Mac">
+      <HintPath>packages\WebP.Touch.1.0.8\lib\Xamarin.Mac20\WebP.Mac.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>packages\Xamarin.FFImageLoading.2.4.11.982\lib\Xamarin.Mac20\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>packages\Xamarin.FFImageLoading.2.4.11.982\lib\Xamarin.Mac20\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
