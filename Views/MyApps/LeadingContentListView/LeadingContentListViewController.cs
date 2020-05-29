@@ -60,7 +60,7 @@ namespace Balsamic.Views.MyApps
             Contents.Add(appleDevAccountNode);
 
             TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, "Contents", null);
-            TreeController.ObjectClass = new ObjCRuntime.Class("LeadingContentListOutlineViewNode");
+            TreeController.ObjectClass = new ObjCRuntime.Class(typeof(LeadingContentListOutlineViewNode));
 
             SetupOutlineView();
         }
