@@ -57,12 +57,20 @@ namespace Balsamic.Views.MyApps
                 item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
             applicationDetailNodes.First().AddRange(applicationVersionNodes);
             appleDevAccountNode.AddRange(applicationDetailNodes);
+
             Contents.Add(appleDevAccountNode);
 
-            TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, "Contents", null);
-            TreeController.ObjectClass = new ObjCRuntime.Class(typeof(LeadingContentListOutlineViewNode));
-
+            SetupTreeController();
             SetupOutlineView();
+        }
+
+        void SetupTreeController()
+        {
+            TreeController.ObjectClass = new ObjCRuntime.Class(typeof(LeadingContentListOutlineViewNode));
+            TreeController.LeafKeyPath = "Leaf";
+            TreeController.ChildrenKeyPath = "Children";
+            TreeController.CountKeyPath = "Count";
+            TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, "Contents", null);
         }
 
         void SetupOutlineView()
@@ -86,4 +94,6 @@ namespace Balsamic.Views.MyApps
             OutlineView.ReloadData();
         }
     }
+
+
 }
