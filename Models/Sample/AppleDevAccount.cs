@@ -33,7 +33,7 @@ namespace Balsamic.Models.Sample
 
         public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.AppleDevAccount;
 
-        public NSImage Image => throw new System.NotImplementedException();
+        public NSImage Image => null;
 
         public string Title => TeamName;
 
