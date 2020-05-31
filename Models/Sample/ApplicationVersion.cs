@@ -2,6 +2,7 @@
 using Foundation;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using static Balsamic.Enums.ApplicationVersion.Status;
 
 namespace Balsamic.Models.Sample
 {
@@ -39,13 +40,20 @@ namespace Balsamic.Models.Sample
         [JsonProperty(PropertyName = "version")]
         public string VersionString { get; set; }
 
-        internal string StateText => "Developer Removed from Sale";
+        internal Enums.ApplicationVersion.Status Status => State switch
+        {
+            "developerRemovedFromSale"  => DeveloperRemovedFromSale,
+            "prepareForUpload"          => PrepareForSubmission,
+            _                           => Unknown,
+        };
+
+        internal string StateText => Status.String();
 
         #region ILeadingContentListOutlineViewNodePayload
 
         public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.ApplicationVersion;
 
-        public NSImage Image => throw new System.NotImplementedException();
+        public NSImage Image => null;
 
         public string Title => $"{VersionString} {StateText}";
 
