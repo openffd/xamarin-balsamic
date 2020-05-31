@@ -7,74 +7,52 @@ namespace Balsamic
     {
         internal enum BindingOption
         {
-            [Description("NSAlwaysPresentsApplicationModalAlertsBindingOption")]
-            NSAlwaysPresentsApplicationModalAlertsBindingOption,
-
-            [Description("NSRaisesForNotApplicableKeysBindingOption")]
-            NSRaisesForNotApplicableKeysBindingOption,
+            [Description("NSAlwaysPresentsApplicationModalAlertsBindingOption")] NSAlwaysPresentsApplicationModalAlertsBindingOption,
+            [Description("NSRaisesForNotApplicableKeysBindingOption")] NSRaisesForNotApplicableKeysBindingOption,
         }
 
         internal enum KeyEquivalent
         {
-            [Description("\r")]
-            Return,
+            [Description("\r")] Return,
         }
 
         internal enum ErrorMessage
         {
-            [Description("⚠️ Not a valid email")]
-            InvalidEmail,
+            [Description("⚠️ Not a valid email")] InvalidEmail,
         }
 
         internal static class KeyPath
         {
             internal enum NSOutlineViewKeyPath
             {
-                [Description("content")]
-                Content,
-
-                [Description("selectionIndexPaths")]
-                SelectionIndexPaths,
-
-                [Description("sortDescriptors")]
-                SortDescriptors,
+                [Description("content")]                Content,
+                [Description("selectionIndexPaths")]    SelectionIndexPaths,
+                [Description("sortDescriptors")]        SortDescriptors,
             }
 
             internal enum NSSplitView
             {
-                [Description("dividerColor")]
-                DividerColor,
+                [Description("dividerColor")] DividerColor,
             }
 
             internal enum NSSplitViewItem
             {
-                [Description("collapsed")]
-                Collapsed,
+                [Description("collapsed")] Collapsed,
             }
 
             internal enum NSTreeControllerKeyPath
             {
-                [Description("arrangedObjects")]
-                ArrangedObjects,
-
-                [Description("contentArray")]
-                ContentArray,
-
-                [Description("selectionIndexPaths")]
-                SelectionIndexPaths,
-
-                [Description("sortDescriptors")]
-                SortDescriptors,
+                [Description("arrangedObjects")]        ArrangedObjects,
+                [Description("contentArray")]           ContentArray,
+                [Description("selectionIndexPaths")]    SelectionIndexPaths,
+                [Description("sortDescriptors")]        SortDescriptors,
             }
         }
 
         internal enum FileExtension
         {
-            [Description("json")]
-            Json,
-
-            [Description("xml")]
-            Xml,
+            [Description("json")]   Json,
+            [Description("xml")]    Xml,
         }
 
         internal static class Notification
@@ -85,11 +63,8 @@ namespace Balsamic
 
                 internal enum UserInfoKey
                 {
-                    [Description("IsCollapsed")]
-                    IsCollapsed,
-
-                    [Description("SegmentIndex")]
-                    SegmentIndex,
+                    [Description("IsCollapsed")]    IsCollapsed,
+                    [Description("SegmentIndex")]   SegmentIndex,
                 }
             }
         }
