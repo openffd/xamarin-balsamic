@@ -33,6 +33,7 @@ namespace Balsamic.Models
         }
 
         internal List<Node> Children => _nodes;
+        internal NSImage Image => Payload.Image;
 
         [Export("Children")]
         internal NSArray ChildrenArray => NSArray.FromNSObjects(_nodes.ToArray());
