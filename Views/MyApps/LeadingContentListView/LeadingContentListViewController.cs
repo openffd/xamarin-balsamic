@@ -4,6 +4,7 @@ using Balsamic.Models.Sample;
 using Foundation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using static Balsamic.String.BindingOption;
 using static Balsamic.String.KeyPath;
@@ -35,7 +36,7 @@ namespace Balsamic.Views.MyApps
             Initialize();
         }
 
-        void Initialize() {}
+        void Initialize() { }
 
         #endregion
 
@@ -55,7 +56,14 @@ namespace Balsamic.Views.MyApps
                 item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
             var applicationVersionNodes = DataProvider.ApplicationVersions.Select(
                 item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
-            applicationDetailNodes.First().AddRange(applicationVersionNodes);
+            applicationDetailNodes.ForEach(node => {
+                var versionNode = applicationVersionNodes.Find(versionNode => {
+                    var detail = ((LeadingContentListOutlineViewNode)node).Payload as ApplicationDetail;
+                    var version = ((LeadingContentListOutlineViewNode)versionNode).Payload as ApplicationVersion;
+                    return detail.Id == version.AppId;
+                });
+                node.Add(versionNode);
+            });
             appleDevAccountNode.AddRange(applicationDetailNodes);
 
             Contents.Add(appleDevAccountNode);
@@ -67,10 +75,10 @@ namespace Balsamic.Views.MyApps
         void SetupTreeController()
         {
             TreeController.ObjectClass = new ObjCRuntime.Class(typeof(LeadingContentListOutlineViewNode));
-            TreeController.LeafKeyPath = "Leaf";
-            TreeController.ChildrenKeyPath = "Children";
-            TreeController.CountKeyPath = "Count";
-            TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, "Contents", null);
+            TreeController.LeafKeyPath = TreeControllerKeyPath.Leaf.String();
+            TreeController.ChildrenKeyPath = TreeControllerKeyPath.Children.String();
+            TreeController.CountKeyPath = TreeControllerKeyPath.Count.String();
+            TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, KeyPath.Contents.String(), null);
         }
 
         void SetupOutlineView()
@@ -93,7 +101,14 @@ namespace Balsamic.Views.MyApps
             OutlineView.SelectionHighlightStyle = NSTableViewSelectionHighlightStyle.Regular;
             OutlineView.ReloadData();
         }
+        
+        enum KeyPath { [Description("Contents")] Contents, }
+
+        enum TreeControllerKeyPath
+        {
+            [Description("Leaf")]       Leaf,
+            [Description("Count")]      Count,
+            [Description("Children")]   Children,
+        }
     }
-
-
 }
