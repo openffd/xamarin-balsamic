@@ -22,7 +22,9 @@ namespace Balsamic.Views.MyApps
             {
                 tableCellView = new NSTableCellView();
             }
-            tableCellView.TextField.StringValue = ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).Title;
+            var node = (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
+            tableCellView.TextField.StringValue = node.Title;
+            tableCellView.ImageView.Image = node.Image;
             return tableCellView;
         }
 
