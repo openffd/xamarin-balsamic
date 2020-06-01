@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using Balsamic.Enums;
 using Foundation;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace Balsamic.Models.Sample
 
         public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.ApplicationVersion;
 
-        public NSImage Image => null;
+        public NSImage Image => Status.Image();
 
         public string Title => $"{VersionString} {StateText}";
 
