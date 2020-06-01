@@ -33,7 +33,7 @@ namespace Balsamic.Models.Sample
 
         public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.AppleDevAccount;
 
-        public NSImage Image => null;
+        public NSImage Image => NSImage.ImageNamed(NSImageName.UserGuest);
 
         public string Title => TeamName;
 
