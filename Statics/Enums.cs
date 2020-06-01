@@ -2,6 +2,8 @@
 using System;
 using System.ComponentModel;
 using static AppKit.NSColor;
+using static AppKit.NSImage;
+using static AppKit.NSImageName;
 using static Balsamic.Enums.ApplicationVersion.Status;
 
 namespace Balsamic.Enums
@@ -16,7 +18,29 @@ namespace Balsamic.Enums
             [Description("Unknown")]                        Unknown,
         }
 
-        internal static NSColor StatusColor(this Status status)
+        internal static string ColorString(this Status status)
+        {
+            return status switch
+            {
+                DeveloperRemovedFromSale    => "🔴",
+                PrepareForSubmission        => "🟡",
+                ReadyForSale                => "🟢",
+                _                           => "⚪️",
+            };
+        }
+
+        internal static NSImage Image(this Status status)
+        {
+            return status switch
+            {
+                DeveloperRemovedFromSale    => ImageNamed(StatusUnavailable),
+                PrepareForSubmission        => ImageNamed(StatusPartiallyAvailable),
+                ReadyForSale                => ImageNamed(StatusAvailable),
+                _                           => ImageNamed(StatusNone),
+            };
+        }
+
+        internal static NSColor Color(this Status status)
         {
             return status switch
             {
