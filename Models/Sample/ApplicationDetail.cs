@@ -1,4 +1,5 @@
-﻿using AppKit;
+﻿using System;
+using AppKit;
 using Foundation;
 using Newtonsoft.Json;
 
@@ -48,7 +49,18 @@ namespace Balsamic.Models.Sample
 
         public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.ApplicationDetail;
 
-        public NSImage Image => throw new System.NotImplementedException();
+        public NSImage Image
+        {
+            get {
+                if (IconUrl == null || IconUrl.Length == 0)
+                    return Balsamic.Image.AppIconGrid;
+
+                string urlString = Uri.EscapeUriString(IconUrl);
+                NSUrl url = new NSUrl(urlString);
+                NSImage image = new NSImage(url);
+                return image;
+            }
+        }
 
         public string Title => Name;
 
