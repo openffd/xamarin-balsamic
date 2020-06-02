@@ -1,11 +1,17 @@
 ﻿using Foundation;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Globalization;
+using static Balsamic.Models.Sample.ApplicationVersionMetadataConverter;
+using static Newtonsoft.Json.JsonConvert;
+using static Newtonsoft.Json.NullValueHandling;
+using static Newtonsoft.Json.Required;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class ApplicationVersionMetadata : NSObject
+    sealed partial class ApplicationVersionMetadata : NSObject
     {
-        [JsonProperty(PropertyName = "app-store-name")]
+        [JsonProperty(PropertyName = "app-store-name", NullValueHandling = Ignore, Required = DisallowNull)]
         public string AppStoreName { get; set; }
 
         [JsonProperty(PropertyName = "app-store-subtitle")]
@@ -31,5 +37,31 @@ namespace Balsamic.Models.Sample
 
         [JsonProperty(PropertyName = "version-id")]
         public string VersionId { get; set; }
+    }
+
+    partial class ApplicationVersionMetadata
+    {
+        internal static ApplicationVersionMetadata FromJson(string json)
+        {
+            return DeserializeObject<ApplicationVersionMetadata>(json, Settings);
+        }
+    }
+
+    static class ApplicationVersionMetadataSerializer
+    {
+        public static string ToJson(this ApplicationVersionMetadata self)
+        {
+            return SerializeObject(self, Settings);
+        }
+    }
+
+    static class ApplicationVersionMetadataConverter
+    {
+        internal static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
+        {
+            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
+            DateParseHandling = DateParseHandling.None,
+            Converters = { new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }, },
+        };
     }
 }
