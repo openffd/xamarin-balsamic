@@ -245,6 +245,7 @@
     <Compile Include="Models\Sample\ApplicationVersionReview.cs" />
     <Compile Include="Models\LeadingContentListOutlineViewNode.cs" />
     <Compile Include="Statics\Enums.cs" />
+    <Compile Include="Statics\NSView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
