@@ -137,6 +137,7 @@
     <Folder Include="Data\Sample\AppleDevAccount\" />
     <Folder Include="Data\Sample\ApplicationDetail\" />
     <Folder Include="Data\Sample\ApplicationVersion\" />
+    <Folder Include="Resources\Assets.xcassets\AppIconGrid.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
