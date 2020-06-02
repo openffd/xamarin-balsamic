@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using AppKit;
 using Balsamic.Models;
 using Foundation;
 
 namespace Balsamic.Views.MyApps
 {
-    public class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
+    class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
     {
         public LeadingContentListOutlineViewDelegate() {}
 
@@ -19,12 +19,11 @@ namespace Balsamic.Views.MyApps
         {
             NSTableCellView tableCellView = (NSTableCellView)outlineView.MakeView("DataCell", this);
             if (tableCellView == null)
-            {
                 tableCellView = new NSTableCellView();
-            }
             var node = (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
             tableCellView.TextField.StringValue = node.Title;
             tableCellView.ImageView.Image = node.Image;
+            tableCellView.ImageView.Rounded();
             return tableCellView;
         }
 
