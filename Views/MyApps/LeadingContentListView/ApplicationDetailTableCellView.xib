@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <tableCellView identifier="ApplicationDetail" id="cJ6-Cl-g73" customClass="ApplicationDetailTableCellView">
+            <rect key="frame" x="0.0" y="0.0" width="276" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" id="W9H-81-Fdu">
+                    <rect key="frame" x="8" y="8" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="kk4-1S-w4B"/>
+                        <constraint firstAttribute="width" secondItem="W9H-81-Fdu" secondAttribute="height" multiplier="1:1" id="pUE-Pw-8qO"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" image="NSActionTemplate" id="Uew-9Y-8kB"/>
+                </imageView>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IC2-gq-BZ3">
+                    <rect key="frame" x="48" y="9" width="224" height="30"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fln-dE-yeF">
+                            <rect key="frame" x="-2" y="14" width="112" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="App Name Label" id="shc-9d-Ghc">
+                                <font key="font" size="14" name="SFCompactText-Bold"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField verticalHuggingPriority="750" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-nt-Uer">
+                            <rect key="frame" x="-2" y="0.0" width="109" height="12"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="Bundle Identifier Label" id="UKM-fd-FZc">
+                                <font key="font" size="10" name="SFCompactText-Regular"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IC2-gq-BZ3" secondAttribute="trailing" constant="4" id="8MT-KI-rhU"/>
+                <constraint firstItem="IC2-gq-BZ3" firstAttribute="centerY" secondItem="cJ6-Cl-g73" secondAttribute="centerY" id="CkQ-K9-qr6"/>
+                <constraint firstItem="W9H-81-Fdu" firstAttribute="top" secondItem="cJ6-Cl-g73" secondAttribute="top" constant="8" id="bEp-Xo-xc8"/>
+                <constraint firstAttribute="bottom" secondItem="W9H-81-Fdu" secondAttribute="bottom" constant="8" id="h3Z-Nm-K6d"/>
+                <constraint firstItem="W9H-81-Fdu" firstAttribute="leading" secondItem="cJ6-Cl-g73" secondAttribute="leading" constant="8" id="iEu-hC-gTc"/>
+                <constraint firstItem="IC2-gq-BZ3" firstAttribute="leading" secondItem="W9H-81-Fdu" secondAttribute="trailing" constant="8" id="w9u-UF-VRW"/>
+            </constraints>
+            <connections>
+                <outlet property="AppNameLabelTextField" destination="fln-dE-yeF" id="SzB-p7-bM7"/>
+                <outlet property="BundleIdentifierLabelTextField" destination="hFm-nt-Uer" id="4Ni-vy-DIq"/>
+                <outlet property="imageView" destination="W9H-81-Fdu" id="7nv-TJ-lFU"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="-60"/>
+        </tableCellView>
+    </objects>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+    </resources>
+</document>

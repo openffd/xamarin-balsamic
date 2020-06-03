@@ -247,6 +247,10 @@
     <Compile Include="Models\LeadingContentListOutlineViewNode.cs" />
     <Compile Include="Statics\Enums.cs" />
     <Compile Include="Statics\NSView.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\ApplicationDetailTableCellView.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\ApplicationDetailTableCellView.designer.cs">
+      <DependentUpon>ApplicationDetailTableCellView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -258,6 +262,7 @@
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\MyAppsContentView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsWindow.xib" />
+    <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\ApplicationDetailTableCellView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
