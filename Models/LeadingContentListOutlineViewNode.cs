@@ -11,15 +11,22 @@ namespace Balsamic.Models
         ApplicationDetail,
         ApplicationVersion,
         Separator,
-        Unknown,
+    }
+
+    sealed class LeadingContentListOutlineViewSeparator : NSObject, ILeadingContentListOutlineViewNodePayload
+    {
+        public LeadingContentListOutlineViewNodeType NodeType   => Separator;
+        public NSImage Image                                    => null;
+        public string Title                                     => string.Empty;
+        public string Subtitle                                  => string.Empty;
     }
 
     internal interface ILeadingContentListOutlineViewNodePayload
     {
-        LeadingContentListOutlineViewNodeType NodeType { get; }
-        NSImage Image { get; }
-        string Title { get; }
-        string Description { get; }
+        LeadingContentListOutlineViewNodeType NodeType  { get; }
+        NSImage Image                                   { get; }
+        string Title                                    { get; }
+        string Subtitle                                 { get; }
     }
 
     [Register("LeadingContentListOutlineViewNode")]
@@ -33,14 +40,16 @@ namespace Balsamic.Models
         }
 
         internal List<Node> Children => _nodes;
-        internal NSImage Image => Payload.Image;
+
+        internal LeadingContentListOutlineViewNodeType NodeType => Payload.NodeType;
+        internal NSImage Image                                  => Payload.Image;
+        internal string Title                                   => Payload.Title;
+        internal string Subtitle                                => Payload.Subtitle;
 
         [Export("Children")]
         internal NSArray ChildrenArray => NSArray.FromNSObjects(_nodes.ToArray());
 
-        internal string Title => Payload.Title;
-
-        internal LeadingContentListOutlineViewNodeType NodeType => Payload.NodeType;
+        
         internal bool IsAppleDevAccount     => NodeType == AppleDevAccount;
         internal bool IsApplicationDetail   => NodeType == ApplicationDetail;
         internal bool IsApplicationVersion  => NodeType == ApplicationVersion;
