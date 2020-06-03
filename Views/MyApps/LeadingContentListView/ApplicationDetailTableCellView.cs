@@ -19,6 +19,11 @@ namespace Balsamic.Views.MyApps.LeadingContentListViewControllerOutlineView
             Initialize();
         }
 
+        public ApplicationDetailTableCellView()
+        {
+            Initialize();
+        }
+
         void Initialize() {}
 
         #endregion
