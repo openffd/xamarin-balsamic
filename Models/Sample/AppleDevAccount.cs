@@ -37,6 +37,8 @@ namespace Balsamic.Models.Sample
 
         public string Title => TeamName;
 
+        public string Subtitle => string.Empty;
+
         #endregion
     }
 }

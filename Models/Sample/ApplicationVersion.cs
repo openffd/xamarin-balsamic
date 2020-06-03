@@ -41,6 +41,8 @@ namespace Balsamic.Models.Sample
         [JsonProperty(PropertyName = "version")]
         public string VersionString { get; set; }
 
+        #region Computed Fields
+
         internal Enums.ApplicationVersion.Status Status => State switch
         {
             "developerRemovedFromSale"  => DeveloperRemovedFromSale,
@@ -50,6 +52,8 @@ namespace Balsamic.Models.Sample
 
         internal string StateText => Status.String();
 
+        #endregion
+
         #region ILeadingContentListOutlineViewNodePayload
 
         public LeadingContentListOutlineViewNodeType NodeType => LeadingContentListOutlineViewNodeType.ApplicationVersion;
@@ -57,6 +61,8 @@ namespace Balsamic.Models.Sample
         public NSImage Image => Status.Image();
 
         public string Title => $"{VersionString} {StateText}";
+
+        public string Subtitle => string.Empty;
 
         #endregion
     }

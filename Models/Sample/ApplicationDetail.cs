@@ -64,6 +64,8 @@ namespace Balsamic.Models.Sample
 
         public string Title => Name;
 
+        public string Subtitle => BundleId;
+
         #endregion
     }
 }
