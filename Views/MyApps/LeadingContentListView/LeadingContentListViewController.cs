@@ -63,6 +63,7 @@ namespace Balsamic.Views.MyApps
                     return detail.Id == version.AppId;
                 });
                 node.Add(versionNode);
+                node.Add(new LeadingContentListOutlineViewNode(new LeadingContentListOutlineViewSeparator()));
             });
             appleDevAccountNode.AddRange(applicationDetailNodes);
 
@@ -83,6 +84,7 @@ namespace Balsamic.Views.MyApps
 
         void SetupOutlineView()
         {
+            OutlineView.RegisterNib(Nib.ApplicationDetailTableCellView, "ApplicationDetail");
             OutlineView.Bind(
                 NSOutlineViewKeyPath.SelectionIndexPaths.NSString(),
                 TreeController, NSTreeControllerKeyPath.SelectionIndexPaths.String(),
@@ -101,7 +103,12 @@ namespace Balsamic.Views.MyApps
             OutlineView.SelectionHighlightStyle = NSTableViewSelectionHighlightStyle.Regular;
             OutlineView.ReloadData();
         }
-        
+
+        static class Nib
+        {
+            internal static NSNib ApplicationDetailTableCellView => new NSNib("ApplicationDetailTableCellView", null);
+        }
+
         enum KeyPath { [Description("Contents")] Contents, }
 
         enum TreeControllerKeyPath
