@@ -1,47 +1,91 @@
-using System;
 using AppKit;
 using Balsamic.Models;
+using Balsamic.Views.MyApps.LeadingContentListViewControllerOutlineView;
 using Foundation;
+using System;
+using static Balsamic.Models.LeadingContentListOutlineViewNodeType;
 
 namespace Balsamic.Views.MyApps
 {
+    internal static class LeadingContentListOutlineViewNodeHelper
+    {
+        internal static LeadingContentListOutlineViewNode GetOutlineViewNode(this NSObject item)
+        {
+            return (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
+        }
+    }
+
     class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
     {
-        public LeadingContentListOutlineViewDelegate() {}
-
         public override NSCell GetCell(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
             nint row = outlineView.RowForItem(item); 
             return tableColumn.DataCellForRow(row);
         }
 
+        public override nfloat GetRowHeight(NSOutlineView outlineView, NSObject item)
+        {
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
+            return node.NodeType.GetOutlineViewRowHeight();
+        }
+
         public override NSView GetView(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
-            NSTableCellView tableCellView = (NSTableCellView)outlineView.MakeView("DataCell", this);
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
+            return node.NodeType switch
+            {
+                ApplicationDetail   => SetupApplicationDetailCellView(outlineView, node),
+                _                   => SetupDefaultTableCellView(outlineView, node),
+            };
+        }
+
+        public override bool IsGroupItem(NSOutlineView outlineView, NSObject item)
+        {
+            return false;
+        }
+
+        public override bool ShouldEditTableColumn(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
+        {
+            return false;
+        }
+
+        public override bool ShouldSelectItem(NSOutlineView outlineView, NSObject item)
+        {
+            LeadingContentListOutlineViewNode node = (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
+            return node.NodeType.GetOutlineViewRowSelectability();
+        }
+
+        public override bool ShouldShowOutlineCell(NSOutlineView outlineView, NSObject item)
+        {
+            return item.GetOutlineViewNode().HasChildren;
+        }
+
+        #region Private Methods
+
+        private NSView SetupApplicationDetailCellView(NSOutlineView outlineView, LeadingContentListOutlineViewNode node)
+        {
+            string identifier = node.NodeType.GetOutlineViewTableCellViewIdentifier();
+            ApplicationDetailTableCellView tableCellView = (ApplicationDetailTableCellView)outlineView.MakeView(identifier, this);
+            if (tableCellView == null)
+                tableCellView = new ApplicationDetailTableCellView();
+            tableCellView.ImageView.Image = node.Image;
+            tableCellView.AppNameLabelTextField.StringValue = node.Title;
+            tableCellView.BundleIdentifierLabelTextField.StringValue = node.Subtitle;
+            return tableCellView;
+        }
+
+        private NSView SetupDefaultTableCellView(NSOutlineView outlineView, LeadingContentListOutlineViewNode node)
+        {
+            string identifier = node.NodeType.GetOutlineViewTableCellViewIdentifier();
+            NSTableCellView tableCellView = (NSTableCellView)outlineView.MakeView(identifier, this);
             if (tableCellView == null)
                 tableCellView = new NSTableCellView();
-            var node = (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
             tableCellView.TextField.StringValue = node.Title;
             tableCellView.ImageView.Image = node.Image;
             tableCellView.ImageView.Rounded();
             return tableCellView;
         }
 
-        public override nfloat GetRowHeight(NSOutlineView outlineView, NSObject item)
-        {
-            var height = outlineView.RowHeight;
-            return (item as NSTreeNode).RepresentedObject is LeadingContentListOutlineViewNode node && node.IsSeparator ? 8 : height;
-        }
-
-        public override bool ShouldShowOutlineCell(NSOutlineView outlineView, NSObject item)
-        {
-            return (item as NSTreeNode).RepresentedObject is LeadingContentListOutlineViewNode node && node.HasChildren;
-        }
-
-        public override bool IsGroupItem(NSOutlineView outlineView, NSObject item) => false;
-
-        public override bool ShouldSelectItem(NSOutlineView outlineView, NSObject item) => true;
-
-        public override bool ShouldEditTableColumn(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item) => false;
+        #endregion
     }
 }
