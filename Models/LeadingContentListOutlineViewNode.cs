@@ -1,5 +1,6 @@
 ﻿using AppKit;
 using Foundation;
+using System;
 using System.Collections.Generic;
 using static Balsamic.Models.LeadingContentListOutlineViewNodeType;
 
@@ -13,24 +14,44 @@ namespace Balsamic.Models
         Separator,
     }
 
-    sealed class LeadingContentListOutlineViewSeparator : NSObject, ILeadingContentListOutlineViewNodePayload
+    internal static class LeadingContentListOutlineViewNodeTypeHelper
     {
-        public LeadingContentListOutlineViewNodeType NodeType   => Separator;
-        public NSImage Image                                    => null;
-        public string Title                                     => string.Empty;
-        public string Subtitle                                  => string.Empty;
-    }
+        internal static string GetOutlineViewTableCellViewIdentifier(this LeadingContentListOutlineViewNodeType nodeType)
+        {
+            return nodeType switch
+            {
+                AppleDevAccount     => "AppleDevAccount",
+                ApplicationDetail   => "ApplicationDetail",
+                ApplicationVersion  => "ApplicationVersion",
+                Separator           => "Separator",
+                _                   => string.Empty,
+            };
+        }
 
-    internal interface ILeadingContentListOutlineViewNodePayload
-    {
-        LeadingContentListOutlineViewNodeType NodeType  { get; }
-        NSImage Image                                   { get; }
-        string Title                                    { get; }
-        string Subtitle                                 { get; }
+        internal static nfloat GetOutlineViewRowHeight(this LeadingContentListOutlineViewNodeType nodeType)
+        {
+            return nodeType switch
+            {
+                AppleDevAccount     => 30,
+                ApplicationDetail   => 44,
+                ApplicationVersion  => 22,
+                Separator           => 16,
+                _                   => 0,
+            };
+        }
+
+        internal static bool GetOutlineViewRowSelectability(this LeadingContentListOutlineViewNodeType nodeType)
+        {
+            return nodeType switch
+            {
+                Separator => false,
+                _ => true,
+            };
+        }
     }
 
     [Register("LeadingContentListOutlineViewNode")]
-    sealed class LeadingContentListOutlineViewNode : Node
+    internal sealed class LeadingContentListOutlineViewNode : Node
     {
         internal ILeadingContentListOutlineViewNodePayload Payload { get; set; }
 
@@ -49,7 +70,6 @@ namespace Balsamic.Models
         [Export("Children")]
         internal NSArray ChildrenArray => NSArray.FromNSObjects(_nodes.ToArray());
 
-        
         internal bool IsAppleDevAccount     => NodeType == AppleDevAccount;
         internal bool IsApplicationDetail   => NodeType == ApplicationDetail;
         internal bool IsApplicationVersion  => NodeType == ApplicationVersion;
