@@ -31,7 +31,7 @@ namespace Balsamic.Views.MyApps.LeadingContentListViewControllerOutlineView
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
-            ImageView.Rounded(8);
+            ImageView.Rounded();
         }
     }
 }

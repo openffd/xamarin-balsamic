@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,17 +21,17 @@
                     <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" image="NSActionTemplate" id="Uew-9Y-8kB"/>
                 </imageView>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IC2-gq-BZ3">
-                    <rect key="frame" x="48" y="9" width="224" height="30"/>
+                    <rect key="frame" x="46" y="10" width="226" height="29"/>
                     <subviews>
                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fln-dE-yeF">
-                            <rect key="frame" x="-2" y="14" width="112" height="16"/>
+                            <rect key="frame" x="-2" y="14" width="103" height="15"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="App Name Label" id="shc-9d-Ghc">
-                                <font key="font" size="14" name="SFCompactText-Bold"/>
+                                <font key="font" size="13" name="SFCompactText-Semibold"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="750" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-nt-Uer">
+                        <textField verticalHuggingPriority="750" alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-nt-Uer">
                             <rect key="frame" x="-2" y="0.0" width="109" height="12"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="Bundle Identifier Label" id="UKM-fd-FZc">
                                 <font key="font" size="10" name="SFCompactText-Regular"/>
@@ -56,7 +56,7 @@
                 <constraint firstItem="W9H-81-Fdu" firstAttribute="top" secondItem="cJ6-Cl-g73" secondAttribute="top" constant="8" id="bEp-Xo-xc8"/>
                 <constraint firstAttribute="bottom" secondItem="W9H-81-Fdu" secondAttribute="bottom" constant="8" id="h3Z-Nm-K6d"/>
                 <constraint firstItem="W9H-81-Fdu" firstAttribute="leading" secondItem="cJ6-Cl-g73" secondAttribute="leading" constant="8" id="iEu-hC-gTc"/>
-                <constraint firstItem="IC2-gq-BZ3" firstAttribute="leading" secondItem="W9H-81-Fdu" secondAttribute="trailing" constant="8" id="w9u-UF-VRW"/>
+                <constraint firstItem="IC2-gq-BZ3" firstAttribute="leading" secondItem="W9H-81-Fdu" secondAttribute="trailing" constant="6" id="w9u-UF-VRW"/>
             </constraints>
             <connections>
                 <outlet property="AppNameLabelTextField" destination="fln-dE-yeF" id="SzB-p7-bM7"/>
