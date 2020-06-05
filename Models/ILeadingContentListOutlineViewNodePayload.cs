@@ -12,7 +12,7 @@ namespace Balsamic.Models
         string Subtitle { get; }
     }
 
-    sealed class LeadingContentListOutlineViewSeparator : NSObject, ILeadingContentListOutlineViewNodePayload
+    internal sealed class LeadingContentListOutlineViewSeparator : NSObject, ILeadingContentListOutlineViewNodePayload
     {
         public LeadingContentListOutlineViewNodeType NodeType => Separator;
         public NSImage Image => null;
