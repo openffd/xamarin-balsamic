@@ -118,6 +118,7 @@
     <ImageAsset Include="Resources\Assets.xcassets\AppLogo.imageset\512x512%402x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\AppIconGrid.imageset\Contents.json" />
     <ImageAsset Include="Resources\Assets.xcassets\AppIconGrid.imageset\576x576.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIconGrid.imageset\768x768.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
