@@ -272,6 +272,14 @@
     <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountViewController.designer.cs">
       <DependentUpon>AppleDevAccountViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailView.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailViewController.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailView.designer.cs">
+      <DependentUpon>ApplicationDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailViewController.designer.cs">
+      <DependentUpon>ApplicationDetailViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -285,6 +293,7 @@
     <InterfaceDefinition Include="Views\MyApps\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\ApplicationDetailTableCellView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountView.xib" />
+    <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
