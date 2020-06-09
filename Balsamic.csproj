@@ -256,7 +256,9 @@
       <DependentUpon>ApplicationDetailTableCellView.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ILeadingContentListOutlineViewNodePayload.cs" />
-    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListViewController.Nib.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListViewController.Nib.cs">
+      <DependentUpon>LeadingContentListViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statics\NSViewController.cs" />
   </ItemGroup>
   <ItemGroup>
