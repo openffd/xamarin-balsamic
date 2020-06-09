@@ -17,6 +17,11 @@ namespace Balsamic.Views.MyApps
 
     class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
     {
+        public override void DidAddRowView(NSOutlineView outlineView, NSTableRowView rowView, nint row)
+        {
+            Console.WriteLine($"Row: {row}");
+        }
+
         public override NSCell GetCell(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
             nint row = outlineView.RowForItem(item); 
