@@ -142,6 +142,10 @@
     <Folder Include="Data\Sample\ApplicationVersion\" />
     <Folder Include="Resources\Assets.xcassets\AppIconGrid.imageset\" />
     <Folder Include="Resources\Assets.xcassets\AppIconGrid.imageset\" />
+    <Folder Include="Views\MyApps\MyAppsContentView\ChildViewControllers\" />
+    <Folder Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\" />
+    <Folder Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\" />
+    <Folder Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -260,6 +264,14 @@
       <DependentUpon>LeadingContentListViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Statics\NSViewController.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountView.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountViewController.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountView.designer.cs">
+      <DependentUpon>AppleDevAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountViewController.designer.cs">
+      <DependentUpon>AppleDevAccountViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -272,6 +284,7 @@
     <InterfaceDefinition Include="Views\MyApps\MyApps.storyboard" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsWindow.xib" />
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\ApplicationDetailTableCellView.xib" />
+    <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
