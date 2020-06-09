@@ -44,6 +44,7 @@ namespace Balsamic
             {
                 [Description("arrangedObjects")]        ArrangedObjects,
                 [Description("contentArray")]           ContentArray,
+                [Description("selectedObjects")]        SelectedObjects,
                 [Description("selectionIndexPaths")]    SelectionIndexPaths,
                 [Description("sortDescriptors")]        SortDescriptors,
             }
@@ -66,6 +67,11 @@ namespace Balsamic
                     [Description("IsCollapsed")]    IsCollapsed,
                     [Description("SegmentIndex")]   SegmentIndex,
                 }
+            }
+
+            internal static class TreeControllerObservation
+            {
+                internal static string Name => "TreeControllerObservation";
             }
         }
 
