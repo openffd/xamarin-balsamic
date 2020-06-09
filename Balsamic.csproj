@@ -280,6 +280,14 @@
     <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailViewController.designer.cs">
       <DependentUpon>ApplicationDetailViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\ApplicationVersionView.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\ApplicationVersionViewController.cs" />
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\ApplicationVersionView.designer.cs">
+      <DependentUpon>ApplicationVersionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\ApplicationVersionViewController.designer.cs">
+      <DependentUpon>ApplicationVersionViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -294,6 +302,7 @@
     <InterfaceDefinition Include="Views\MyApps\LeadingContentListView\ApplicationDetailTableCellView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\ChildViewControllers\AppleDevAccountView\AppleDevAccountView.xib" />
     <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationDetailView\ApplicationDetailView.xib" />
+    <InterfaceDefinition Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\ApplicationVersionView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
