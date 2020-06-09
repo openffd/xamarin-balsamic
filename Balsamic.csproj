@@ -256,6 +256,8 @@
       <DependentUpon>ApplicationDetailTableCellView.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ILeadingContentListOutlineViewNodePayload.cs" />
+    <Compile Include="Views\MyApps\LeadingContentListView\LeadingContentListViewController.Nib.cs" />
+    <Compile Include="Statics\NSViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
