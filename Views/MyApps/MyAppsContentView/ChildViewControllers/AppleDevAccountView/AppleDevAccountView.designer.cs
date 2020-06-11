@@ -1,4 +1,4 @@
-﻿namespace Balsamic.Views.MyApps.MyAppsContentView.ChildViewControllers.AppleDevAccountView
+﻿namespace Balsamic.Views.MyApps
 {
 
     // Should subclass AppKit.NSView

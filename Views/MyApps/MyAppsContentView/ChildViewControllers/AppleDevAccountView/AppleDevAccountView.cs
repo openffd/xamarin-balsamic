@@ -2,7 +2,7 @@
 using Foundation;
 using System;
 
-namespace Balsamic.Views.MyApps.MyAppsContentView
+namespace Balsamic.Views.MyApps
 {
     public partial class AppleDevAccountView : NSView
     {

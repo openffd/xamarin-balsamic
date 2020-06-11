@@ -2,7 +2,7 @@
 using Foundation;
 using AppKit;
 
-namespace Balsamic.Views.MyApps.MyAppsContentView
+namespace Balsamic.Views.MyApps
 {
     public partial class ApplicationDetailView : NSView
     {
