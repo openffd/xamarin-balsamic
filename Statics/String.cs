@@ -71,7 +71,7 @@ namespace Balsamic
 
             internal static class TreeControllerObservation
             {
-                internal static string Name => "TreeControllerObservation";
+                internal static NSString Name => (NSString)"TreeControllerObservation";
             }
         }
 
