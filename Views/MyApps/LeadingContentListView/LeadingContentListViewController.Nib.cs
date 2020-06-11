@@ -4,9 +4,10 @@ namespace Balsamic.Views.MyApps
 {
     internal sealed partial class LeadingContentListViewController
     {
-        private static class Nib
+        private static class ApplicationDetailTableCellView
         {
-            internal static NSNib ApplicationDetailTableCellView => new NSNib("ApplicationDetailTableCellView", null);
+            internal static string Identifier = "ApplicationDetail";
+            internal static NSNib Nib => new NSNib("ApplicationDetailTableCellView", null);
         }
     }
 }
