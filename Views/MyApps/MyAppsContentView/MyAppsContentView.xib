@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,18 +18,6 @@
             <subviews>
                 <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKe-CD-h5r">
                     <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
-                    <subviews>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-mk-Sjh">
-                            <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="NSCaution" id="zVZ-Sc-UKu"/>
-                        </imageView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="a8g-mk-Sjh" firstAttribute="leading" secondItem="yKe-CD-h5r" secondAttribute="leading" id="3Tr-Cc-pRj"/>
-                        <constraint firstItem="a8g-mk-Sjh" firstAttribute="top" secondItem="yKe-CD-h5r" secondAttribute="top" id="RHw-TT-rE5"/>
-                        <constraint firstAttribute="trailing" secondItem="a8g-mk-Sjh" secondAttribute="trailing" id="ZEJ-pJ-7w8"/>
-                        <constraint firstAttribute="bottom" secondItem="a8g-mk-Sjh" secondAttribute="bottom" id="idQ-Sl-NxH"/>
-                    </constraints>
                 </customView>
             </subviews>
             <constraints>
@@ -41,7 +29,4 @@
             <point key="canvasLocation" x="137" y="154"/>
         </customView>
     </objects>
-    <resources>
-        <image name="NSCaution" width="32" height="32"/>
-    </resources>
 </document>
