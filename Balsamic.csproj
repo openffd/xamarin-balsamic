@@ -288,6 +288,7 @@
     <Compile Include="Views\MyApps\MyAppsContentView\ChildViewControllers\ApplicationVersionView\ApplicationVersionViewController.designer.cs">
       <DependentUpon>ApplicationVersionViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reusables\CustomToolbarItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
