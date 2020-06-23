@@ -16,7 +16,9 @@ namespace Balsamic
                 return;
 
             viewController.RemoveChildViewController(0);
-            viewController.View.Subviews.First().Subviews.First().RemoveFromSuperview();
+
+            NSView firstSubview = viewController.View.Subviews.First();
+            firstSubview.Subviews.First().RemoveFromSuperview();
         }
     }
 }
