@@ -1,17 +1,17 @@
 ﻿using AppKit;
+using Foundation;
+using System;
 using static Balsamic.AppDelegate;
 using static Balsamic.String.Notification;
 using static Balsamic.String.Notification.ToggleCollapsed.UserInfoKey;
-using Foundation;
-using System;
 
 namespace Balsamic.Views
 {
     sealed partial class MyAppsWindowController : NSWindowController, IWindowController
     {
-        NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
+        private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
 
-        MyAppsSplitViewController SplitViewController => ContentViewController as MyAppsSplitViewController;
+        private MyAppsSplitViewController SplitViewController => ContentViewController as MyAppsSplitViewController;
 
         #region Constructors
 
@@ -33,11 +33,29 @@ namespace Balsamic.Views
             Window.Appearance = NSAppearance.GetAppearance(NSAppearance.NameVibrantDark);
             Window.TitleVisibility = NSWindowTitleVisibility.Hidden;
 
+            SetupStatusDisplayTextField();
+
             NotificationCenter.AddObserver(ToggleCollapsed.Name, notification => {
                 var collapsed = notification.UserInfo.ObjectForKey(IsCollapsed.NSString()) as NSNumber;
                 var segmentIndex = notification.UserInfo.ObjectForKey(SegmentIndex.NSString()) as NSNumber;
                 ToggleSidebarSegmentedControl.SetSelected(!collapsed.BoolValue, segmentIndex.NIntValue);
             });
+        }
+
+        private void SetupStatusDisplayTextField()
+        {
+            NSTextAttachment attachment = new NSTextAttachment
+            {
+                Image = NSImage.ImageNamed(NSImageName.ApplicationIcon),
+                Bounds = CoreGraphics.CGRect.FromLTRB(0, -4, 14, 10),
+            };
+            NSAttributedString imageAttributedString = NSAttributedString.FromAttachment(attachment);
+
+            NSMutableAttributedString statusDisplayAttributedString = new NSMutableAttributedString();
+            statusDisplayAttributedString.Append(imageAttributedString);
+            statusDisplayAttributedString.Append(new NSAttributedString("  Apple Cider 2020 for Mac"));
+
+            StatusDisplayTextField.AttributedStringValue = statusDisplayAttributedString;
         }
 
         public void ShowWindow()
@@ -61,6 +79,8 @@ namespace Balsamic.Views
                     break;
                 case 2:
                     SplitViewController.ToggleTrailingSidebar();
+                    break;
+                default:
                     break;
             }
         }

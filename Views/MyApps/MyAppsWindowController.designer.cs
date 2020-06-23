@@ -13,6 +13,9 @@ namespace Balsamic.Views
 	partial class MyAppsWindowController
 	{
 		[Outlet]
+		AppKit.NSTextField StatusDisplayTextField { get; set; }
+
+		[Outlet]
 		AppKit.NSSegmentedControl ToggleSidebarSegmentedControl { get; set; }
 
 		[Outlet]
@@ -23,14 +26,19 @@ namespace Balsamic.Views
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (Toolbar != null) {
-				Toolbar.Dispose ();
-				Toolbar = null;
-			}
-
 			if (ToggleSidebarSegmentedControl != null) {
 				ToggleSidebarSegmentedControl.Dispose ();
 				ToggleSidebarSegmentedControl = null;
+			}
+
+			if (StatusDisplayTextField != null) {
+				StatusDisplayTextField.Dispose ();
+				StatusDisplayTextField = null;
+			}
+
+			if (Toolbar != null) {
+				Toolbar.Dispose ();
+				Toolbar = null;
 			}
 		}
 	}

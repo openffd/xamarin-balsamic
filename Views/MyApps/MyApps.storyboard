@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct" initialViewController="YPi-hK-gRE">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct" initialViewController="YPi-hK-gRE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="550" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="6742A873-9F96-46F7-8200-8FDB9F2DB8ED" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="Cb7-rl-HXE">
+                        <toolbar key="toolbar" implicitIdentifier="6742A873-9F96-46F7-8200-8FDB9F2DB8ED" centeredItem="75h-nm-Tat" displayMode="iconAndLabel" sizeMode="regular" id="Cb7-rl-HXE">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="vqA-hM-ejj"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="vR8-mx-XSv"/>
@@ -38,14 +38,32 @@
                                         </connections>
                                     </segmentedControl>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="3C53E109-B298-4F30-BD50-2648AEF97051" label="Custom View" paletteLabel="Custom View" visibilityPriority="1" selectable="YES" id="75h-nm-Tat">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="200" height="22"/>
+                                    <size key="maxSize" width="600" height="24"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="200" id="vuu-ck-K6F" userLabel="Label">
+                                        <rect key="frame" x="0.0" y="14" width="200" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="left" title="Apple Cider 2020 for Mac" bezelStyle="round" id="xZc-cS-qoV">
+                                            <font key="font" size="11" name="SFProText-Medium"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="vqA-hM-ejj"/>
+                                <toolbarItem reference="vR8-mx-XSv"/>
+                                <toolbarItem reference="75h-nm-Tat"/>
                                 <toolbarItem reference="vR8-mx-XSv"/>
                                 <toolbarItem reference="dAd-QV-eqn"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
                     <connections>
+                        <outlet property="StatusDisplayTextField" destination="vuu-ck-K6F" id="EwX-cZ-EuI"/>
                         <outlet property="ToggleSidebarSegmentedControl" destination="CXw-nh-iqM" id="9Fa-KU-Ku3"/>
                         <outlet property="Toolbar" destination="Cb7-rl-HXE" id="Pj7-or-a8s"/>
                         <segue destination="c4a-kX-D5w" kind="relationship" relationship="window.shadowedContentViewController" id="aNv-BR-q01"/>
