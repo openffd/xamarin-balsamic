@@ -15,7 +15,7 @@ namespace Balsamic.Views.MyApps
 {
     internal sealed partial class LeadingContentListViewController : NSViewController
     {
-        internal NSViewController GetViewControllerForSelectedNodes(NSTreeNode[] nodes)
+        internal NSViewController? GetViewControllerForSelectedNodes(NSTreeNode[] nodes)
         {
             if (nodes?.Length == 0)
                 return null;
@@ -35,9 +35,9 @@ namespace Balsamic.Views.MyApps
 
         private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
 
-        private IDisposable TreeControllerObservationDisposable { get; set; }
+        private IDisposable? TreeControllerObservationDisposable { get; set; }
 
-        private NSIndexPath[] TreeControllerSelectionIndexPaths { get; set; }
+        private NSIndexPath[]? TreeControllerSelectionIndexPaths { get; set; }
 
         [Export("Contents")]
         private NSMutableArray Contents { get; set; } = new NSMutableArray();
@@ -64,7 +64,7 @@ namespace Balsamic.Views.MyApps
 
         #endregion
 
-        internal new LeadingContentListView View => base.View as LeadingContentListView;
+        internal new LeadingContentListView View => (LeadingContentListView)base.View;
 
         public override void AwakeFromNib()
         {
@@ -75,15 +75,15 @@ namespace Balsamic.Views.MyApps
         {
             base.ViewDidLoad();
 
-            var appleDevAccountNode = new LeadingContentListOutlineViewNode(DataProvider.AppleDevAccount);
+            var appleDevAccountNode = new LeadingContentListOutlineViewNode(payload: DataProvider.AppleDevAccount!);
             var applicationDetailNodes = DataProvider.ApplicationDetails.Select(
                 item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
             var applicationVersionNodes = DataProvider.ApplicationVersions.Select(
                 item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
             applicationDetailNodes.ForEach(node => {
                 var versionNode = applicationVersionNodes.Find(versionNode => {
-                    var detail = ((LeadingContentListOutlineViewNode)node).Payload as ApplicationDetail;
-                    var version = ((LeadingContentListOutlineViewNode)versionNode).Payload as ApplicationVersion;
+                    var detail = (ApplicationDetail)((LeadingContentListOutlineViewNode)node).Payload;
+                    var version = (ApplicationVersion)((LeadingContentListOutlineViewNode)versionNode).Payload;
                     return detail.Id == version.AppId;
                 });
                 node.Add(versionNode);
@@ -100,7 +100,7 @@ namespace Balsamic.Views.MyApps
         public override void ViewWillDisappear()
         {
             base.ViewWillDisappear();
-            TreeControllerObservationDisposable.Dispose();
+            TreeControllerObservationDisposable?.Dispose();
         }
 
         private void SetupTreeController()

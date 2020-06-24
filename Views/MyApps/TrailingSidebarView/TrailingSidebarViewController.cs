@@ -30,6 +30,6 @@ namespace Balsamic.Views.MyApps
 
         #endregion
 
-        public new TrailingSidebarView View => base.View as TrailingSidebarView;
+        public new TrailingSidebarView View => (TrailingSidebarView)base.View;
     }
 }

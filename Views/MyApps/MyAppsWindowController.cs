@@ -35,9 +35,10 @@ namespace Balsamic.Views
 
             SetupStatusDisplayTextField();
 
-            NotificationCenter.AddObserver(ToggleCollapsed.Name, notification => {
-                var collapsed = notification.UserInfo.ObjectForKey(IsCollapsed.NSString()) as NSNumber;
-                var segmentIndex = notification.UserInfo.ObjectForKey(SegmentIndex.NSString()) as NSNumber;
+            _ = NotificationCenter.AddObserver(ToggleCollapsed.Name, notification =>
+            {
+                NSNumber? collapsed = (NSNumber)notification.UserInfo.ObjectForKey(IsCollapsed.NSString());
+                NSNumber? segmentIndex = (NSNumber)notification.UserInfo.ObjectForKey(SegmentIndex.NSString());
                 ToggleSidebarSegmentedControl.SetSelected(!collapsed.BoolValue, segmentIndex.NIntValue);
             });
         }
@@ -73,12 +74,12 @@ namespace Balsamic.Views
             switch (sender.SelectedSegment)
             {
                 case 0:
-                    SplitViewController.ToggleLeadingSidebar();
+                    SplitViewController?.ToggleLeadingSidebar();
                     break;
                 case 1:
                     break;
                 case 2:
-                    SplitViewController.ToggleTrailingSidebar();
+                    SplitViewController?.ToggleTrailingSidebar();
                     break;
                 default:
                     break;

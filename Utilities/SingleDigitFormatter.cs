@@ -8,7 +8,7 @@ namespace Balsamic
 
         public override string StringFor(NSObject value) => value.ToString();
 
-        public override bool GetObjectValue(out NSObject obj, string str, out NSString error)
+        public override bool GetObjectValue(out NSObject obj, string str, out NSString? error)
         {
             obj = (NSString)str;
             error = null;
@@ -20,7 +20,7 @@ namespace Balsamic
             out NSRange proposedSelRange,
             string origString,
             NSRange origSelRange,
-            out string error)
+            out string? error)
         {
             error = null;
             proposedSelRange = new NSRange(0, 1);

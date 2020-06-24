@@ -10,7 +10,7 @@ namespace Balsamic.Views
     sealed partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
         internal string StoryboardIdentifier => Class.ToString();
-        internal NSWorkspace Workspace { get; private set; }
+        internal NSWorkspace Workspace { get; private set; } = NSWorkspace.SharedWorkspace;
 
         static TwoFactorAuthWindowController Init2FAWindowController() => new TwoFactorAuthWindowController();
         readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
@@ -34,10 +34,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        private void Initialize()
-        {
-            Workspace = NSWorkspace.SharedWorkspace;
-        }
+        private void Initialize() {}
 
         #endregion
 

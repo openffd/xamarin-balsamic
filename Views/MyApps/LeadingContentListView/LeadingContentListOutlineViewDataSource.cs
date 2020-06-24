@@ -15,31 +15,22 @@ namespace Balsamic.Views.MyApps
 
         public override nint GetChildrenCount(NSOutlineView outlineView, NSObject item)
         {
-            //if (item == null)
-            //    return Nodes.Count;
-
-            return ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).Count;
+            return item.GetOutlineViewNode().Count;
         }
 
         public override NSObject GetChild(NSOutlineView outlineView, nint childIndex, NSObject item)
         {
-            //if (item == null)
-            //    return Nodes[(int)childIndex];
-
-            return ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode)[(int)childIndex];
+            return item.GetOutlineViewNode()[(int)childIndex];
         }
 
         public override NSObject GetObjectValue(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
-            return new NSString(((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).Title);
+            return new NSString(item.GetOutlineViewNode().Title);
         }
 
         public override bool ItemExpandable(NSOutlineView outlineView, NSObject item)
         {
-            //if (item == null)
-            //    return Nodes.First().HasChildren;
-
-            return ((item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode).HasChildren;
+            return item.GetOutlineViewNode().HasChildren;
         }
 
         public override void SortDescriptorsChanged(NSOutlineView outlineView, NSSortDescriptor[] oldDescriptors)

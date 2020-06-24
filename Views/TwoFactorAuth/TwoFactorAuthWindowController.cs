@@ -75,7 +75,7 @@ namespace Balsamic.Views
 
         void ShowMyApps()
         {
-            var windowsController = Balsamic.Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
+            MyAppsWindowController? windowsController = (MyAppsWindowController)Balsamic.Storyboard.MyApps.InstantiateInitialController();
             windowsController.ShowWindow(this);
             Window.SheetParent.Close();
         }

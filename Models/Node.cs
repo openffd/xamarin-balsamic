@@ -10,7 +10,7 @@ namespace Balsamic.Models
 
         private protected readonly List<Node> _nodes = new List<Node>();
 
-        internal event SelectionDelegate Delegate;
+        internal event SelectionDelegate? Delegate;
         internal string Tag { get; set; } = string.Empty;
 
         #region Constructors
@@ -65,7 +65,7 @@ namespace Balsamic.Models
             _position = -1;
         }
 
-        public object Current => _position < 0 ? null : _nodes[_position];
+        public object? Current => _position < 0 ? null : _nodes[_position];
 
         #endregion
 

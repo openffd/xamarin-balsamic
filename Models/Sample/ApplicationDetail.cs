@@ -10,37 +10,37 @@ namespace Balsamic.Models.Sample
         internal static string ResourcePath = "Data/Sample/ApplicationDetail/ApplicationDetail";
 
         [JsonProperty(PropertyName = "account-id")]
-        public string AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         [JsonProperty(PropertyName = "bundle-id")]
-        public string BundleId { get; set; }
+        public string? BundleId { get; set; }
 
         [JsonProperty(PropertyName = "icon-url")]
-        public string IconUrl { get; set; }
+        public string? IconUrl { get; set; }
 
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty(PropertyName = "lang")]
-        public string Language { get; set; }
+        public string? Language { get; set; }
 
         [JsonProperty(PropertyName = "local")]
         public bool Local { get; set; }
 
         [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty(PropertyName = "platform")]
-        public string Platform { get; set; }
+        public string? Platform { get; set; }
 
         [JsonProperty(PropertyName = "primary-category")]
-        public string PrimaryCategory { get; set; }
+        public string? PrimaryCategory { get; set; }
 
         [JsonProperty(PropertyName = "SKU")]
-        public string Sku { get; set; }
+        public string? Sku { get; set; }
 
         [JsonProperty(PropertyName = "store-id")]
-        public string StoreId { get; set; }
+        public string? StoreId { get; set; }
 
         [JsonProperty(PropertyName = "version-count")]
         public int VersionCount { get; set; }
@@ -62,9 +62,9 @@ namespace Balsamic.Models.Sample
             }
         }
 
-        public string Title => Name;
+        public string? Title => Name;
 
-        public string Subtitle => BundleId;
+        public string? Subtitle => BundleId;
 
         #endregion
     }

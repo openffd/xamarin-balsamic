@@ -11,7 +11,7 @@ namespace Balsamic.Views.MyApps
     {
         internal static LeadingContentListOutlineViewNode GetOutlineViewNode(this NSObject item)
         {
-            return (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
+            return (LeadingContentListOutlineViewNode)((NSTreeNode)item).RepresentedObject;
         }
     }
 
@@ -56,7 +56,7 @@ namespace Balsamic.Views.MyApps
 
         public override bool ShouldSelectItem(NSOutlineView outlineView, NSObject item)
         {
-            LeadingContentListOutlineViewNode node = (item as NSTreeNode).RepresentedObject as LeadingContentListOutlineViewNode;
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
             return node.NodeType.GetOutlineViewRowSelectability();
         }
 

@@ -19,9 +19,9 @@ namespace Balsamic.Views
         MyAppsContentViewController MyAppsContentViewController             { get; } = new MyAppsContentViewController();
         TrailingSidebarViewController TrailingSidebarViewController         { get; } = new TrailingSidebarViewController();
 
-        NSLayoutConstraint LeadingContentListViewWidthLayoutConstraint  { get; set; }
-        NSLayoutConstraint MyAppsContentViewWidthLayoutConstraint       { get; set; }
-        NSLayoutConstraint TrailingSidebarViewWidthLayoutConstraint     { get; set; }
+        NSLayoutConstraint? LeadingContentListViewWidthLayoutConstraint  { get; set; }
+        NSLayoutConstraint? MyAppsContentViewWidthLayoutConstraint       { get; set; }
+        NSLayoutConstraint? TrailingSidebarViewWidthLayoutConstraint     { get; set; }
 
         private List<IDisposable> Disposables { get; set; } = new List<IDisposable>();
 
@@ -33,8 +33,8 @@ namespace Balsamic.Views
 
         internal void ToggleLeadingSidebar()
         {
-            NSSplitViewItem splitViewItem = SplitViewItems.First().Animator as NSSplitViewItem;
-            LeadingContentListViewWidthLayoutConstraint.Active = false;
+            NSSplitViewItem splitViewItem = (NSSplitViewItem)SplitViewItems.First().Animator;
+            LeadingContentListViewWidthLayoutConstraint!.Active = false;
             NSAnimationContext.RunAnimation(context => {
                 context.Duration = 3;
                 splitViewItem.Collapsed = !splitViewItem.Collapsed;
@@ -45,8 +45,8 @@ namespace Balsamic.Views
 
         internal void ToggleTrailingSidebar()
         {
-            NSSplitViewItem splitViewItem = SplitViewItems.Last().Animator as NSSplitViewItem;
-            TrailingSidebarViewWidthLayoutConstraint.Active = false;
+            NSSplitViewItem splitViewItem = (NSSplitViewItem)SplitViewItems.Last().Animator;
+            TrailingSidebarViewWidthLayoutConstraint!.Active = false;
             NSAnimationContext.RunAnimation(context => {
                 context.Duration = 3;
                 splitViewItem.Collapsed = !splitViewItem.Collapsed;
@@ -149,18 +149,18 @@ namespace Balsamic.Views
             if (!(notification.Object is NSTreeController treeController))
                 return;
 
-            if (!(OutlineViewController is LeadingContentListViewController outlineViewController))
-                return;
-
-            NSTreeNode[] selectedNodes = treeController.SelectedNodes;
-            NSViewController viewControllerForSelection = outlineViewController.GetViewControllerForSelectedNodes(selectedNodes);
-            if (viewControllerForSelection is null)
+            if (OutlineViewController is LeadingContentListViewController outlineViewController)
             {
-                DetailViewController.RemoveFirstChildViewController();
-                return;
-            }
+                NSTreeNode[] selectedNodes = treeController.SelectedNodes;
+                NSViewController? viewControllerForSelection = outlineViewController.GetViewControllerForSelectedNodes(selectedNodes);
+                if (viewControllerForSelection is null)
+                {
+                    DetailViewController.RemoveFirstChildViewController();
+                    return;
+                }
 
-            SetupViewControllerFromSelection(viewControllerForSelection);
+                SetupViewControllerFromSelection(viewControllerForSelection);
+            }
         }
 
         private void SetupViewControllerFromSelection(NSViewController viewController)

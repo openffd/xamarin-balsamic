@@ -9,25 +9,25 @@ namespace Balsamic.Models.Sample
         internal static string ResourcePath = "Data/Sample/AppleDevAccount/AppleDevAccount";
 
         [JsonProperty(PropertyName = "apple-id-key")]
-        public string AppleIdKey { get; set; }
+        public string? AppleIdKey { get; set; }
 
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty(PropertyName = "obf-apple-id")]
-        public string ObfuscatedAppleId { get; set; }
+        public string? ObfuscatedAppleId { get; set; }
 
         [JsonProperty(PropertyName = "team-id-key")]
-        public string TeamIdKey { get; set; }
+        public string? TeamIdKey { get; set; }
 
         [JsonProperty(PropertyName = "team-name")]
-        public string TeamName { get; set; }
+        public string? TeamName { get; set; }
 
         [JsonProperty(PropertyName = "version")]
-        public string Version { get; set; }
+        public string? Version { get; set; }
 
         #region ILeadingContentListOutlineViewNodePayload
 
@@ -35,7 +35,7 @@ namespace Balsamic.Models.Sample
 
         public NSImage Image => NSImage.ImageNamed(NSImageName.UserGuest);
 
-        public string Title => TeamName;
+        public string? Title => TeamName;
 
         public string Subtitle => string.Empty;
 

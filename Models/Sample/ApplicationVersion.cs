@@ -12,34 +12,34 @@ namespace Balsamic.Models.Sample
         internal static string ResourcePath = "Data/Sample/ApplicationVersion/ApplicationVersion";
 
         [JsonProperty(PropertyName = "app-id")]
-        public string AppId { get; set; }
+        public string? AppId { get; set; }
 
         [JsonProperty(PropertyName = "copyright")]
-        public string Copyright { get; set; }
+        public string? Copyright { get; set; }
 
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty(PropertyName = "metadata")]
-        public List<ApplicationVersionMetadata> Metadata { get; set; }
+        public List<ApplicationVersionMetadata>? Metadata { get; set; }
 
         [JsonProperty(PropertyName = "origin")]
-        public string Origin { get; set; }
+        public string? Origin { get; set; }
 
         [JsonProperty(PropertyName = "platform")]
-        public string Platform { get; set; }
+        public string? Platform { get; set; }
 
         [JsonProperty(PropertyName = "review")]
-        public ApplicationVersionReview Review { get; set; }
+        public ApplicationVersionReview? Review { get; set; }
 
         [JsonProperty(PropertyName = "state")]
-        public string State { get; set; }
+        public string? State { get; set; }
 
         [JsonProperty(PropertyName = "store-id")]
-        public string StoreId { get; set; }
+        public string? StoreId { get; set; }
 
         [JsonProperty(PropertyName = "version")]
-        public string VersionString { get; set; }
+        public string? VersionString { get; set; }
 
         #region Computed Fields
 

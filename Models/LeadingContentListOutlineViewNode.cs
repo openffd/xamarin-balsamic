@@ -63,9 +63,9 @@ namespace Balsamic.Models
         internal List<Node> Children => _nodes;
 
         internal LeadingContentListOutlineViewNodeType NodeType => Payload.NodeType;
-        internal NSImage Image                                  => Payload.Image;
-        internal string Title                                   => Payload.Title;
-        internal string Subtitle                                => Payload.Subtitle;
+        internal NSImage? Image                                 => Payload.Image;
+        internal string? Title                                  => Payload.Title;
+        internal string? Subtitle                               => Payload.Subtitle;
 
         [Export("Children")]
         internal NSArray ChildrenArray => NSArray.FromNSObjects(_nodes.ToArray());
