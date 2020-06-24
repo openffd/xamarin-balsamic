@@ -6,17 +6,41 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using static Balsamic.Models.LeadingContentListOutlineViewNodeType;
 using static Balsamic.String.BindingOption;
 using static Balsamic.String.KeyPath;
+using static Balsamic.String.Notification;
 
 namespace Balsamic.Views.MyApps
 {
-    sealed partial class LeadingContentListViewController : NSViewController
+    internal sealed partial class LeadingContentListViewController : NSViewController
     {
-        readonly DataProvider DataProvider = new DataProvider();
+        internal NSViewController GetViewControllerForSelectedNodes(NSTreeNode[] nodes)
+        {
+            if (nodes?.Length == 0)
+                return null;
+
+            LeadingContentListOutlineViewNode outlineViewNode = nodes.First().GetOutlineViewNode();
+            return outlineViewNode.NodeType switch
+            {
+                LeadingContentListOutlineViewNodeType.AppleDevAccount       => new AppleDevAccountViewController(),
+                LeadingContentListOutlineViewNodeType.ApplicationVersion    => new ApplicationVersionViewController(),
+                LeadingContentListOutlineViewNodeType.ApplicationDetail     => new ApplicationDetailViewController(),
+                Separator => null,
+                _ => null,
+            };
+        }
+
+        private readonly DataProvider DataProvider = new DataProvider();
+
+        private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
+
+        private IDisposable TreeControllerObservationDisposable { get; set; }
+
+        private NSIndexPath[] TreeControllerSelectionIndexPaths { get; set; }
 
         [Export("Contents")]
-        NSMutableArray Contents { get; set; } = new NSMutableArray();
+        private NSMutableArray Contents { get; set; } = new NSMutableArray();
 
         #region Constructors
 
@@ -73,18 +97,33 @@ namespace Balsamic.Views.MyApps
             SetupOutlineView();
         }
 
-        void SetupTreeController()
+        public override void ViewWillDisappear()
         {
+            base.ViewWillDisappear();
+            TreeControllerObservationDisposable.Dispose();
+        }
+
+        private void SetupTreeController()
+        {
+            TreeControllerObservationDisposable = TreeController.AddObserver(
+                NSTreeControllerKeyPath.SelectedObjects.String(),
+                NSKeyValueObservingOptions.New,
+                observedChange => {
+                    NSNotification notification = NSNotification.FromName(TreeControllerObservation.Name, TreeController);
+                    NotificationCenter.PostNotification(notification);
+                    TreeControllerSelectionIndexPaths = TreeController.SelectionIndexPaths;
+                    InvalidateRestorableState();
+                });
             TreeController.ObjectClass = new ObjCRuntime.Class(typeof(LeadingContentListOutlineViewNode));
-            TreeController.LeafKeyPath = TreeControllerKeyPath.Leaf.String();
-            TreeController.ChildrenKeyPath = TreeControllerKeyPath.Children.String();
-            TreeController.CountKeyPath = TreeControllerKeyPath.Count.String();
+            TreeController.LeafKeyPath = TreeControllerBindingKeyPath.Leaf.String();
+            TreeController.ChildrenKeyPath = TreeControllerBindingKeyPath.Children.String();
+            TreeController.CountKeyPath = TreeControllerBindingKeyPath.Count.String();
             TreeController.Bind(NSTreeControllerKeyPath.ContentArray.NSString(), this, KeyPath.Contents.String(), null);
         }
 
-        void SetupOutlineView()
+        private void SetupOutlineView()
         {
-            OutlineView.RegisterNib(Nib.ApplicationDetailTableCellView, "ApplicationDetail");
+            OutlineView.RegisterNib(ApplicationDetailTableCellView.Nib, ApplicationDetailTableCellView.Identifier);
             OutlineView.Bind(
                 NSOutlineViewKeyPath.SelectionIndexPaths.NSString(),
                 TreeController, NSTreeControllerKeyPath.SelectionIndexPaths.String(),
@@ -104,14 +143,12 @@ namespace Balsamic.Views.MyApps
             OutlineView.ReloadData();
         }
 
-        static class Nib
+        private enum KeyPath
         {
-            internal static NSNib ApplicationDetailTableCellView => new NSNib("ApplicationDetailTableCellView", null);
+            [Description("Contents")] Contents,
         }
 
-        enum KeyPath { [Description("Contents")] Contents, }
-
-        enum TreeControllerKeyPath
+        private enum TreeControllerBindingKeyPath
         {
             [Description("Leaf")]       Leaf,
             [Description("Count")]      Count,
