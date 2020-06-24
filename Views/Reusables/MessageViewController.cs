@@ -6,7 +6,7 @@ namespace Balsamic.Views
     [Register("MessageViewController")]
     sealed class MessageViewController : NSViewController
     {
-        internal string Message { get; set; }
+        internal string Message { get; set; } = string.Empty;
 
         #region Constructors
 
