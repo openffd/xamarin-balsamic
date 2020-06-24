@@ -1,20 +1,19 @@
 ﻿using AppKit;
-using static Balsamic.String;
-using static Balsamic.String.Notification;
 using Balsamic.Views.MyApps;
-using CoreAnimation;
 using Foundation;
-using static Foundation.NSKeyValueObservingOptions;
 using ReactiveUI;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using static Balsamic.String;
+using static Balsamic.String.Notification;
+using static Foundation.NSKeyValueObservingOptions;
 
 namespace Balsamic.Views
 {
-    sealed partial class MyAppsSplitViewController : NSSplitViewController
+    public sealed partial class MyAppsSplitViewController : NSSplitViewController
     {
-        NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
+        private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
 
         LeadingContentListViewController LeadingContentListViewController   { get; } = new LeadingContentListViewController();
         MyAppsContentViewController MyAppsContentViewController             { get; } = new MyAppsContentViewController();
@@ -24,17 +23,21 @@ namespace Balsamic.Views
         NSLayoutConstraint MyAppsContentViewWidthLayoutConstraint       { get; set; }
         NSLayoutConstraint TrailingSidebarViewWidthLayoutConstraint     { get; set; }
 
-        List<IDisposable> Disposables { get; set; } = new List<IDisposable>();
+        private List<IDisposable> Disposables { get; set; } = new List<IDisposable>();
+
+        private NSViewController OutlineViewController => SplitViewItems.First().ViewController;
+        private NSViewController DetailViewController => SplitViewItems[1].ViewController;
+        private NSViewController SidebarViewController => SplitViewItems.Last().ViewController;
 
         #region Internal Methods
 
         internal void ToggleLeadingSidebar()
         {
-            var animator = SplitViewItems.First().Animator as NSSplitViewItem;
+            NSSplitViewItem splitViewItem = SplitViewItems.First().Animator as NSSplitViewItem;
             LeadingContentListViewWidthLayoutConstraint.Active = false;
             NSAnimationContext.RunAnimation(context => {
                 context.Duration = 3;
-                animator.Collapsed = !animator.Collapsed;
+                splitViewItem.Collapsed = !splitViewItem.Collapsed;
             }, () => {
                 LeadingContentListViewWidthLayoutConstraint.Active = true;
             });
@@ -42,11 +45,11 @@ namespace Balsamic.Views
 
         internal void ToggleTrailingSidebar()
         {
-            var animator = SplitViewItems.Last().Animator as NSSplitViewItem;
+            NSSplitViewItem splitViewItem = SplitViewItems.Last().Animator as NSSplitViewItem;
             TrailingSidebarViewWidthLayoutConstraint.Active = false;
             NSAnimationContext.RunAnimation(context => {
                 context.Duration = 3;
-                animator.Collapsed = !animator.Collapsed;
+                splitViewItem.Collapsed = !splitViewItem.Collapsed;
             }, () => {
                 TrailingSidebarViewWidthLayoutConstraint.Active = true;
             });
@@ -76,6 +79,8 @@ namespace Balsamic.Views
 
         #endregion
 
+        #region NSViewController
+
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
@@ -97,28 +102,98 @@ namespace Balsamic.Views
             SetupTrailingSplitViewItem();
         }
 
+        public override void ViewWillAppear()
+        {
+            base.ViewWillAppear();
+
+            Disposables.Add(
+                NotificationCenter.AddObserver(TreeControllerObservation.Name, notification => {
+                    HandleSelectionChange(notification);
+                })
+            );
+        }
+
         public override void ViewWillDisappear()
         {
             base.ViewWillDisappear();
-
             Disposables.ForEach(item => item.Dispose());
+            Console.WriteLine("Disappeared");
         }
 
-        void SetupLeadingContentListViewControllerLayoutConstraint()
+        #endregion
+
+        private void EmbedChildViewController(NSViewController viewController)
+        {
+            DetailViewController.AddChildViewController(viewController);
+            NSView firstSubview = DetailViewController.View.Subviews.First();
+            firstSubview.AddSubview(viewController.View);
+            viewController.View.TranslatesAutoresizingMaskIntoConstraints = false;
+
+            NSLayoutConstraint[] horizontalConstraints = NSLayoutConstraint.FromVisualFormat(
+                "H:|[targetView]|",
+                NSLayoutFormatOptions.None,
+                null,
+                NSDictionary.FromObjectAndKey(viewController.View, (NSString)"targetView"));
+            NSLayoutConstraint.ActivateConstraints(horizontalConstraints);
+
+            NSLayoutConstraint[] verticalConstraints = NSLayoutConstraint.FromVisualFormat(
+                "V:|[targetView]|",
+                NSLayoutFormatOptions.None,
+                null,
+                NSDictionary.FromObjectAndKey(viewController.View, (NSString)"targetView"));
+            NSLayoutConstraint.ActivateConstraints(verticalConstraints);
+        }
+
+        private void HandleSelectionChange(NSNotification notification)
+        {
+            if (!(notification.Object is NSTreeController treeController))
+                return;
+
+            if (!(OutlineViewController is LeadingContentListViewController outlineViewController))
+                return;
+
+            NSTreeNode[] selectedNodes = treeController.SelectedNodes;
+            NSViewController viewControllerForSelection = outlineViewController.GetViewControllerForSelectedNodes(selectedNodes);
+            if (viewControllerForSelection is null)
+            {
+                DetailViewController.RemoveFirstChildViewController();
+                return;
+            }
+
+            SetupViewControllerFromSelection(viewControllerForSelection);
+        }
+
+        private void SetupViewControllerFromSelection(NSViewController viewController)
+        {
+            if (DetailViewController.HasChildViewController())
+            {
+                if (viewController == DetailViewController.ChildViewControllers.First())
+                    return;
+
+                DetailViewController.RemoveFirstChildViewController();
+                EmbedChildViewController(viewController);
+            }
+            else
+            {
+                EmbedChildViewController(viewController);
+            }
+        }
+
+        private void SetupLeadingContentListViewControllerLayoutConstraint()
         {
             var layoutConstraint = LeadingContentListViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(280);
             layoutConstraint.Active = true;
             LeadingContentListViewWidthLayoutConstraint = layoutConstraint;
         }
 
-        void SetupTrailingSidebarViewControllerLayoutConstraint()
+        private void SetupTrailingSidebarViewControllerLayoutConstraint()
         {
             var layoutConstraint = TrailingSidebarViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(12);
             layoutConstraint.Active = true;
             TrailingSidebarViewWidthLayoutConstraint = layoutConstraint;
         }
 
-        void SetupLeadingSplitViewItem()
+        private void SetupLeadingSplitViewItem()
         {
             var splitViewItem = NSSplitViewItem.CreateContentList(LeadingContentListViewController);
             splitViewItem.CanCollapse = true;
@@ -135,7 +210,7 @@ namespace Balsamic.Views
             }));
         }
 
-        void SetupCenterSplitViewItem()
+        private void SetupCenterSplitViewItem()
         {
             var splitViewItem = new NSSplitViewItem()
             {
@@ -145,7 +220,7 @@ namespace Balsamic.Views
             AddSplitViewItem(splitViewItem);
         }
 
-        void SetupTrailingSplitViewItem()
+        private void SetupTrailingSplitViewItem()
         {
             var splitViewItem = NSSplitViewItem.CreateSidebar(TrailingSidebarViewController);
             splitViewItem.CanCollapse = true;
