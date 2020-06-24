@@ -20,7 +20,7 @@ namespace Balsamic
 #if RELEASE
         IWindowController WindowController { get; } = new LaunchWindowController();
 #else
-        IWindowController WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
+        private IWindowController? WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
 #endif
         NSApplication SharedApplication => NSApplication.SharedApplication;
         SUUpdater SharedUpdater => SUUpdater.SharedUpdater;
