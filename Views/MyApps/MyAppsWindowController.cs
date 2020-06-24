@@ -11,7 +11,7 @@ namespace Balsamic.Views
     {
         private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
 
-        private MyAppsSplitViewController SplitViewController => ContentViewController as MyAppsSplitViewController;
+        private MyAppsSplitViewController? SplitViewController => ContentViewController as MyAppsSplitViewController;
 
         #region Constructors
 
