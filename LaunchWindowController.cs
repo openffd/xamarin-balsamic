@@ -7,7 +7,7 @@ using System;
 
 namespace Balsamic
 {
-    sealed class LaunchWindowController : NSWindowController, AppDelegate.IWindowController
+    internal sealed class LaunchWindowController : NSWindowController, AppDelegate.IWindowController
     {
         internal new LaunchWindow Window => (LaunchWindow)base.Window;
         

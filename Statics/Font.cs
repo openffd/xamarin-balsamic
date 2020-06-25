@@ -2,7 +2,7 @@
 
 namespace Balsamic
 {
-    static class Font
+    internal static class Font
     {
         internal enum Name
         {

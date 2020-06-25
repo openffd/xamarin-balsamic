@@ -8,7 +8,7 @@ using static Balsamic.Enums.ApplicationVersion.Status;
 
 namespace Balsamic.Enums
 {
-    static class ApplicationVersion
+    internal static class ApplicationVersion
     {
         internal enum Status
         {

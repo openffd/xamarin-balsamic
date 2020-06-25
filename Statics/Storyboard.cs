@@ -2,9 +2,9 @@
 
 namespace Balsamic
 {
-    static class Storyboard
+    internal static class Storyboard
     {
-        enum Name
+        private enum Name
         {
             MyApps,
             Welcome,

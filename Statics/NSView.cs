@@ -2,7 +2,7 @@
 
 namespace Balsamic
 {
-    static class View
+    internal static class View
     {
         internal static void Rounded(this AppKit.NSView view, double cornerRadius = 4)
         {

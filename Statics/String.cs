@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Balsamic
 {
-    static class String
+    internal static class String
     {
         internal enum BindingOption
         {

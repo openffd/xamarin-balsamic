@@ -3,7 +3,7 @@ using Foundation;
 
 namespace Balsamic
 {
-    sealed class LaunchWindow : NSWindow
+    internal sealed class LaunchWindow : NSWindow
     {
         public LaunchWindow(CoreGraphics.CGRect contentRect, NSWindowStyle aStyle, NSBackingStore bufferingType, bool deferCreation) :
             base(contentRect, aStyle, bufferingType, deferCreation)
