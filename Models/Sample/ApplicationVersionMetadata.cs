@@ -9,7 +9,7 @@ using static Newtonsoft.Json.Required;
 
 namespace Balsamic.Models.Sample
 {
-    sealed partial class ApplicationVersionMetadata : NSObject
+    internal sealed partial class ApplicationVersionMetadata : NSObject
     {
         [JsonProperty(PropertyName = "app-store-name", NullValueHandling = Ignore, Required = DisallowNull)]
         public string? AppStoreName { get; set; }

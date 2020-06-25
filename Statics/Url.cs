@@ -2,9 +2,9 @@
 
 namespace Balsamic
 {
-    static class Url
+    internal static class Url
     {
-        static class String
+        private static class String
         {
             internal const string ForgotPassword = "iforgot.apple.com/password/verify/appleid";
             internal const string HttpsScheme = "https";

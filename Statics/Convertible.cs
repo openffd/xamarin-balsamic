@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Balsamic
 {
-    static class Convertible
+    internal static class Convertible
     {
         internal static Foundation.NSString NSString<T>(this T someEnum) where T : IConvertible
         {
@@ -14,9 +14,11 @@ namespace Balsamic
 
         internal static string String<T>(this T someEnum) where T : IConvertible
         {
-            var isEnum = someEnum is Enum;
+            string description = string.Empty;
+            bool isEnum = someEnum is Enum;
+
             if (!isEnum)
-                return string.Empty;
+                return description;
 
             Type type = someEnum.GetType();
             Array values = Enum.GetValues(type);
@@ -33,7 +35,7 @@ namespace Balsamic
                 }
             }
 
-            return string.Empty;
+            return description;
         }
     }
 }

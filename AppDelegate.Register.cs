@@ -1,5 +1,5 @@
 ﻿namespace Balsamic
 {
     [Foundation.Register("AppDelegate")]
-    partial class AppDelegate {}
+    internal partial class AppDelegate {}
 }

@@ -8,7 +8,7 @@ using Sparkle;
 
 namespace Balsamic
 {
-    sealed partial class AppDelegate : NSApplicationDelegate
+    internal sealed partial class AppDelegate : NSApplicationDelegate
     {
         internal interface IWindowController
         {
@@ -22,19 +22,23 @@ namespace Balsamic
 #else
         private IWindowController? WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
 #endif
-        NSApplication SharedApplication => NSApplication.SharedApplication;
-        SUUpdater SharedUpdater => SUUpdater.SharedUpdater;
+        private NSApplication SharedApplication => NSApplication.SharedApplication;
+
+        private SUUpdater SharedUpdater => SUUpdater.SharedUpdater;
 
         public AppDelegate() {}
 
-        public override bool ApplicationShouldTerminateAfterLastWindowClosed(NSApplication sender) => true;
+        public override bool ApplicationShouldTerminateAfterLastWindowClosed(NSApplication sender)
+        {
+            return true;
+        }
 
         public override void WillFinishLaunching(NSNotification notification)
         {
             SetupCheckForUpdatesMenuItem();
         }
 
-        void SetupCheckForUpdatesMenuItem()
+        private void SetupCheckForUpdatesMenuItem()
         {
             var menuItem = new NSMenuItem(MenuItemTitle.CheckForUpdates, delegate {
                 SharedUpdater.CheckForUpdates(this);

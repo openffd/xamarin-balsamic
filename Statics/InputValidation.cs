@@ -1,12 +1,14 @@
-﻿namespace Balsamic
+﻿using System.Net.Mail;
+
+namespace Balsamic
 {
-    static class InputValidation
+    internal static class InputValidation
     {
         internal static bool IsValidEmail(this string input)
         {
             try
             {
-                var _ = new System.Net.Mail.MailAddress(input);
+                MailAddress _ = new MailAddress(input);
                 return true;
             }
             catch (System.Exception) { return false; }

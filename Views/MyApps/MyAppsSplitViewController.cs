@@ -1,7 +1,6 @@
 ﻿using AppKit;
 using Balsamic.Views.MyApps;
 using Foundation;
-using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,19 +14,21 @@ namespace Balsamic.Views
     {
         private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
 
-        LeadingContentListViewController LeadingContentListViewController   { get; } = new LeadingContentListViewController();
-        MyAppsContentViewController MyAppsContentViewController             { get; } = new MyAppsContentViewController();
-        TrailingSidebarViewController TrailingSidebarViewController         { get; } = new TrailingSidebarViewController();
+        private LeadingContentListViewController LeadingContentListViewController { get; } = new LeadingContentListViewController();
+        private MyAppsContentViewController MyAppsContentViewController { get; } = new MyAppsContentViewController();
+        private TrailingSidebarViewController TrailingSidebarViewController { get; } = new TrailingSidebarViewController();
 
-        NSLayoutConstraint? LeadingContentListViewWidthLayoutConstraint  { get; set; }
-        NSLayoutConstraint? MyAppsContentViewWidthLayoutConstraint       { get; set; }
-        NSLayoutConstraint? TrailingSidebarViewWidthLayoutConstraint     { get; set; }
-
-        private List<IDisposable> Disposables { get; set; } = new List<IDisposable>();
+#pragma warning disable IDE0051
+        private NSLayoutConstraint? LeadingContentListViewWidthLayoutConstraint { get; set; }
+        private NSLayoutConstraint? MyAppsContentViewWidthLayoutConstraint { get; set; }
+        private NSLayoutConstraint? TrailingSidebarViewWidthLayoutConstraint { get; set; }
 
         private NSViewController OutlineViewController => SplitViewItems.First().ViewController;
         private NSViewController DetailViewController => SplitViewItems[1].ViewController;
         private NSViewController SidebarViewController => SplitViewItems.Last().ViewController;
+#pragma warning restore IDE0051
+
+        private List<IDisposable> Disposables { get; set; } = new List<IDisposable>();
 
         #region Internal Methods
 
@@ -35,10 +36,10 @@ namespace Balsamic.Views
         {
             NSSplitViewItem splitViewItem = (NSSplitViewItem)SplitViewItems.First().Animator;
             LeadingContentListViewWidthLayoutConstraint!.Active = false;
-            NSAnimationContext.RunAnimation(context => {
+            NSAnimationContext.RunAnimation(changes: context => {
                 context.Duration = 3;
                 splitViewItem.Collapsed = !splitViewItem.Collapsed;
-            }, () => {
+            }, completionHandler: () => {
                 LeadingContentListViewWidthLayoutConstraint.Active = true;
             });
         }
@@ -47,10 +48,10 @@ namespace Balsamic.Views
         {
             NSSplitViewItem splitViewItem = (NSSplitViewItem)SplitViewItems.Last().Animator;
             TrailingSidebarViewWidthLayoutConstraint!.Active = false;
-            NSAnimationContext.RunAnimation(context => {
+            NSAnimationContext.RunAnimation(changes: context => {
                 context.Duration = 3;
                 splitViewItem.Collapsed = !splitViewItem.Collapsed;
-            }, () => {
+            }, completionHandler: () => {
                 TrailingSidebarViewWidthLayoutConstraint.Active = true;
             });
         }
@@ -75,7 +76,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         #endregion
 
@@ -117,7 +118,6 @@ namespace Balsamic.Views
         {
             base.ViewWillDisappear();
             Disposables.ForEach(item => item.Dispose());
-            Console.WriteLine("Disappeared");
         }
 
         #endregion
@@ -181,27 +181,27 @@ namespace Balsamic.Views
 
         private void SetupLeadingContentListViewControllerLayoutConstraint()
         {
-            var layoutConstraint = LeadingContentListViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(280);
+            NSLayoutConstraint layoutConstraint = LeadingContentListViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(280);
             layoutConstraint.Active = true;
             LeadingContentListViewWidthLayoutConstraint = layoutConstraint;
         }
 
         private void SetupTrailingSidebarViewControllerLayoutConstraint()
         {
-            var layoutConstraint = TrailingSidebarViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(12);
+            NSLayoutConstraint layoutConstraint = TrailingSidebarViewController.View.WidthAnchor.ConstraintGreaterThanOrEqualToConstant(12);
             layoutConstraint.Active = true;
             TrailingSidebarViewWidthLayoutConstraint = layoutConstraint;
         }
 
         private void SetupLeadingSplitViewItem()
         {
-            var splitViewItem = NSSplitViewItem.CreateContentList(LeadingContentListViewController);
+            NSSplitViewItem splitViewItem = NSSplitViewItem.CreateContentList(LeadingContentListViewController);
             splitViewItem.CanCollapse = true;
             splitViewItem.MaximumThickness = 400;
             AddSplitViewItem(splitViewItem);
 
             Disposables.Add(splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
-                var userInfo = new NSDictionary
+                NSDictionary userInfo = new NSDictionary
                 (
                     ToggleCollapsed.UserInfoKey.IsCollapsed.String(), change.NewValue,
                     ToggleCollapsed.UserInfoKey.SegmentIndex.String(), 0
@@ -212,7 +212,7 @@ namespace Balsamic.Views
 
         private void SetupCenterSplitViewItem()
         {
-            var splitViewItem = new NSSplitViewItem()
+            NSSplitViewItem splitViewItem = new NSSplitViewItem()
             {
                 ViewController = MyAppsContentViewController,
                 MinimumThickness = 12,
@@ -222,14 +222,14 @@ namespace Balsamic.Views
 
         private void SetupTrailingSplitViewItem()
         {
-            var splitViewItem = NSSplitViewItem.CreateSidebar(TrailingSidebarViewController);
+            NSSplitViewItem splitViewItem = NSSplitViewItem.CreateSidebar(TrailingSidebarViewController);
             splitViewItem.CanCollapse = true;
             splitViewItem.MaximumThickness = 280;
             splitViewItem.MinimumThickness = 12;
             AddSplitViewItem(splitViewItem);
 
             Disposables.Add(splitViewItem.AddObserver(KeyPath.NSSplitViewItem.Collapsed.String(), New, change => {
-                var userInfo = new NSDictionary
+                NSDictionary userInfo = new NSDictionary
                 (
                     ToggleCollapsed.UserInfoKey.IsCollapsed.String(), change.NewValue,
                     ToggleCollapsed.UserInfoKey.SegmentIndex.String(), 2

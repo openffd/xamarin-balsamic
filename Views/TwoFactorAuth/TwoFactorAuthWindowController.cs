@@ -6,21 +6,27 @@ using System.Collections.Generic;
 
 namespace Balsamic.Views
 {
-    sealed partial class TwoFactorAuthWindowController : NSWindowController
+    internal sealed partial class TwoFactorAuthWindowController : NSWindowController
     {
-        IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
+        private IndexedTextFields IndexedTextFields => new List<SingleDigitTextField> {
             CodePart1TextField, CodePart2TextField, CodePart3TextField, CodePart4TextField, CodePart5TextField, CodePart6TextField
         }.Indexed();
 
-        bool AreAllTextFieldsSet => IndexedTextFields.All(item => item.textField.HasContent());
+        private bool AreAllTextFieldsSet => IndexedTextFields.All(item => item.textField.HasContent());
 
-        static NSPopover InitPopover() => new NSPopover() {
-            Animates = true,
-            Behavior = NSPopoverBehavior.Transient,
-            ContentViewController = new ResendCodeViewController()
-        };
-        readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitPopover);
-        NSPopover ResendCodePopover { get => _lazyPopover.Value; }
+        private static NSPopover InitPopover()
+        {
+            return new NSPopover()
+            {
+                Animates = true,
+                Behavior = NSPopoverBehavior.Transient,
+                ContentViewController = new ResendCodeViewController()
+            };
+        }
+
+        private readonly System.Lazy<NSPopover> _lazyPopover = new System.Lazy<NSPopover>(InitPopover);
+
+        private NSPopover ResendCodePopover => _lazyPopover.Value;
 
         #region Constructors
 
@@ -41,12 +47,12 @@ namespace Balsamic.Views
             SetupSubviewsUponVisibility();
         }
 
-        void SetupSubviewsUponVisibility()
+        private void SetupSubviewsUponVisibility()
         {
             ContinueButton.Enabled = AreAllTextFieldsSet;
             ContinueButton.KeyEquivalent = String.KeyEquivalent.Return.String();
 
-            foreach (var (textField, index) in IndexedTextFields)
+            foreach ((SingleDigitTextField textField, int index) in IndexedTextFields)
             {
                 textField.Delegate = this;
                 textField.StringValue = string.Empty;
@@ -73,7 +79,7 @@ namespace Balsamic.Views
 
         #endregion
 
-        void ShowMyApps()
+        private void ShowMyApps()
         {
             MyAppsWindowController? windowsController = (MyAppsWindowController)Balsamic.Storyboard.MyApps.InstantiateInitialController();
             windowsController.ShowWindow(this);

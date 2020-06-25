@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class DataProvider
+    internal sealed class DataProvider
     {
         public AppleDevAccount? AppleDevAccount { get; set; }
         public List<ApplicationDetail>? ApplicationDetails { get; set; }

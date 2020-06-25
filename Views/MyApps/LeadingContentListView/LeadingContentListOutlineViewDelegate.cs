@@ -15,7 +15,7 @@ namespace Balsamic.Views.MyApps
         }
     }
 
-    class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
+    internal sealed class LeadingContentListOutlineViewDelegate : NSOutlineViewDelegate
     {
         public override void DidAddRowView(NSOutlineView outlineView, NSTableRowView rowView, nint row)
         {
@@ -24,7 +24,7 @@ namespace Balsamic.Views.MyApps
 
         public override NSCell GetCell(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
-            nint row = outlineView.RowForItem(item); 
+            nint row = outlineView.RowForItem(item);
             return tableColumn.DataCellForRow(row);
         }
 

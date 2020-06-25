@@ -1,12 +1,12 @@
 ﻿using AppKit;
-using static Balsamic.Font.Name;
 using System;
+using static Balsamic.Font.Name;
 
 namespace Balsamic.Views
 {
-    sealed partial class ResendCodeViewController
+    internal sealed partial class ResendCodeViewController
     {
-       static class String
+        private static class String
        {
             internal static class ResendCode
             {
@@ -30,27 +30,27 @@ namespace Balsamic.Views
             }
         }
 
-        static class Image
+        private static class Image
         {
             internal static NSImage ResendCode => NSImage.ImageNamed(String.ResendCode.ImageName);
             internal static NSImage UsePhoneNumber => NSImage.ImageNamed(String.UsePhoneNumber.ImageName);
             internal static NSImage MoreOptions => NSImage.ImageNamed(String.MoreOptions.ImageName);
         }
 
-        static class Selector
+        private static class Selector
         {
             internal static ObjCRuntime.Selector ResendCode_ => new ObjCRuntime.Selector("ResendCode:");
             internal static ObjCRuntime.Selector UsePhoneNumber_ => new ObjCRuntime.Selector("UsePhoneNumber:");
             internal static ObjCRuntime.Selector MoreOptions_ => new ObjCRuntime.Selector("MoreOptions:");
         }
 
-        static class Font
+        private static class Font
         {
             internal static NSFont Header => NSFont.FromFontName(HelveticaNeueBold.String(), 14);
             internal static NSFont Description => NSFont.FromFontName(HelveticaNeue.String(), 13);
         }
 
-        static class Color
+        private static class Color
         {
             internal static NSColor Header => NSColor.White;
             internal static NSColor Description => NSColor.FromWhite((nfloat)0.6, 1);

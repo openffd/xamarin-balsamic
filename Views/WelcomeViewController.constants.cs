@@ -1,13 +1,12 @@
 ﻿using AppKit;
 using static Balsamic.Font.Name;
-using Foundation;
 using static Foundation.NSBundle;
 
 namespace Balsamic.Views
 {
-    partial class WelcomeViewController
+    internal partial class WelcomeViewController
     {
-        static class String
+        private static class String
         {
             internal static string AppBuildVersion => $"Version {MainBundle.GetVersion()} ({MainBundle.GetBuild()})";
             internal static string SigninInstructions => "Sign in with your Apple ID:";
@@ -20,14 +19,14 @@ namespace Balsamic.Views
             }
         }
 
-        static class Image
+        private static class Image
         {
             internal static NSImage AppLogo => Balsamic.Image.AppLogo;
             internal static NSImage GoForward => Balsamic.Image.GoForwardTemplate;
             internal static NSImage Close => Balsamic.Image.StatusUnavailable;
         }
 
-        static class Font
+        private static class Font
         {
             internal static NSFont WelcomeTextField => NSFont.FromFontName(SFProDisplayBold.String(), 34);
             internal static NSFont VersionTextField => NSFont.FromFontName(SFProDisplayRegular.String(), 10);

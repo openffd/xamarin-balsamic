@@ -3,18 +3,15 @@ using System.ComponentModel;
 
 namespace Balsamic
 {
-    static class Image
+    internal static class Image
     {
-        static class SystemImage
+        private static class SystemImage
         {
             internal enum Name
             {
-                [Description("NSGoForwardTemplate")]
-                GoForwardTemplate,
-                [Description("NSStatusUnavailable")]
-                StatusUnavailable,
-                [Description("NSUserAccounts")]
-                UserAccounts,
+                [Description("NSGoForwardTemplate")]    GoForwardTemplate,
+                [Description("NSStatusUnavailable")]    StatusUnavailable,
+                [Description("NSUserAccounts")]         UserAccounts,
             }
         }
 

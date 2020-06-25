@@ -2,11 +2,14 @@
 
 namespace Balsamic
 {
-    sealed class SingleDigitFormatter : NSFormatter
+    internal sealed class SingleDigitFormatter : NSFormatter
     {
         public SingleDigitFormatter() {}
 
-        public override string StringFor(NSObject value) => value.ToString();
+        public override string StringFor(NSObject value)
+        {
+            return value.ToString();
+        }
 
         public override bool GetObjectValue(out NSObject obj, string str, out NSString? error)
         {

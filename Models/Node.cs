@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 namespace Balsamic.Models
 {
-    class Node : NSObject, IEnumerator, IEnumerable
+    internal class Node : NSObject, IEnumerator, IEnumerable
     {
         internal delegate void SelectionDelegate();
 
         private protected readonly List<Node> _nodes = new List<Node>();
 
         internal event SelectionDelegate? Delegate;
+
         internal string Tag { get; set; } = string.Empty;
 
         #region Constructors

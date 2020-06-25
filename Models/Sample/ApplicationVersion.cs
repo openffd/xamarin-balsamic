@@ -7,7 +7,7 @@ using static Balsamic.Enums.ApplicationVersion.Status;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class ApplicationVersion : NSObject, ILeadingContentListOutlineViewNodePayload
+    internal sealed class ApplicationVersion : NSObject, ILeadingContentListOutlineViewNodePayload
     {
         internal static string ResourcePath = "Data/Sample/ApplicationVersion/ApplicationVersion";
 

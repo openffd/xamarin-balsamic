@@ -7,7 +7,7 @@ using static Balsamic.String.Notification.ToggleCollapsed.UserInfoKey;
 
 namespace Balsamic.Views
 {
-    sealed partial class MyAppsWindowController : NSWindowController, IWindowController
+    internal sealed partial class MyAppsWindowController : NSWindowController, IWindowController
     {
         private NSNotificationCenter NotificationCenter { get; } = NSNotificationCenter.DefaultCenter;
 

@@ -5,7 +5,7 @@ using System;
 
 namespace Balsamic.Views
 {
-    sealed partial class MyAppsWindow : NSWindow
+    public sealed partial class MyAppsWindow : NSWindow
     {
         public MyAppsWindow(IntPtr handle) : base(handle) {}
 

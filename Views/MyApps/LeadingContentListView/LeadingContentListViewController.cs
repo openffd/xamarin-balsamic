@@ -60,7 +60,7 @@ namespace Balsamic.Views.MyApps
             Initialize();
         }
 
-        void Initialize() { }
+        private void Initialize() {}
 
         #endregion
 

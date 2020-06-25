@@ -4,7 +4,7 @@ using Foundation;
 namespace Balsamic.Views
 {
     [Register("MessageViewController")]
-    sealed class MessageViewController : NSViewController
+    internal sealed class MessageViewController : NSViewController
     {
         internal string Message { get; set; } = string.Empty;
 
@@ -27,7 +27,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         #endregion
 
@@ -45,7 +45,8 @@ namespace Balsamic.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            var textField = new CenteredTextField(View.Bounds, Message);
+
+            CenteredTextField textField = new CenteredTextField(View.Bounds, Message);
             View.AddSubview(textField);
         }
     }

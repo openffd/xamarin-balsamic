@@ -5,37 +5,40 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Balsamic.Views
 {
-    partial class WelcomeViewController
+    internal partial class WelcomeViewController
     {
-        readonly Selector closePopover = new Selector("closePopover");
+        private readonly Selector closePopover = new Selector("closePopover");
 
-        static MessagePopover InitializePopover() => new MessagePopover();
-        readonly System.Lazy<MessagePopover> _lazyPopover = new System.Lazy<MessagePopover>(InitializePopover);
-        MessagePopover MessagePopover => _lazyPopover.Value;
+        private static MessagePopover InitializePopover()
+        {
+            return new MessagePopover();
+        }
+
+        private readonly System.Lazy<MessagePopover> _lazyPopover = new System.Lazy<MessagePopover>(InitializePopover);
+
+        private MessagePopover MessagePopover => _lazyPopover.Value;
 
         [Export("closePopover")]
         [SuppressMessage(null, "IDE0051")]
-        void ClosePopover()
+        private void ClosePopover()
         {
-            if (!MessagePopover.Shown)
-                return;
-
-            MessagePopover.Close();
+            if (MessagePopover.Shown)
+                MessagePopover.Close();
         }
 
-        void ShowPopover(string message, NSView positioningView)
+        private void ShowPopover(string message, NSView positioningView)
         {
             MessagePopover.Message = message;
             MessagePopover.Show(positioningView.Bounds, positioningView, NSRectEdge.MaxXEdge);
         }
 
-        void ShowInvalidEmailError()
+        private void ShowInvalidEmailError()
         {
             AppKitFramework.NSBeep();
 
             ClosePopover();
 
-            NSObject.CancelPreviousPerformRequest(this, closePopover, this);
+            CancelPreviousPerformRequest(this, closePopover, this);
             ShowPopover(Balsamic.String.ErrorMessage.InvalidEmail.String(), AppleIDTextField);
             PerformSelector(closePopover, this, 2.5);
         }

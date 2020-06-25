@@ -3,7 +3,7 @@
 namespace Balsamic.Views
 {
     [Foundation.Register("CenteredTextField")]
-    sealed class CenteredTextField : NSTextField
+    internal sealed class CenteredTextField : NSTextField
     {
         public CenteredTextField(CoreGraphics.CGRect frame, string message = "") : base(frame)
         {

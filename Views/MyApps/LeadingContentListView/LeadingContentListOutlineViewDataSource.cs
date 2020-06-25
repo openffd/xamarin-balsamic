@@ -1,9 +1,6 @@
 ﻿using AppKit;
-using Balsamic.Models;
 using Foundation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Balsamic.Views.MyApps
 {
@@ -35,10 +32,8 @@ namespace Balsamic.Views.MyApps
 
         public override void SortDescriptorsChanged(NSOutlineView outlineView, NSSortDescriptor[] oldDescriptors)
         {
-            if (oldDescriptors.Length <= 0)
-                return;
-
-            outlineView.ReloadData();
+            if (oldDescriptors.Length > 0)
+                outlineView.ReloadData();
         }
 
         #endregion

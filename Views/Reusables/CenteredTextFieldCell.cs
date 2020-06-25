@@ -6,7 +6,7 @@ using System;
 namespace Balsamic.Views
 {
     [Register("CenteredTextFieldCell")]
-    sealed class CenteredTextFieldCell : NSTextFieldCell
+    internal sealed class CenteredTextFieldCell : NSTextFieldCell
     {
         public CenteredTextFieldCell()
         {
@@ -18,7 +18,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         public override void EditWithFrame(CGRect aRect, NSView inView, NSText editor, NSObject delegateObject, NSEvent theEvent)
         {
@@ -35,10 +35,10 @@ namespace Balsamic.Views
             base.DrawInteriorWithFrame(AdjustFrame(cellFrame), inView);
         }
 
-        CGRect AdjustFrame(CGRect frame)
+        private CGRect AdjustFrame(CGRect frame)
         {
-            var fontDelta = Font.Ascender - Font.Descender;
-            var dy = Math.Floor(0.5 * (frame.Height - fontDelta));
+            nfloat fontDelta = Font.Ascender - Font.Descender;
+            double dy = Math.Floor(0.5 * (frame.Height - fontDelta));
             return frame.Inset(0, (nfloat)dy);
         }
     }

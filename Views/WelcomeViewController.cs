@@ -10,11 +10,14 @@ namespace Balsamic.Views
     sealed partial class WelcomeViewController : NSViewController, INSTextFieldDelegate
     {
         internal string StoryboardIdentifier => Class.ToString();
+
         internal NSWorkspace Workspace { get; private set; } = NSWorkspace.SharedWorkspace;
 
-        static TwoFactorAuthWindowController Init2FAWindowController() => new TwoFactorAuthWindowController();
-        readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
-        TwoFactorAuthWindowController TwoFactorAuthWindowController => _lazy2FAWindowController.Value;
+        private static TwoFactorAuthWindowController Init2FAWindowController() => new TwoFactorAuthWindowController();
+
+        private readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
+
+        private TwoFactorAuthWindowController TwoFactorAuthWindowController => _lazy2FAWindowController.Value;
 
         #region Constructors
 
@@ -57,7 +60,7 @@ namespace Balsamic.Views
             SetupSigninButton();
         }
 
-        void SetupWelcomeTextField()
+        private void SetupWelcomeTextField()
         {
             WelcomeTextField.StringValue = NSBundle.MainBundle.GetName();
             WelcomeTextField.Font = Font.WelcomeTextField;
@@ -65,7 +68,7 @@ namespace Balsamic.Views
             WelcomeTextField.TextColor = NSColor.White;
         }
 
-        void SetupVersionTextField()
+        private void SetupVersionTextField()
         {
             VersionTextField.StringValue = String.AppBuildVersion;
             VersionTextField.Font = Font.VersionTextField;
@@ -73,7 +76,7 @@ namespace Balsamic.Views
             VersionTextField.TextColor = NSColor.FromWhite((nfloat)0.8, 1);
         }
 
-        void SetupSigninHeaderTextField()
+        private void SetupSigninHeaderTextField()
         {
             SigninHeaderTextField.StringValue = String.SigninInstructions;
             SigninHeaderTextField.Font = Font.SigninHeaderTextField;
@@ -81,7 +84,7 @@ namespace Balsamic.Views
             SigninHeaderTextField.TextColor = NSColor.White;
         }
 
-        void SetupAppleIDTextField()
+        private void SetupAppleIDTextField()
         {
             AppleIDTextField.Delegate = this;
             AppleIDTextField.PlaceholderString = String.Placeholder.AppleID;
@@ -91,7 +94,7 @@ namespace Balsamic.Views
             AppleIDTextField.Editable = true;
         }
 
-        void SetupPasswordTextField()
+        private void SetupPasswordTextField()
         {
             PasswordTextField.Delegate = this;
             PasswordTextField.PlaceholderString = String.Placeholder.Password;
@@ -101,7 +104,7 @@ namespace Balsamic.Views
             PasswordTextField.Editable = true;
         }
 
-        void SetupForgotPasswordButton()
+        private void SetupForgotPasswordButton()
         {
             ForgotPasswordButton.Title = String.ForgotPasswordButtonTitle;
             ForgotPasswordButton.Font = Font.ForgotPasswordButton;
@@ -111,7 +114,7 @@ namespace Balsamic.Views
             ForgotPasswordButton.ContentTintColor = NSColor.SystemBlueColor;
         }
 
-        void SetupSigninButton()
+        private void SetupSigninButton()
         {
             SigninButton.BezelStyle = NSBezelStyle.TexturedSquare;
             SigninButton.SetButtonType(NSButtonType.MomentaryPushIn);
@@ -122,7 +125,7 @@ namespace Balsamic.Views
 
         [Action("TextMoved:")]
         [SuppressMessage(null, "IDE0051")]
-        void TextMoved(NSTextField _) {}
+        private void TextMoved(NSTextField _) {}
 
         #region IBActions
 
@@ -143,7 +146,7 @@ namespace Balsamic.Views
 
         #endregion
 
-        void AttemptSignin()
+        private void AttemptSignin()
         {
             if (!AppleIDTextField.StringValue.IsValidEmail())
             {
@@ -154,9 +157,9 @@ namespace Balsamic.Views
             Show2FAWindow();
         }
 
-        void Show2FAWindow()
+        private void Show2FAWindow()
         {
-            var windowController = new TwoFactorAuthWindowController();
+            TwoFactorAuthWindowController windowController = new TwoFactorAuthWindowController();
             View.Window.BeginSheet(windowController.Window, _ => {});
         }
 
@@ -165,9 +168,8 @@ namespace Balsamic.Views
         [Export("controlTextDidEndEditing:")]
         public void EditingEnded(NSNotification notification)
         {
-            var textMovement = notification.UserInfo.ObjectForKey((NSString)"NSTextMovement");
-            var textMovementType = (NSTextMovement)((NSNumber)textMovement).Int32Value;
-            if (textMovementType == NSTextMovement.Return)
+            NSObject? textMovement = notification.UserInfo.ObjectForKey((NSString)"NSTextMovement");
+            if ((NSTextMovement)((NSNumber)textMovement).Int32Value == NSTextMovement.Return)
             {
                 AttemptSignin();
             }

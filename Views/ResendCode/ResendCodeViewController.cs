@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Balsamic.Views
 {
-    sealed partial class ResendCodeViewController : NSViewController, INSGestureRecognizerDelegate
+    internal sealed partial class ResendCodeViewController : NSViewController, INSGestureRecognizerDelegate
     {
         #region Constructors
 
@@ -25,7 +25,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace Balsamic.Views
             SetupMoreOptionsBoxSubviews();
         }
 
-        void SetupResendCodeBoxSubviews()
+        private void SetupResendCodeBoxSubviews()
         {
             ResendCodeBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.ResendCode_));
 
@@ -50,7 +50,7 @@ namespace Balsamic.Views
             SetupDescriptionTextField(ResendCodeDescriptionTextField, String.ResendCode.Description);
         }
 
-        void SetupUsePhoneNumberBoxSubviews()
+        private void SetupUsePhoneNumberBoxSubviews()
         {
             UsePhoneNumberBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.UsePhoneNumber_));
 
@@ -61,7 +61,7 @@ namespace Balsamic.Views
             SetupDescriptionTextField(UsePhoneNumberDescriptionTextField, String.UsePhoneNumber.Description);
         }
 
-        void SetupMoreOptionsBoxSubviews()
+        private void SetupMoreOptionsBoxSubviews()
         {
             MoreOptionsBox.AddGestureRecognizer(new NSClickGestureRecognizer(this, Selector.MoreOptions_));
 
@@ -72,7 +72,7 @@ namespace Balsamic.Views
             SetupDescriptionTextField(MoreOptionsDescriptionTextField, String.MoreOptions.Description);
         }
 
-        void SetupHeaderTextField(NSTextField headerTextField, string stringValue)
+        private void SetupHeaderTextField(NSTextField headerTextField, string stringValue)
         {
             headerTextField.StringValue = stringValue;
             headerTextField.RefusesFirstResponder = true;
@@ -80,7 +80,7 @@ namespace Balsamic.Views
             headerTextField.TextColor = Color.Header;
         }
 
-        void SetupDescriptionTextField(NSTextField descriptionTextField, string stringValue)
+        private void SetupDescriptionTextField(NSTextField descriptionTextField, string stringValue)
         {
             descriptionTextField.StringValue = stringValue;
             descriptionTextField.RefusesFirstResponder = true;
@@ -90,36 +90,32 @@ namespace Balsamic.Views
 
         [Export("ResendCode:")]
         [SuppressMessage(null, "IDE0051")]
-        void ResendCode(NSClickGestureRecognizer recognizer)
+        private void ResendCode(NSClickGestureRecognizer recognizer)
         {
-            if (recognizer.State != NSGestureRecognizerState.Ended)
-                return;
-
-            Console.WriteLine("ResendCode:");
+            if (recognizer.State == NSGestureRecognizerState.Ended)
+                Console.WriteLine("ResendCode:");
         }
 
         [Export("UsePhoneNumber:")]
         [SuppressMessage(null, "IDE0051")]
-        void UsePhoneNumber(NSClickGestureRecognizer recognizer)
+        private void UsePhoneNumber(NSClickGestureRecognizer recognizer)
         {
-            if (recognizer.State != NSGestureRecognizerState.Ended)
-                return;
-
-            Console.WriteLine("UsePhoneNumber:");
+            if (recognizer.State == NSGestureRecognizerState.Ended)
+                Console.WriteLine("UsePhoneNumber:");
         }
 
         [Export("MoreOptions:")]
         [SuppressMessage(null, "IDE0051")]
-        void MoreOptions(NSClickGestureRecognizer recognizer)
+        private void MoreOptions(NSClickGestureRecognizer recognizer)
         {
-            if (recognizer.State != NSGestureRecognizerState.Ended)
-                return;
-
-            Console.WriteLine("MoreOptions:");
+            if (recognizer.State == NSGestureRecognizerState.Ended)
+                Console.WriteLine("MoreOptions:");
         }
 
         [Export("gestureRecognizer:shouldBeRequiredToFailByGestureRecognizer:")]
+#pragma warning disable IDE0060
         public bool ShouldRequireFailure(NSGestureRecognizer gestureRecognizer, NSGestureRecognizer otherGestureRecognizer)
+#pragma warning restore IDE0060
         {
             return false;
         }

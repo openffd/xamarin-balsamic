@@ -4,9 +4,12 @@ using Foundation;
 namespace Balsamic.Views
 {
     [Register("SingleDigitTextField")]
-    sealed class SingleDigitTextField : NSTextField
+    internal sealed class SingleDigitTextField : NSTextField
     {
-        internal bool HasContent() => StringValue.Length > 0;
+        internal bool HasContent()
+        {
+            return StringValue.Length > 0;
+        }
 
         public SingleDigitTextField()
         {
@@ -18,7 +21,7 @@ namespace Balsamic.Views
             Initialize();
         }
 
-        void Initialize()
+        private void Initialize()
         {
             Cell = new CenteredTextFieldCell();
             Alignment = NSTextAlignment.Center;

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class AppleDevAccount : NSObject, ILeadingContentListOutlineViewNodePayload
+    internal sealed class AppleDevAccount : NSObject, ILeadingContentListOutlineViewNodePayload
     {
         internal static string ResourcePath = "Data/Sample/AppleDevAccount/AppleDevAccount";
 

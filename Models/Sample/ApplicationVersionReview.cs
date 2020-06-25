@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Balsamic.Models.Sample
 {
-    sealed class ApplicationVersionReview : NSObject
+    internal sealed class ApplicationVersionReview : NSObject
     {
         [JsonProperty(PropertyName = "email")]
         public string? Email { get; set; }
