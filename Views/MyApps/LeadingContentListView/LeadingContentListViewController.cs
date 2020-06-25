@@ -37,7 +37,9 @@ namespace Balsamic.Views.MyApps
 
         private IDisposable? TreeControllerObservationDisposable { get; set; }
 
+#pragma warning disable IDE0052
         private NSIndexPath[]? TreeControllerSelectionIndexPaths { get; set; }
+#pragma warning restore IDE0052
 
         [Export("Contents")]
         private NSMutableArray Contents { get; set; } = new NSMutableArray();
@@ -76,10 +78,12 @@ namespace Balsamic.Views.MyApps
             base.ViewDidLoad();
 
             var appleDevAccountNode = new LeadingContentListOutlineViewNode(payload: DataProvider.AppleDevAccount!);
-            var applicationDetailNodes = DataProvider.ApplicationDetails.Select(
-                item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
-            var applicationVersionNodes = DataProvider.ApplicationVersions.Select(
-                item => new LeadingContentListOutlineViewNode(item) as Node).ToList();
+            var applicationDetailNodes = DataProvider.ApplicationDetails
+                .Select(item => new LeadingContentListOutlineViewNode(item) as Node)
+                .ToList();
+            var applicationVersionNodes = DataProvider.ApplicationVersions
+                .Select(item => new LeadingContentListOutlineViewNode(item) as Node)
+                .ToList();
             applicationDetailNodes.ForEach(node => {
                 var versionNode = applicationVersionNodes.Find(versionNode => {
                     var detail = (ApplicationDetail)((LeadingContentListOutlineViewNode)node).Payload;

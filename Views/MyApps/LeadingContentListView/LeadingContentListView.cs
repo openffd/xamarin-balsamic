@@ -4,7 +4,7 @@ using AppKit;
 
 namespace Balsamic.Views.MyApps
 {
-    public partial class LeadingContentListView : NSView
+    public sealed partial class LeadingContentListView : NSView
     {
         #region Constructors
 
@@ -19,7 +19,7 @@ namespace Balsamic.Views.MyApps
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         #endregion
     }

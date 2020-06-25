@@ -1,10 +1,11 @@
 ﻿using AppKit;
+using Balsamic.Models;
 using Foundation;
 using System;
 
 namespace Balsamic.Views.MyApps
 {
-    class LeadingContentListOutlineViewDataSource : NSOutlineViewDataSource
+    internal sealed class LeadingContentListOutlineViewDataSource : NSOutlineViewDataSource
     {
         public LeadingContentListOutlineViewDataSource() {}
 
@@ -12,22 +13,26 @@ namespace Balsamic.Views.MyApps
 
         public override nint GetChildrenCount(NSOutlineView outlineView, NSObject item)
         {
-            return item.GetOutlineViewNode().Count;
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
+            return node.Count;
         }
 
         public override NSObject GetChild(NSOutlineView outlineView, nint childIndex, NSObject item)
         {
-            return item.GetOutlineViewNode()[(int)childIndex];
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
+            return node[(int)childIndex];
         }
 
         public override NSObject GetObjectValue(NSOutlineView outlineView, NSTableColumn tableColumn, NSObject item)
         {
-            return new NSString(item.GetOutlineViewNode().Title);
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
+            return new NSString(node.Title);
         }
 
         public override bool ItemExpandable(NSOutlineView outlineView, NSObject item)
         {
-            return item.GetOutlineViewNode().HasChildren;
+            LeadingContentListOutlineViewNode node = item.GetOutlineViewNode();
+            return node.HasChildren;
         }
 
         public override void SortDescriptorsChanged(NSOutlineView outlineView, NSSortDescriptor[] oldDescriptors)

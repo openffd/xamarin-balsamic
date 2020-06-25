@@ -4,7 +4,7 @@ using AppKit;
 
 namespace Balsamic.Views.MyApps.LeadingContentListViewControllerOutlineView
 {
-    public partial class ApplicationDetailTableCellView : NSTableCellView
+    public sealed partial class ApplicationDetailTableCellView : NSTableCellView
     {
         #region Constructors
 
@@ -24,7 +24,7 @@ namespace Balsamic.Views.MyApps.LeadingContentListViewControllerOutlineView
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         #endregion
 
