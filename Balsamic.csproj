@@ -293,6 +293,7 @@
       <DependentUpon>ApplicationVersionViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reusables\CustomToolbarItem.cs" />
+    <Compile Include="IWindowController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Menu.xib" />
@@ -313,6 +314,10 @@
     <ProjectReference Include="SparkleSharp\Sparkle\BalsamicSpark.csproj">
       <Project>{5B22F6E9-3675-42B5-9CAA-090BA39A5407}</Project>
       <Name>BalsamicSpark</Name>
+    </ProjectReference>
+    <ProjectReference Include="BalsamicConnect\BalsamicConnect.csproj">
+      <Project>{BFAE5827-32FB-485A-9DBC-2CC8C91D5BE9}</Project>
+      <Name>BalsamicConnect</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

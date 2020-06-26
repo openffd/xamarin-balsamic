@@ -1,23 +1,16 @@
 using AppKit;
-using static AppKit.NSApplicationTerminateReply;
-using static Balsamic.String;
 using Balsamic.Views;
+using BalsamicSpark;
 using Foundation;
 using System.Linq;
-using Sparkle;
+using static AppKit.NSApplicationTerminateReply;
+using static Balsamic.String;
 
 namespace Balsamic
 {
     internal sealed partial class AppDelegate : NSApplicationDelegate
     {
-        internal interface IWindowController
-        {
-            NSWindow Window { get; }
-
-            void ShowWindow();
-        }
-
-#if RELEASE
+#if DEBUG
         IWindowController WindowController { get; } = new LaunchWindowController();
 #else
         private IWindowController? WindowController { get; } = Storyboard.MyApps.InstantiateInitialController() as MyAppsWindowController;
@@ -40,10 +33,10 @@ namespace Balsamic
 
         private void SetupCheckForUpdatesMenuItem()
         {
-            var menuItem = new NSMenuItem(MenuItemTitle.CheckForUpdates, delegate {
+            using NSMenuItem menuItem = new NSMenuItem(MenuItemTitle.CheckForUpdates, handler: delegate {
                 SharedUpdater.CheckForUpdates(this);
             });
-            var mainMenuFirstItem = SharedApplication.MainMenu.Items.First();
+            NSMenuItem mainMenuFirstItem = SharedApplication.MainMenu.Items.First();
             mainMenuFirstItem.Submenu.InsertItem(menuItem, 1);
         }
 

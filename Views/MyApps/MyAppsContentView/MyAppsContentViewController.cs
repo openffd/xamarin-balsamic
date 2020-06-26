@@ -4,7 +4,7 @@ using AppKit;
 
 namespace Balsamic.Views.MyApps
 {
-    sealed partial class MyAppsContentViewController : NSViewController
+    public sealed partial class MyAppsContentViewController : NSViewController
     {
         #region Constructors
 
@@ -16,7 +16,6 @@ namespace Balsamic.Views.MyApps
         [Export("initWithCoder:")]
         public MyAppsContentViewController(NSCoder coder) : base(coder)
         {
-
             Initialize();
         }
 
@@ -25,7 +24,7 @@ namespace Balsamic.Views.MyApps
             Initialize();
         }
 
-        void Initialize() {}
+        private void Initialize() {}
 
         #endregion
 

@@ -17,7 +17,9 @@ namespace Balsamic.Views
 
         private readonly L2FAWindowController _lazy2FAWindowController = new L2FAWindowController(Init2FAWindowController);
 
+#pragma warning disable IDE0051
         private TwoFactorAuthWindowController TwoFactorAuthWindowController => _lazy2FAWindowController.Value;
+#pragma warning restore IDE0051
 
         #region Constructors
 
