@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl" Version="2.8.2" />
+    <PackageReference Include="Flurl.Http" Version="2.4.2" />
+    <PackageReference Include="Glob" Version="1.1.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="5.23.62" />
+    <PackageReference Include="Unidecode.NET" Version="1.4.0" />
+    <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
+    <PackageReference Include="Xabe.FFmpeg" Version="3.6.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="plist-cil" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Response Objects\" />
+    <Folder Include="Response Objects\AppStore\" />
+    <Folder Include="Response Objects\DevPortal\" />
+    <Folder Include="Response Objects\DU\" />
+    <Folder Include="Assets\" />
+    <Folder Include="TestFlight\" />
+    <Folder Include="Deliver\" />
+    <Folder Include="Shared\" />
+  </ItemGroup>
+</Project>
