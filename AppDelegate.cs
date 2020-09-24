@@ -48,7 +48,7 @@ namespace Balsamic
         public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
         {
 #pragma warning disable XI0001
-            foreach (NSWindow window in NSApplication.SharedApplication.DangerousWindows)
+            foreach (NSWindow window in SharedApplication.DangerousWindows)
 #pragma warning restore XI0001
             {
                 if (!(window.Delegate == null || window.Delegate.WindowShouldClose(this)))
